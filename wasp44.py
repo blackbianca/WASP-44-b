@@ -1,24 +1,34 @@
 import numpy as np 
-teff_val = np.asarray([5420.,5480.,5407.,5400.,5410.,5410.,], float)
-teff_err = np.asarray([100., 129.58,83.5,150., 150., 150.], float)
+#teff_val = np.asarray([5420.,5480.,5407.,5400.,5410.,5410.,], float)
+#teff_err = np.asarray([100., 129.58,83.5,150., 150., 150.], float)
 
 # not corrected for systematical error
 
-teff_avg, teff_std = np.average(teff_val, weights=1./teff_err**2, returned=True)
+#teff_avg, teff_std = np.average(teff_val, weights=1./teff_err**2, returned=True)
 #np.average returns the sum of weights
+
+# all the previous part was commented, since Anderson 2011 (discovery paper) is the only usable one
+teff_avg = 5400
+teff_std = np.sqrt(150**2 + 60**2)
+# adding systematic contribution
+
 print("Teff: {0:8.1f} +- {1:5.1f} K".format(teff_avg, 1./np.sqrt(teff_std)))
 
-met_val = np.asarray([0.,0.06,0.], float)
-met_err = np.asarray([0.1,0.1,0.1], float)
+#met_val = np.asarray([0.,0.06,0.], float)
+#met_err = np.asarray([0.1,0.1,0.1], float)
 
-met_avg, met_std = np.average(met_val, weights=1./met_err**2, returned=True)
+#met_avg, met_std = np.average(met_val, weights=1./met_err**2, returned=True)
+met_avg = 0.06
+met_std = np.sqrt(0.1**2 + 0.04**2)
 print("[Fe/H]: {0:8.3f} +- {1:5.3f}".format(met_avg, 1./np.sqrt(met_std)))
 
 
-logg_val = np.asarray([4.49,4.45,4.48], float)
-logg_err = np.asarray([0.04,0.08,0.05], float)
+#logg_val = np.asarray([4.49,4.45,4.48], float)
+#logg_err = np.asarray([0.04,0.08,0.05], float)
 
-logg_avg, logg_std = np.average(logg_val, weights=1./logg_err**2, returned=True)
+#logg_avg, logg_std = np.average(logg_val, weights=1./logg_err**2, returned=True)
+logg_avg = 4.5
+logg_std = np.sqrt(0.2**2 + 0.1**2)
 print("logg: {0:8.3f} +- {1:5.3f}".format(logg_avg, 1./np.sqrt(logg_std)))
 
 
