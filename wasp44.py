@@ -12,7 +12,7 @@ teff_avg = 5400
 teff_std = np.sqrt(150**2 + 60**2)
 # adding systematic contribution
 
-print("Teff: {0:8.1f} +- {1:5.1f} K".format(teff_avg, 1./np.sqrt(teff_std)))
+print("Teff: {0:8.1f} +- {1:5.1f} K".format(teff_avg, teff_std))
 
 #met_val = np.asarray([0.,0.06,0.], float)
 #met_err = np.asarray([0.1,0.1,0.1], float)
@@ -20,7 +20,7 @@ print("Teff: {0:8.1f} +- {1:5.1f} K".format(teff_avg, 1./np.sqrt(teff_std)))
 #met_avg, met_std = np.average(met_val, weights=1./met_err**2, returned=True)
 met_avg = 0.06
 met_std = np.sqrt(0.1**2 + 0.04**2)
-print("[Fe/H]: {0:8.3f} +- {1:5.3f}".format(met_avg, 1./np.sqrt(met_std)))
+print("[Fe/H]: {0:8.3f} +- {1:5.3f}".format(met_avg, met_std))
 
 
 #logg_val = np.asarray([4.49,4.45,4.48], float)
@@ -29,7 +29,7 @@ print("[Fe/H]: {0:8.3f} +- {1:5.3f}".format(met_avg, 1./np.sqrt(met_std)))
 #logg_avg, logg_std = np.average(logg_val, weights=1./logg_err**2, returned=True)
 logg_avg = 4.5
 logg_std = np.sqrt(0.2**2 + 0.1**2)
-print("logg: {0:8.3f} +- {1:5.3f}".format(logg_avg, 1./np.sqrt(logg_std)))
+print("logg: {0:8.3f} +- {1:5.3f}".format(logg_avg, logg_std))
 
 
 # just print the necessary parameters
