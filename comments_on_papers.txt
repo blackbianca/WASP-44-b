@@ -1,0 +1,22 @@
+- read discovery paper
+- required parameters: stellar mass, radius, effective temperature, surface gravity log, metallicty, distance (parallax), photometric information. All these parameters can be found in the "Stellar parameters" section of NASA Exoplanet Archive, but careful for independent papers. For each parameter we have to take note of employed technique and error estimate. If we only find internal error, manually add systematic term
+- once we've gathered all the pars, perform average accounting for errors (we can use numpy.average)
+
+It's important to do this at least for temperature, [Fe/H]=[M/H] and logg.
+
+For parallax measurements we have to move to SIMBAD, and cross check with GAIA Archive to make sure to select eDR3
+
+
+ISSUES
+
+
+
+PAPER CHECKED:
+- Addison 2019 shows a different value. Moreover, the values shown seem to come from a purely photometric analysis, based on a prior from Bonomo 2017. This could be a reason to discard this paper
+- In GAIA DR2, stellar atmospheric parameters of spectroscopic origin are not recommended. Quoting from the paper: "finally, we note that Gaia DR2 lists the atmospheric parameters (Te, log g, [Fe=H]) of the spectral templates used in the derivation of the radial velocities through the cross-correlation technique. Their values should not be used as estimates of the actual atmospheric parameters of the stars, they are only provided as extra information to judge the quality of the radial velocities".
+- TESS Catalog (TICv8) is based GDR2, therefore we cannot consider this paper as independent.
+- OK Bonomo 2017 does not even mention WASP44 in the published full text, but the value can be found in the CDS tables, and it corresponds to the value shown in the web interface. All the results were based on radial velocity, so they are all acceptable as they are spectroscopic results. Finally, systematic errors are not mentioned, so we should include them.
+- OK Anderson 2011 (discovery paper) carries out a spectral analysis (FeI lines). However, it further implements radial velocities together with transit analysis, thus introducing photometry in the game. Quoting from the paper: "The quoted error estimates include that given by the uncertainties in Teff, logg∗ and ξ t, as well as the scatter due to measurement and atomic data uncertainties". Therefore, we should also add a systematic contribution as it is not explicitly involved. 
+- Turner 2016 is consistent, but purely based on photometry
+
+things to ask: are GAIA data usable? discovery paper has first purely photometric results, than further results based on transits, should we consider only the first set of results?
