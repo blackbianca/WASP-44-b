@@ -53,6 +53,30 @@ H_err = 0.025
 K = 11.341
 K_err =  0.026
 
+
+with open("atm_par.txt", "w") as f:
+    f.write("Teff: {0:8.1f} +- {1:5.1f} K".format(teff_avg, teff_std))
+    f.write("\n")
+    f.write("[Fe/H]: {0:8.3f} +- {1:5.3f}".format(met_avg, met_std))
+    f.write("\n")
+    f.write("logg: {0:8.3f} +- {1:5.3f}".format(logg_avg, logg_std))
+    f.write("\n")
+    f.write("J: {0:8.3f} +- {1:5.3f}".format(J, J_err))
+    f.write("\n")
+    f.write("H: {0:8.3f} +- {1:5.3f}".format(H, H_err))
+    f.write("\n")
+    f.write("K: {0:8.3f} +- {1:5.3f}".format(K, K_err))
+    f.write("\n")
+    f.write("Parallax: {0:8.3f} +- {1:5.3f}".format(par, par_err))
+    f.write("\n")
+    f.write("w1mpro: {0:8.3f} +- {1:5.3f}".format(w1mpro, w1mpro_err))
+    f.write("\n")
+    f.write("w2mpro: {0:8.3f} +- {1:5.3f}".format(w2mpro, w2mpro_err))
+    f.write("\n")
+    f.write("w3mpro: {0:8.3f} +- {1:5.3f}".format(w3mpro, w3mpro_err))
+
+
+
 print("J: {0:8.3f} +- {1:5.3f}".format(J, J_err))
 print("H: {0:8.3f} +- {1:5.3f}".format(H, H_err))
 print("K: {0:8.3f} +- {1:5.3f}".format(K, K_err))
