@@ -17,6 +17,9 @@
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+
 %\usepackage[T1]{fontenc}
 
 \pagestyle{headings}
@@ -53,7 +56,12 @@ flux.
 \end{figure}
 In this report we focus on WASP-44 b, a Jupyter-size planet orbiting around 
 a G-type star, located in the constellation of Cetus.
-Among the numerous available reports on the planet.
+Among the numerous available reports on the planet, we decided to make a 
+conservative choice and avoid any result which is not inferred via 
+spectroscopy. This leads us to rule out several papers about the object, and 
+only work with the discovery paper \cite*{Anderson}. In this paper, estimates 
+of the atmospheric parameters of WASP-44 are provided via an analysis of 
+the width of spectral lines.
 
 \section{Instruments}
 
@@ -63,9 +71,8 @@ Bla bla
 
 \section{Theoretical recap}
 
-A brief overview of the transit method
-
-maybe a comment on the bias of the transit method (big planets, close to the star)
+[- a brief overview of the transit method
+- a comment on the bias of the transit method (big planets, close to the star)]
 
 
 
@@ -76,7 +83,26 @@ maybe a comment on the bias of the transit method (big planets, close to the sta
 
 \subsection{Inferring mass and radius}
 
-Using PARAM: what we have, what we get
+The $H_{\alpha}$ line was used to determine the effective temperature (Teff ),
+while the $NaI$ D and $MgI$ b lines were used as surface gravity
+($\log{g^*}$) diagnostics. The elemental abundances, including $[Fe/H]$ 
+were determined from equivalent width measurements of several clean and 
+unblended lines. This led to proper estimation of the atmospheric parameter 
+triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. mentions that the quoted errors 
+include statistical uncertainties and does not say anything specific about 
+systematic contributions. In the same conservative spirit we previously 
+showed, we add in quadrature a further term to the errors of all three 
+parameters, according to \cite*{Sousa}.
+This leads to the following results 
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    $T_{eff}$ (K) & $\log{g^*}$ & $[Fe/H]$ \\
+    $5400 \pm 162$ & $4.5 \pm 0.2$ & $0.06 \pm 0.11$ \\
+    \hline
+    \end{tabular}
+    \end{center}
+
 
 \subsection{Limb darkening correction}
 
@@ -88,5 +114,10 @@ Using PARAM: what we have, what we get
 \section{Conclusions}
 
 Bla bla
+
+
+
+
+\printbibliography
 
 \end{document}
