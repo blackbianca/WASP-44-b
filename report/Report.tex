@@ -65,27 +65,24 @@ a G-type star, located in the constellation of Cetus.
 Among the numerous available reports on the planet, we decided to make a 
 conservative choice and avoid any result which is not inferred via 
 spectroscopy. This leads us to rule out several papers about the object, and 
-only work with the discovery paper \cite*{Anderson}. In this paper, estimates 
+only work with the discovery paper (\cite{Anderson}). In this paper, estimates 
 of the atmospheric parameters of WASP-44 are provided via an analysis of 
 the width of spectral lines.
 
-\section{Instruments}
+%\section{Instruments}
 
-Bla bla
 
 
 
 \section{Theoretical recap}
 
-[- a brief overview of the transit method
-- a comment on the bias of the transit method (big planets, close to the star)]
+TODO
+\begin{itemize}
+    \item a brief overview of the transit method
+    \item a comment on the bias of the transit method (big planets, close to the star)]
 
+\end{itemize}
 
-
-
-\subsection{Bla bla}
-
-    test
 
 \section{Data analysis}
 
@@ -93,15 +90,14 @@ Bla bla
 
 The $H_{\alpha}$ line was used to determine the effective temperature (Teff ),
 while the $NaI$ D and $MgI$ b lines were used as surface gravity
-($\log{g^*}$) diagnostics. The elemental abundances, including $[Fe/H]$ 
+($\log{g^*}$) diagnostics (\cite{Anderson}). The elemental abundances, including $[Fe/H]$ 
 were determined from equivalent width measurements of several clean and 
 unblended lines. This led to proper estimation of the atmospheric parameter 
-triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. \cite*{Anderson} mentions that the quoted errors 
-include statistical uncertainties and does not say anything specific about 
-systematic contributions. In the same conservative spirit we previously 
-showed, we add in quadrature a further term to the errors of all three 
-parameters according to \cite*{Sousa}. We're in fact more interested in an accurate result 
-rather than a precise one.
+triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. Quoted errors include statistical 
+uncertainties only. In the same conservative spirit we 
+previously showed, we add in quadrature a further term to the errors of 
+all three parameters (\cite{Sousa}). We're in fact more interested in an 
+accurate result rather than a precise one.
 This leads to the following results 
 \begin{center}
     \begin{tabular}{|c|c|c|}
@@ -114,6 +110,60 @@ This leads to the following results
 
 
 \subsection{Limb darkening correction}
+
+Limb darkening is an important effect when observing a star, 
+everything but negligible. In short, the edges of the luminosity profile 
+of a star always look darker: this is because there is a physical, constant 
+distance $L$ at which optical depth is equal to unity, further than which 
+we cannot observe (photons do not reach us). This characteristic size, 
+however, can go deep inside the hot layers of the star if we look straight 
+to the center, being $L$ radial, while it can stop at colder, outer layers 
+if we look at the edges of the star, since $L$ and our LOS are not radial 
+anymore.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.25, angle=0]{../pictures/limb_darkening.png}
+    \caption{Limb darkening effect scheme. Credits to \textit{https://ediss.sub.uni-hamburg.de}}
+\end{figure}
+Correcting for this effect may be challenging. In fact we can measure it 
+directly only for the Sun, while we need to model it somehow for any other 
+star, meaning figure out a proper law for the intensity decrease $I(\mu)$, 
+where $\mu = \sqrt{1-r^2}$. Many choices are plausible at this point: a 
+uniform behaviour, a linear, a quadratic, a square-root or a 
+logarithmic law are all valid guesses. Parametrizing such laws introduces 
+the so-called \textit{LD-coefficients}, which will depend on the stellar 
+parameters. Knowing the latter relationship (for instance calibrating it 
+based on a large sample of stars) allows to obtain the coefficients directly 
+from the atmopsheric parameters. 
+The alternative way is fitting the light curve leaving the coefficients free.
+
+The choice of the functional dependence on $\mu$ is a delicate one. Multiple 
+approaches can be followed, basing on different papers. 
+
+\subsubsection{Claret 2017}
+We can represent data tables in \cite{claret2017} as 2D histograms, 
+where first we fix metallicity, then gravity and see how the LD coefficients 
+$c_1$ and $c_2$ depend on all three atmospheric parameters.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c1_fixedmet}
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c2_fixedmet}
+
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c1_fixedg}
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c2_fixedg}
+    \caption{LD coefficient with fixed metallicty, fixed gravity}
+\end{figure}
+Furthermore, it's very interesting to check the strength of the dependance 
+on each atmospheric parameters. Turns out LD coefficients are essentially a 
+function of temperature, and minor dependences on gravity and metallicity 
+can be barely appreciated.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c1}
+    \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c2}
+    \caption{LD coefficient as a function of atmospheric parameters}
+\end{figure}
+
 
 \subsection{Bias and flat field correction}
 
