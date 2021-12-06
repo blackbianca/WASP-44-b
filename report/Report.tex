@@ -17,7 +17,12 @@
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
-\usepackage[backend=bibtex,sorting=none]{biblatex}
+%\bibliographystyle{apalike}
+\usepackage[dashed=false, maxnames=1, uniquelist=false, backend=bibtex,sorting=none,style=authoryear-icomp]{biblatex}
+\renewbibmacro{in:}{}
+\setlength{\bibhang}{0pt}
+\renewcommand*{\bibfont}{\small}
+\renewcommand*{\finentrypunct}{}
 \addbibresource{bibliography.bib}
 
 %\usepackage[T1]{fontenc}
@@ -36,11 +41,11 @@
 \emph{In the following report we work on WASP-44 b, an exoplanet orbiting 
 arounf its G-type mother star, located in the constellation of Cetus. 
 We first take a look at its atmospheric parameters and derive mass and 
-radius. Then, we correct for limb darkening effect in different ways, 
-reproducing the analysis by . We also take some 
-images taken by Copernico at the Asiago Observatory into consideration and, 
-after proper correction, we use them to extract the light curve of the 
-alleged planet.}
+radius (\cite{Morton}). Then, we correct for limb darkening effect in different ways 
+(\cite{claret2011}, \cite{claret2017}, \cite{claret2018}). We also take 
+some images taken by Copernico at the Asiago Observatory into consideration 
+and, after proper correction, we use them to extract the light curve of 
+the alleged planet.}
 
 \end{abstract}
 
