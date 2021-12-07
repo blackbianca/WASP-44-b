@@ -138,12 +138,70 @@ from the atmopsheric parameters.
 The alternative way is fitting the light curve leaving the coefficients free.
 
 The choice of the functional dependence on $\mu$ is a delicate one. Multiple 
-approaches can be followed, basing on different papers. 
+approaches can be followed, basing on different papers. This analysis is 
+tackled in \ref{sect:app_A}.
 
-\subsubsection{Claret 2017}
+
+\subsection{Bias and flat field correction}
+CCD (Charged Coupled Device) are the privileged detectors for photon counting, 
+thanks to their great quantum efficiency. The images produced are \textit{raw}
+and must be properly \textit{pre-reduced} before being analysed. Pre-reduction 
+goes through different steps:
+\begin{itemize}
+    \item \textbf{bias} is the
+    individual pixel-to-pixel offset level, and it's a zero-exposure instrumental 
+    factor, thus it's always an added contribution to any signal. Therefore it must 
+    be removed to isolate the photons of astrophysical origin. The root mean square 
+    of the bias corresponds to the so-called \textit{readout noise}. We perform an 
+    average out across all the pixels to get an estimate of the bias;
+    \item a \textbf{flat field} is a calibration image obtained by illuminating
+    homogeneously the pupil of the telescope, using twilight sky or appropriate, 
+    back-lighted screens. This correction factor is to be applied on each pixel and 
+    then also normalised, after the overall bias correction;
+    \item \textbf{differential photometry} is a great way to keep track of any noise
+    variation. The idea is to take a reference star close enoguh to the target: any 
+    environmental or instrumental variation will affect both sources. Working with 
+    flux ratios will make only astrophysical variations evident!
+\end{itemize}
+For pre-reductions steps, we use the code \textit{huggy}. We first perform bias
+correction, than the flat field correction. The corrected images are ready for 
+aperture synthesis.
+
+\subsubsection{Bias correction}
+We run \textit{huggy-bias.e} inputting the raw images. Many bias images are produced,
+displaying the zero offset of the pixel board. \textit{Master bias} is the average 
+of all these files. Plotting the intensities of offset level of the pixels yields 
+a concrete view of the correction.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.32, angle=0]{../pictures/pre-reduction/bias.png}
+    \includegraphics[scale=0.32, angle=0]{../pictures/pre-reduction/master_bias.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/bias_comp.png}
+    \caption{Comparison between random bias frame and master bias}
+\end{figure}
+Note that the master bias frame distribution is peaked and much closer to a 
+unique constant value, as all pixels behaved in the same way, like in an 
+ideal situation. We can see this even numerically, by looking at the 
+dispersions of the above distributions: $\sigma_{rb} = 3.82$ and 
+$\sigma_{mb} = 0.89$.
+
+
+\subsection{Extracting the light curve}
+
+
+\section{Conclusions}
+
+
+
+
+\section{Appendix A: limb darkening analysis}
+\label{sect:app_A}
+
+\subsection{Claret 2017}
 We can represent data tables in \cite{claret2017} as 2D histograms, 
-where first we fix metallicity, then gravity and see how the LD coefficients 
-$c_1$ and $c_2$ depend on all three atmospheric parameters.
+after proper unfolding of the data tables attached to the paper. To do that, 
+we first fix metallicity, then gravity and see how the corresponding LD 
+coefficients $c_1$ and $c_2$ depend on all three atmospheric parameters. 
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c1_fixedmet}
@@ -163,18 +221,32 @@ can be barely appreciated.
     \includegraphics[scale=0.25, angle=0]{../pictures/Claret2017/2017_c2}
     \caption{LD coefficient as a function of atmospheric parameters}
 \end{figure}
+A relevant dependance on gravity and metallicity can only be noticed at 
+high temperatures, where we should carefully select the proper curve. But 
+in the range we're interested in ($\approx 5400 K$) the curve is 
+degenerate and the choice of these parameters is secondary.
 
+We perform a Montecarlo simulation, generating 1000 random atmospheric 
+parameters around the actual ones. Even in this case we see that the 
+distribution of the fixed-metallicity estimates is almost overlapping 
+with the fixed-gravity one, thus confirming $c_1$ and $c_2$ not very 
+sensitive on metallicity and gravity.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c1_comp}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c2_comp}
+    \caption{Montecarlo simulation for $c_1$ and $c_2$, for fixed metallicity 
+    and for fixed gravity}
+\end{figure}
+The two estimates are well compatible, thus authorizing a weighted average: 
+$c_1 = 0.366 \pm 0.019$ and $c_2 = 0.243 \pm 0.011$.
 
-\subsection{Bias and flat field correction}
+Another way to deal with the same table is by selecting from the set the two 
+closest stars to ours, instead of just one. The rest of the procedure is 
+the same as just explained, leading to other estimate of the LD coefficients.
 
-\subsection{Extracting the light curve}
-
-
-\section{Conclusions}
-
-Bla bla
-
-
+\subsection{Claret 2018}
+Only the zero metallicity case in now considered.
 
 
 \printbibliography
