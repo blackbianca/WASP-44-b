@@ -228,6 +228,13 @@ huggy-flat.e 0.9 0 0 mb.fits A*.fits
 This will produce an outpute file showing the average response of
 pixels to an external light source. Minor differences in such response 
 are important and must be accounted for.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.32, angle=0]{../pictures/pre-reduction/flat.png}
+    \includegraphics[scale=0.32, angle=0]{../pictures/pre-reduction/master_flat.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/flat_comp.png}
+    \caption{Comparison between random flat field and master flat}
+\end{figure}
 
 \subsection{Final correction}
 The final step is applying the correction files obtained in the 
@@ -274,7 +281,7 @@ the flux is distributed as a function of the distance from the core of
 the source. The ouput displays the radii at which we find 90, 95 and 99\%
 of the total flux. We tale note of this output. 
 
-Photometry analysis is carried out by \textit{sentinel.e}, whcich needs 
+Photometry analysis is carried out by \textit{sentinel.e}, which needs 
 the coordinates of the target and of the reference stars, followed by 
 the radii of two selected apertures from the previous output. Also, we need 
 again inner and outer radii of the selected region for the analysis, as well 
@@ -285,8 +292,83 @@ sentinel.e x0 y0 xr yr a1 a2 Rin Rout c A*.corr.fits
 where $c=\{1,2\}$ selects the centroiding method (gaussian/moment). For a 
 relatively faint star like ours ($J\approx 11$) oure choices are $a_1=4.71$ and 
 $a_2=5.97$, corresponding to 90 and 95\%. 
-The \textit{sentinel} output is the starting point for TASTE analysis.
 
+\medskip
+
+The \textit{sentinel} output is the starting point for TASTE analysis. This file 
+contains the main information about the target and the sky, keeping track of the 
+respective photometries. In fact, let's start by checking the evolution of the 
+sky background throughout the observation session, and also to the behaviour 
+of the reference star.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/sky-ref.png}
+\end{figure}
+The sky flux has been constantly decreasing in time, so we expect less and less 
+disturbance as the observation proceeds. The reference star, on the other hand 
+seems to be pretty stable in terms of flux. 
+We also want to make sure that reference star are correctly comoving: to do that, 
+we plot the variation in position at every time step and check we have similar 
+motion.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/target-ref_position.png}
+\end{figure}
+Next, we compare the flux plot with the two different aperture we have chosen.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/apertures.png}
+\end{figure}
+The second case (95\%) seems to be slighly less noisy: that's our first clue 
+that this aperture might be the best choice for the aperture analysis.
+
+As a further goodness check, one may take a look at the peak value trend of 
+the target source and compare it to the saturation level.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/saturation-quality.png}
+\end{figure}
+The peak value is well below the saturation limit, and we also see that the 
+quality factor is above the required threshold.
+
+We can can finally visualise the transit, with both apertures.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/transits.png}
+\end{figure}
+We still see that the wider aperture seems to have less dispersion than 
+the other case, and we keep that in mind.
+
+In order to evaluate the depth of the transit, we need to identify the "height" 
+of the continuous level: to do that, we need to exclude the transit datapoints 
+and try out a polynomial fit, hoping to find a perfectly horizontal line. That will 
+be our reference for the stellar flux.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit_setting.png}
+\end{figure}
+To perform the fit, we ruled out all the points during the transit by roughly 
+selecting an ingress and egress time. A quadratic law ($p_0 x^2 + p_1 x +p_2$)
+was chosen to set things up in the most general case. A least square fitting 
+via numpy function \textit{np.polyfit} yields the following results
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit.png}
+\end{figure}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \# ap & $p_0 (\cdot 10^{-10})$ & $p_1 (\cdot 10^{-7})$ & $p_2 ( \cdot 10^3)$ \\
+    \hline
+    1 &  $-7.98$   & $1.43$    &  $4.82$\\
+    2 & $-8.98$ & $1.42$  & $5.43$\\
+    \hline
+    \end{tabular}
+\end{center}
+We immediately notice that both $p_0$ and $p_1$ are well compatible with zero,
+meaning that only a constant term survives: that represents the level of the 
+continuous, with respect to which we're going to compute the depth of the
+transit.
 
 \section{Conclusions}
 
@@ -360,6 +442,19 @@ the same as just explained, leading to other estimate of the LD coefficients.
 Only the zero metallicity case in now considered.
 
 \section{Time correction}
+When dealing with \textit{sentinel.dat} output, we need to properly convert the 
+time series, contained in columns two of the datatable. To do that, first we
+convert from minutes to days, then add the zero-point in Julian Date format, and 
+finally also add half exposure time (after proper conversion in days).
+
+Moreover, we can make use of the \textit{Time} method to keep count of the time 
+taken by the light to travel from the source position to the location of the 
+observatory (Cima Ekar, Asiago). Since the Earth is in motion, light time 
+travel is variable and follows a sinusoidal behaviour.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.55, angle=0]{../pictures/time_corr.png}
+\end{figure}
 
 
 \printbibliography
