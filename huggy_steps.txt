@@ -1,0 +1,10 @@
+gedit .bashrc --- insert correct path
+source .bashrc
+
+## to make huggy files executable: go inside the bin
+sudo chmod -R u+x *.e
+
+sudo apt install libcfitsio-dev --- but if there is a dependence problem, then type:
+sudo apt install -f --- and then again
+sudo apt install libcfitsio-dev
+
