@@ -434,12 +434,73 @@ sensitive on metallicity and gravity.
 The two estimates are well compatible, thus authorizing a weighted average: 
 $c_1 = 0.366 \pm 0.019$ and $c_2 = 0.243 \pm 0.011$.
 
-Another way to deal with the same table is by selecting from the set the two 
-closest stars to ours, instead of just one. The rest of the procedure is 
+Another way to deal with the same table is by selecting from the set two values
+of metallicity or gravity, an upper and lower limit, instead of just one reference 
+value. This way we build two matrices and 
+interpolate between the two to get to the desired result. The rest of the procedure is 
 the same as just explained, leading to other estimate of the LD coefficients.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg4}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg45}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg_interp}
+    \caption{Matrices obtained by fixing gravity to $\log{g}=4.0$ to $4.5$, plus the interpolated matrix}
+\end{figure}
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_c1}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_c2}
+    \caption{LD coefficients trend in the $T_{eff}-[Fe/H]$ plane}
+\end{figure}
+This can be done in the same exact way by fixing metallicity instead.
 
 \subsection{Claret 2018}
-Only the zero metallicity case in now considered.
+A successive paper provided a new method to model the LD coefficients dependency 
+on atmospheric parameters. We'd like to check if this leads to different results 
+with respect to the 2017 paper. Unfolding the table requires the same procedure 
+we've already described. Just note that in both cases we fix metallicity, and for 
+the 2018 table metallicity must be fixed to 0, since the method is conceived for
+zero-metallicity stars.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/2017.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/2018.png}
+    \caption{Final, interpolated matrices for the two methods (2017 left, 2018 right)}
+\end{figure}
+And finally we can display the dependency of the LD coefficients for the 
+two-parameters game.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c1.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c2.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c1_comp.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c2_comp.png}
+    \caption{$c_1$ and $c_2$ trend, and comparison between the final results}
+\end{figure}
+See how there is an actual difference between the adopted methods, that lead 
+in fact to slightly different results for the LD coefficients. The good news is, 
+they're largely compatible: see how each value is within a few errorbars away 
+from the other.
+
+\subsection{Claret 2011}
+We use another table from an older paper by the same author, where even 
+filters have a role. By looking at the header of our dataset, we find the 
+right filter to be $r^{*}$ (SDSS). Remember that transits look differently 
+when observed through different filters, and also that boxier transits make 
+ingress/egress time determination easier. The unfolding technique is always 
+the same.
+This time, we account for stellar models (ATLAS/PHOENIX) and interpolation 
+technique (least squares/flux conservation), for a grand total of 4 
+combinations. These are the very final results.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2011/c1.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2011/c2.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2011/c1_comp.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/Claret2011/c2_comp.png}
+    \caption{$c_1$ and $c_2$ trend, and comparison between the final results}
+\end{figure}
+Again, all results are fully compatible.
 
 \section{Time correction}
 When dealing with \textit{sentinel.dat} output, we need to properly convert the 
