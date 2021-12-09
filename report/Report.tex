@@ -17,6 +17,31 @@
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
 %\bibliographystyle{apalike}
 \usepackage[dashed=false, maxnames=1, uniquelist=false, backend=bibtex,sorting=none,style=authoryear-icomp]{biblatex}
 \renewbibmacro{in:}{}
@@ -106,7 +131,7 @@ This leads to the following results
     $5400 \pm 162$ & $4.5 \pm 0.2$ & $0.06 \pm 0.11$ \\
     \hline
     \end{tabular}
-    \end{center}
+\end{center}
 
 
 \subsection{Limb darkening correction}
@@ -168,7 +193,11 @@ correction, than the flat field correction. The corrected images are ready for
 aperture synthesis.
 
 \subsubsection{Bias correction}
-We run \textit{huggy-bias.e} inputting the raw images. Many bias images are produced,
+We run \textit{huggy-bias.e} inputting the raw images. 
+\begin{lstlisting}
+huggy-bias.e A*.fits
+\end{lstlisting}
+Many bias images are produced,
 displaying the zero offset of the pixel board. \textit{Master bias} is the average 
 of all these files. Plotting the intensities of offset level of the pixels yields 
 a concrete view of the correction.
@@ -185,8 +214,78 @@ ideal situation. We can see this even numerically, by looking at the
 dispersions of the above distributions: $\sigma_{rb} = 3.82$ and 
 $\sigma_{mb} = 0.89$.
 
+\subsubsection{Flat field correction}
+We now run \textit{huggy-flat.e} inputting a normalization fraction, 
+meaning the fraction of pixels we want to account for, ruling out the 
+sides which are often polluted by overscan columns. These are visible 
+in the form of dark stripes on the sides of any flat field take. Then 
+we have to input the overscan values, usually set to 0. After, that 
+we need to provide the master bias file, which will be subtracted from 
+the data. Finally, we input all the flat fields available.
+\begin{lstlisting}
+huggy-flat.e 0.9 0 0 mb.fits A*.fits
+\end{lstlisting}
+This will produce an outpute file showing the average response of
+pixels to an external light source. Minor differences in such response 
+are important and must be accounted for.
+
+\subsection{Final correction}
+The final step is applying the correction files obtained in the 
+previous parts.
+\begin{lstlisting}
+huggy-correct.e mb.fits mfn.fits A*.fits
+\end{lstlisting}
+The final correction code requires the master bias and the normalised 
+master flat, and of course all the target images, that are going to be 
+all corrected.
 
 \subsection{Extracting the light curve}
+We are approaching the very heart of this analysis, preparing for 
+aperture synthesis. We now need to display the science images, make 
+sure to identify the correct target and select a proper background 
+analysis around it. To do that, we have to properly circle the source 
+and create a slightly larger circle around it ($ds9$ was the used tool).
+The same procedure must be repeated (with the same inner and outer radii) 
+on a properly selected reference star, close to and roughly as bright 
+as the target. We hereby report the coordinates of the target and of the 
+chosen reference star, in pixel units.
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+     & $x_c$ & $y_c$ \\
+    \hline
+    Target    &  170  &  37    \\
+    Reference & 288 & 57  \\
+    \hline
+    \end{tabular}
+
+    \medskip
+
+    $R_{in} = 11$, $R_{out} = 20$
+\end{center}
+Now we need to call \textit{huggy-psf.e} and input the coordinates of the 
+center of the target, the inner and outer radii, and a random corrected 
+image.
+\begin{lstlisting}
+huggy-psf.e x0 y0 Rin Rout A*.fits
+\end{lstlisting}
+This yields information about the Point Spread Function, meaning how the 
+the flux is distributed as a function of the distance from the core of 
+the source. The ouput displays the radii at which we find 90, 95 and 99\%
+of the total flux. We tale note of this output. 
+
+Photometry analysis is carried out by \textit{sentinel.e}, whcich needs 
+the coordinates of the target and of the reference stars, followed by 
+the radii of two selected apertures from the previous output. Also, we need 
+again inner and outer radii of the selected region for the analysis, as well 
+as the full-corrected images of the target. 
+\begin{lstlisting}
+sentinel.e x0 y0 xr yr a1 a2 Rin Rout c A*.corr.fits
+\end{lstlisting}
+where $c=\{1,2\}$ selects the centroiding method (gaussian/moment). For a 
+relatively faint star like ours ($J\approx 11$) oure choices are $a_1=4.71$ and 
+$a_2=5.97$, corresponding to 90 and 95\%. 
+The \textit{sentinel} output is the starting point for TASTE analysis.
 
 
 \section{Conclusions}
@@ -194,7 +293,19 @@ $\sigma_{mb} = 0.89$.
 
 
 
-\section{Appendix A: limb darkening analysis}
+
+
+
+
+
+
+
+
+
+
+
+\appendix
+\section{Limb darkening analysis}
 \label{sect:app_A}
 
 \subsection{Claret 2017}
@@ -247,6 +358,8 @@ the same as just explained, leading to other estimate of the LD coefficients.
 
 \subsection{Claret 2018}
 Only the zero metallicity case in now considered.
+
+\section{Time correction}
 
 
 \printbibliography
