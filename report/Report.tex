@@ -64,11 +64,11 @@
 \begin{abstract}
 
 \emph{In the following report we work on WASP-44 b, an exoplanet orbiting 
-arounf its G-type mother star, located in the constellation of Cetus. 
-We first take a look at its atmospheric parameters and derive mass and 
-radius (\cite{Morton}). Then, we correct for limb darkening effect in different ways 
+around its G-type parent star, located in the constellation of Cetus. 
+We first examine its atmospheric parameters and derive its mass and 
+radius (\cite{Morton}). Then, we correct for limb darkening effect through different methods 
 (\cite{claret2011}, \cite{claret2017}, \cite{claret2018}). We also take 
-some images taken by Copernico at the Asiago Observatory into consideration 
+some images obtained with Copernico telescope at the Asiago Observatory into consideration 
 and, after proper correction, we use them to extract the light curve of 
 the alleged planet.}
 
@@ -77,36 +77,53 @@ the alleged planet.}
 \section{Introduction}
 
 Confirmed exoplanets are growing in number year by year, and transit method 
-is nowadays a widely spread method. Most planets nowadays are discovered 
+is nowadays a widespread and hugely successfull detection method. Most planets indeed are by now discovered 
 by tracing the lightcurve and searching for any sign of a weakening in the 
 flux.
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.15, angle=0]{../pictures/exo_dischist.png}
-    \caption*{\textit{ https://exoplanetarchive.ipac.caltech.edu/}}
+    \caption{Confirmed exoplanets distribution per year of detection via different methods. Credits to \textit{https://exoplanetarchive.ipac.caltech.edu/}}
 \end{figure}
-In this report we focus on WASP-44 b, a Jupyter-size planet orbiting around 
+In this report we focus on WASP-44 b, a Jupiter-size planet orbiting around 
 a G-type star, located in the constellation of Cetus.
 Among the numerous available reports on the planet, we decided to make a 
 conservative choice and avoid any result which is not inferred via 
-spectroscopy. This leads us to rule out several papers about the object, and 
-only work with the discovery paper (\cite{Anderson}). In this paper, estimates 
+spectroscopy. This leads us to rule out several papers regarding our target of interest and exclusively
+ work with the discovery paper (\cite{Anderson}). In this paper, estimates 
 of the atmospheric parameters of WASP-44 are provided via an analysis of 
-the width of spectral lines.
+the width of the spectral lines.
 
 %\section{Instruments}
 
 
 
 
-\section{Theoretical recap}
+\section{The transit method }
 
-TODO
-\begin{itemize}
-    \item a brief overview of the transit method
-    \item a comment on the bias of the transit method (big planets, close to the star)]
+The transit method is a photometric indirect method of detection of exoplanets, which consists in the observation of a drop in the flux of a star due to the transit of a planet across the stellar disk. 
 
-\end{itemize}
+The subsequent variation of the measured stellar luminosity is proportional to the ratio of the projected areas of the planet and the star, or equivalently, the dimming of the flux is proportional to the ratio of the square of the respective radii; therefore, known the radius of the star from its spectrum, the radius of the planet can be easily obtained from the measured depth of the flux.
+
+Moreover, if combined with radial velocities measurements, this method allows to compute also the average densitiy of the exoplanet.
+
+It is important however to notice that limb darkening, stellar activity and atmospheric effects may pollute the observational transit curve and must be all taken into account.
+
+The modelled transit light curve is distinguished by a characteristic trapezoidal shape, whose main geometrical parameters are the impact parameter, the ingress/egress and transit duration, and the transit depth.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.18, angle=0]{../pictures/transit.jpeg}
+    \caption{Simplified transit light curve. Credits to \textit{Winn [2010]}}
+\end{figure}
+The geometry of the system places a strong constraint on the inclination of the orbital plane of the planet with respect to the line of sight: the transit can be observed exclusively for almost edge-on orbits, meaning orbital planes that are as parallel as possible to the line of sight. This condition yealds a low probability of detection, which in turn requires a huge number of target stars to carry on successfull observations.
+
+Furthermore, at least two transits are required to determine the orbital period of the extrasolar planet candidate, and since the duration of the transit is very short compared to the orbital period, continuous and prolonged observations are required in order to detect it.
+
+It is of capital importance to be aware of the selection biases that are intrinsic to this method (and to the current available technology): indeed it yealds the largest detection probability for large massive planets orbiting very close to small and quiet stars, thus selecting Hot Jupiters around late type stars as ideal targets.
+
+
+
+
 
 
 \section{Data analysis}
@@ -121,8 +138,8 @@ unblended lines. This led to proper estimation of the atmospheric parameter
 triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. Quoted errors include statistical 
 uncertainties only. In the same conservative spirit we 
 previously showed, we add in quadrature a further term to the errors of 
-all three parameters (\cite{Sousa}). We're in fact more interested in an 
-accurate result rather than a precise one.
+all three parameters (\cite{Sousa}). We are in fact more interested in an 
+accurate result rather than in a precise one.
 This leads to the following results 
 \begin{center}
     \begin{tabular}{|c|c|c|}
@@ -136,23 +153,23 @@ This leads to the following results
 
 \subsection{Limb darkening correction}
 
-Limb darkening is an important effect when observing a star, 
-everything but negligible. In short, the edges of the luminosity profile 
-of a star always look darker: this is because there is a physical, constant 
-distance $L$ at which optical depth is equal to unity, further than which 
-we cannot observe (photons do not reach us). This characteristic size, 
-however, can go deep inside the hot layers of the star if we look straight 
-to the center, being $L$ radial, while it can stop at colder, outer layers 
-if we look at the edges of the star, since $L$ and our LOS are not radial 
+Limb darkening is an important effect that cannot be neglected when observing a star.
+In short, the edges of the luminosity profile 
+of a star always look darker than the core: this occurs because there is a physical, constant 
+distance $L$ at which the optical depth is equal to unity, further than which 
+the observations are not possible since photons are completely absorbed and do not reach the observer. This characteristic size, 
+however, can extend deep inside the hot layers of the star if we look straight 
+to the center, being $L$ radial, while it can stop at the colder, outer layers 
+if we look at the edges of the star, since $L$ and our line of sight (LoS) are not radial 
 anymore.
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.25, angle=0]{../pictures/limb_darkening.png}
     \caption{Limb darkening effect scheme. Credits to \textit{https://ediss.sub.uni-hamburg.de}}
 \end{figure}
-Correcting for this effect may be challenging. In fact we can measure it 
+Correcting for this effect may be challenging. Indeed we can measure it 
 directly only for the Sun, while we need to model it somehow for any other 
-star, meaning figure out a proper law for the intensity decrease $I(\mu)$, 
+star, thus figuring out a proper law for the intensity decrease $I(\mu)$, 
 where $\mu = \sqrt{1-r^2}$. Many choices are plausible at this point: a 
 uniform behaviour, a linear, a quadratic, a square-root or a 
 logarithmic law are all valid guesses. Parametrizing such laws introduces 
@@ -160,25 +177,25 @@ the so-called \textit{LD-coefficients}, which will depend on the stellar
 parameters. Knowing the latter relationship (for instance calibrating it 
 based on a large sample of stars) allows to obtain the coefficients directly 
 from the atmopsheric parameters. 
-The alternative way is fitting the light curve leaving the coefficients free.
+The alternative way is fitting the light curve leaving the coefficients as free parameters.
 
 The choice of the functional dependence on $\mu$ is a delicate one. Multiple 
 approaches can be followed, basing on different papers. This analysis is 
-tackled in \ref{sect:app_A}.
+addressed in \ref{sect:app_A}.
 
 
 \subsection{Bias and flat field correction}
-CCD (Charged Coupled Device) are the privileged detectors for photon counting, 
-thanks to their great quantum efficiency. The images produced are \textit{raw}
+CCD s(Charged Coupled Devices) are the privileged detectors for photon counting, 
+due to their high quantum efficiency. The images produced are \textit{raw}
 and must be properly \textit{pre-reduced} before being analysed. Pre-reduction 
 goes through different steps:
 \begin{itemize}
     \item \textbf{bias} is the
-    individual pixel-to-pixel offset level, and it's a zero-exposure instrumental 
-    factor, thus it's always an added contribution to any signal. Therefore it must 
-    be removed to isolate the photons of astrophysical origin. The root mean square 
+    individual pixel-to-pixel offset level, and it is a zero-exposure instrumental 
+    factor, thus it is always an added contribution to any signal. Therefore it must 
+    be removed in order to isolate the photons of astrophysical origin. The root mean square 
     of the bias corresponds to the so-called \textit{readout noise}. We perform an 
-    average out across all the pixels to get an estimate of the bias;
+    average across all the pixels to get an estimate of the bias;
     \item a \textbf{flat field} is a calibration image obtained by illuminating
     homogeneously the pupil of the telescope, using twilight sky or appropriate, 
     back-lighted screens. This correction factor is to be applied on each pixel and 
@@ -199,7 +216,7 @@ huggy-bias.e A*.fits
 \end{lstlisting}
 Many bias images are produced,
 displaying the zero offset of the pixel board. \textit{Master bias} is the average 
-of all these files. Plotting the intensities of offset level of the pixels yields 
+of all these files. Plotting the intensities of the offset level of the pixels yields 
 a concrete view of the correction.
 \begin{figure}[H]
     \centering  
@@ -219,9 +236,9 @@ We now run \textit{huggy-flat.e} inputting a normalization fraction,
 meaning the fraction of pixels we want to account for, ruling out the 
 sides which are often polluted by overscan columns. These are visible 
 in the form of dark stripes on the sides of any flat field take. Then 
-we have to input the overscan values, usually set to 0. After, that 
+we have to input the overscan values, usually set to 0. Subsequently,
 we need to provide the master bias file, which will be subtracted from 
-the data. Finally, we input all the flat fields available.
+the data. Finally, we input all the available flat fields.
 \begin{lstlisting}
 huggy-flat.e 0.9 0 0 mb.fits A*.fits
 \end{lstlisting}
@@ -243,8 +260,8 @@ previous parts.
 huggy-correct.e mb.fits mfn.fits A*.fits
 \end{lstlisting}
 The final correction code requires the master bias and the normalised 
-master flat, and of course all the target images, that are going to be 
-all corrected.
+master flat, and of course all the target images, that are all going to be 
+ corrected.
 
 \subsection{Extracting the light curve}
 We are approaching the very heart of this analysis, preparing for 
@@ -320,7 +337,7 @@ Next, we compare the flux plot with the two different aperture we have chosen.
     \includegraphics[scale=0.45, angle=0]{../pictures/taste/apertures.png}
 \end{figure}
 The second case (95\%) seems to be slighly less noisy: that's our first clue 
-that this aperture might be the best choice for the aperture analysis.
+that this aperture might be the best suited choice for the aperture analysis.
 
 As a further goodness check, one may take a look at the peak value trend of 
 the target source and compare it to the saturation level.
@@ -350,7 +367,7 @@ be our reference for the stellar flux.
 To perform the fit, we ruled out all the points during the transit by roughly 
 selecting an ingress and egress time. A quadratic law ($p_0 x^2 + p_1 x +p_2$)
 was chosen to set things up in the most general case. A least square fitting 
-via numpy function \textit{np.polyfit} yields the following results
+via numpy function \textit{np.polyfit} yields the following results:
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit.png}
