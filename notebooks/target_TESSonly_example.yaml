@@ -1,0 +1,49 @@
+inputs:
+  LCdata:
+    file: XO2N_TESS_PyORBIT.dat
+    kind: Phot
+    models:
+      - lc_model
+common:
+  planets:
+    b:
+      orbit: circular
+      parametrization: Eastman2013_Tcent
+      boundaries:
+        # TLS: transit duration is 0.1
+        P: [1.38142, 1.58142]  # TLS: 1.48142
+        Tc: [8710.00445, 8710.20445]  # TLS: 2458710.10445
+      spaces:
+        P: Linear
+  star:
+    star_parameters:
+      priors:
+        radius: ['Gaussian', 2.3, 0.10]
+        mass: ['Gaussian', 2.50, 0.25]
+        rho: ['Gaussian', 0.27, 0.03]
+    limb_darkening:
+      type: batman_ld_quadratic
+      parametrization: Kipping
+      #priors:
+      #  ld_c1: ['Gaussian', 0.20, 0.20]
+      #  ld_c2: ['Gaussian', 0.25, 0.10]
+models:
+  lc_model:
+    kind: batman_transit
+    planets: b
+    #LCdata: #only for full frame images
+    #  supersample_factor: 11
+    #  exposure_time: xxx.0
+parameters:
+  Tref: 8000.0
+  use_tex: False
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 8
+  emcee:
+    npop_mult: 8
+    nsteps: 100000
+    nburn: 20000
+    thin: 200
+  recenter_bounds: True
