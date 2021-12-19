@@ -1,6 +1,6 @@
 inputs:
   LCdata:
-    file: XO2N_TESS_PyORBIT.dat
+    file: WASP44_TESS_PyORBIT.dat
     kind: Phot
     models:
       - lc_model
@@ -11,16 +11,16 @@ common:
       parametrization: Eastman2013_Tcent
       boundaries:
         # TLS: transit duration is 0.1
-        P: [1.38142, 1.58142]  # TLS: 1.48142
-        Tc: [8710.00445, 8710.20445]  # TLS: 2458710.10445
+        P: [2.32578, 2.52578]  # TLS: 1.48142
+        Tc: [2458386.4716,2458386.6716]  # TLS: 2458710.10445
       spaces:
         P: Linear
   star:
     star_parameters:
       priors:
-        radius: ['Gaussian', 2.3, 0.10]
-        mass: ['Gaussian', 2.50, 0.25]
-        rho: ['Gaussian', 0.27, 0.03]
+        radius: ['Gaussian', 0.928634, 0.0120785]
+        mass: ['Gaussian', 0.952972, 0.0491805]
+        rho: ['Gaussian',  1.192031, 0.09124]
     limb_darkening:
       type: batman_ld_quadratic
       parametrization: Kipping
@@ -35,8 +35,7 @@ models:
     #  supersample_factor: 11
     #  exposure_time: xxx.0
 parameters:
-  Tref: 8000.0
-  use_tex: False
+  Tref: 5000.0
 solver:
   pyde:
     ngen: 50000

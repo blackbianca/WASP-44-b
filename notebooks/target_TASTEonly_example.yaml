@@ -42,7 +42,6 @@ models:
       #exposure_time: xxx.0
 parameters:
   Tref: 8000.0
-  use_tex: False
 solver:
   pyde:
     ngen: 50000
