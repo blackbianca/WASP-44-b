@@ -1,0 +1,54 @@
+inputs:
+  LCdata:
+    file: WASP44_TASTE_PyORBIT.dat
+    kind: Phot
+    models:
+      - lc_model
+      - polynomial_trend
+common:
+  planets:
+    b:
+      orbit: circular
+      parametrization: Eastman2013_Tcent
+      boundaries:
+        # TLS: transit duration is 0.1
+        P: [2.183202, 2.668358]  # TLS: 2.42578
+        Tc: [2459174.262, 2459174.372]  # TASTE: 2459174.3170 , 0.0546
+      spaces:
+        P: Linear
+      priors:
+        P: ['Gaussian', 2.42578, 0.242578]
+  star:
+    star_parameters:
+      priors:
+        radius: ['Gaussian', 2.3, 0.10]
+        mass: ['Gaussian', 2.50, 0.25]
+        rho: ['Gaussian', 0.27, 0.03]
+    limb_darkening:
+      type: batman_ld_quadratic
+      parametrization: Kipping
+      priors:
+        ld_c1: ['Gaussian', 0.366, 0.10]
+        ld_c2: ['Gaussian', 0.243, 0.10]
+  polynomial_trend:
+    normalization_model: True
+    order: 2
+models:
+  lc_model:
+    kind: batman_transit
+    planets: b
+    #LCdata: #only for full frame images
+      #supersample_factor: 11
+      #exposure_time: xxx.0
+parameters:
+  Tref: 8000.0
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 8
+  emcee:
+    npop_mult: 8
+    nsteps: 100000
+    nburn: 20000
+    thin: 200
+  recenter_bounds: True
