@@ -1,0 +1,53 @@
+inputs:
+  RVdata:
+    file: wasp44_RVC_001.dat #Random name, it can be anything
+    kind: RV
+    models:
+      - radial_velocities
+      - harmonics
+common:
+  planets:
+    b:
+      orbit: circular
+      parametrization: Eastman2013_Tcent
+      boundaries:
+        P: [2.40, 2.44]
+        K: [0.01, 4200.0]
+        Tc: [2458386.00, 2458386.10]
+      priors:
+        P: ['Gaussian', 2.42384400, 0.000000024]  # Values from TESS analysis
+        Tc: ['Gaussian', 2458386.572921, 0.0246705] # Values from TESS analysis
+      fixed:
+        i: [ 86.269816 , 0.425455] # Values from TESS analysis
+      spaces:
+        P: Linear
+  harmonics:
+    use_common_phase: True
+    boundaries:
+      P: [5., 30.]
+    priors:
+      P: ['Gaussian', 14.30, 1.0]
+    spaces:
+      P: Linear
+  star:
+    star_parameters:
+      priors:
+        radius: ['Gaussian',  0.928634, 0.0120785] # Values from Isochrone fit analysis
+        mass: ['Gaussian', 0.952972, 0.0491805] # Values from Isochrone fit analysis
+models:
+  radial_velocities:
+    planets: b
+  harmonics:
+    common: harmonics
+parameters:
+  Tref: 5000.0 # As in the TESS/TASTE file
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 100000
+    nburn: 25000
+    thin: 200
+  recenter_bounds: True
