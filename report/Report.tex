@@ -286,12 +286,14 @@ The final correction code requires the master bias and the normalised
 master flat, and of course all the target images, that are all going to be 
  corrected.
 
+
+
 \subsection{Extracting the light curve}
 We are approaching the very heart of this analysis, preparing for 
 aperture synthesis. We now need to display the science images, make 
 sure to identify the correct target and select a proper background 
 analysis around it. To do that, we have to properly circle the source 
-and create a slightly larger circle around it ($ds9$ was the used tool).
+and create a slightly larger circle around it (we used the the $ds9$ tools).
 The same procedure must be repeated (with the same inner and outer radii) 
 on a properly selected reference star, close to and roughly as bright 
 as the target. We hereby report the coordinates of the target and of the 
@@ -319,7 +321,7 @@ huggy-psf.e x0 y0 Rin Rout A*.fits
 This yields information about the Point Spread Function, meaning how the 
 the flux is distributed as a function of the distance from the core of 
 the source. The ouput displays the radii at which we find 90, 95 and 99\%
-of the total flux. We tale note of this output. 
+of the total flux. We take note of this output. 
 
 Photometry analysis is carried out by \textit{sentinel.e}, which needs 
 the coordinates of the target and of the reference stars, followed by 
@@ -329,9 +331,15 @@ as the full-corrected images of the target.
 \begin{lstlisting}
 sentinel.e x0 y0 xr yr a1 a2 Rin Rout c A*.corr.fits
 \end{lstlisting}
-where $c=\{1,2\}$ selects the centroiding method (gaussian/moment). For a 
-relatively faint star like ours ($J\approx 11$) oure choices are $a_1=4.71$ and 
-$a_2=5.97$, corresponding to 90 and 95\%. 
+where $c=\{1,2\}$ selects the centroiding method (gaussian/moment). For a star
+fainter than average like ours ($J\approx 11$) the recommended choices for 
+the apertures are 90 and 95\%, in order to make sure not to run into 
+saturation. However, all three possibilities were tested. The three apertures 
+in pixel units are $a_0=4.71$, $a_1=5.97$ and $a_2=$, respectively for 90,
+95 and 99\%.
+
+%our choices are $a_1=4.71$ and 
+%$a_2=5.97$, corresponding to 90 and 95\%. 
 
 \medskip
 
@@ -366,10 +374,15 @@ As a further goodness check, one may take a look at the peak value trend of
 the target source and compare it to the saturation level.
 \begin{figure}[H]
     \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/saturation-quality.png}
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/saturation-quality.png}
 \end{figure}
-The peak value is well below the saturation limit, and we also see that the 
-quality factor is above the required threshold.
+In the 95-99\% case the peak value is well below the saturation limit, and we also see that the 
+quality factor is above the required threshold. The situation is still 
+acceptable, but a little worse for the 90-95\% case.
+\begin{figure}[H]
+    \centering  
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/saturation-quality2.png}
+\end{figure}
 
 We can can finally visualise the transit, with both apertures.
 \begin{figure}[H]
