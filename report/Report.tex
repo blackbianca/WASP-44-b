@@ -121,12 +121,7 @@ Furthermore, at least two transits are required to determine the orbital period 
 
 It is of capital importance to be aware of the selection biases that are intrinsic to this method (and to the current available technology): indeed it yealds the largest detection probability for large massive planets orbiting very close to small and quiet stars, thus selecting Hot Jupiters around late type stars as ideal targets.
 
-
-
-
-
-
-\section{Data analysis}
+\section{Preliminary steps}
 
 \subsection{Inferring mass and radius}
 
@@ -149,7 +144,28 @@ This leads to the following results
     \hline
     \end{tabular}
 \end{center}
+We then ran \textit{isochrones} (\cite{Morton}), with Bayesian approach, 
+with posterior sampling performed by \textit{MultiNest} and including Gaia 
+parallax $p=2.764 \pm 0.020$ $\mu as$. These are the results of the 
+analysis:
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+    $M/M_{\odot}$ & $R/R_{\odot}$  \\
+    $0.95\pm0.05$ & $0.93 \pm 0.01$  \\
+    \hline
+    $\rho/\rho_{\odot}$ & $age[Gyr]$ \\
+    $1.19 \pm 0.09$ & $4.8^{+3.5}_{-2.9}$ \\
+    \hline
+    \end{tabular}
+\end{center}
+Huge errors on the age estimate are pretty common for this analysis, since 
+stars with this mass evolve very slowly along the Main Sequence.
 
+%Mass (Msun)     :     0.952972      0.954230     -0.050431     0.047930
+%Radius (Rsun)   :     0.928634      0.928171     -0.011579     0.012578
+%Density (ro_sun):     1.192031      1.194963     -0.093708     0.088772
+%age (Gyr)       :     4.836685      4.533456     -2.908078     3.512064
 
 \subsection{Limb darkening correction}
 
@@ -182,6 +198,13 @@ The alternative way is fitting the light curve leaving the coefficients as free 
 The choice of the functional dependence on $\mu$ is a delicate one. Multiple 
 approaches can be followed, basing on different papers. This analysis is 
 addressed in \ref{sect:app_A}.
+
+
+\section{TASTE data analysis}
+
+Before actually analysing data from TASTE, we need to properly correct them.
+Then, we're going to have a look at and correctly format them, preparing 
+the configurations file for the PyORBIT run. 
 
 
 \subsection{Bias and flat field correction}
