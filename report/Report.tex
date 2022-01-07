@@ -321,7 +321,9 @@ huggy-psf.e x0 y0 Rin Rout A*.fits
 This yields information about the Point Spread Function, meaning how the 
 the flux is distributed as a function of the distance from the core of 
 the source. The ouput displays the radii at which we find 90, 95 and 99\%
-of the total flux. We take note of this output. 
+of the total flux. The three apertures in pixel units are $a_0=4.71$, 
+$a_1=5.97$ and $a_2=$, respectively for 90, 95 and 99\%. 
+We take note of this output. 
 
 Photometry analysis is carried out by \textit{sentinel.e}, which needs 
 the coordinates of the target and of the reference stars, followed by 
@@ -334,9 +336,7 @@ sentinel.e x0 y0 xr yr a1 a2 Rin Rout c A*.corr.fits
 where $c=\{1,2\}$ selects the centroiding method (gaussian/moment). For a star
 fainter than average like ours ($J\approx 11$) the recommended choices for 
 the apertures are 90 and 95\%, in order to make sure not to run into 
-saturation. However, all three possibilities were tested. The three apertures 
-in pixel units are $a_0=4.71$, $a_1=5.97$ and $a_2=$, respectively for 90,
-95 and 99\%.
+saturation. However, all three possibilities were tested. 
 
 %our choices are $a_1=4.71$ and 
 %$a_2=5.97$, corresponding to 90 and 95\%. 
@@ -345,84 +345,137 @@ in pixel units are $a_0=4.71$, $a_1=5.97$ and $a_2=$, respectively for 90,
 
 The \textit{sentinel} output is the starting point for TASTE analysis. This file 
 contains the main information about the target and the sky, keeping track of the 
-respective photometries. In fact, let's start by checking the evolution of the 
+respective photometries. In fact, we check the evolution of the 
 sky background throughout the observation session, and also to the behaviour 
-of the reference star.
-\begin{figure}[H]
+of the reference star (\ref{fig:sky-ref}).
+\begin{figure}
     \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/sky-ref.png}
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/sky-ref.png}
+    \caption{Upper panel: sky background flux, every point is the median of the anulus
+    formed by $R_{in}$ and $R_{out}$. Middle panel: reference star flux, 
+    normalised to the first measurement. Bottom panel: peak points of the 
+    flux inside the defined aperture.}
+    \label{fig:sky-ref}
 \end{figure}
 The sky flux has been constantly decreasing in time, so we expect less and less 
 disturbance as the observation proceeds. The reference star, on the other hand 
 seems to be pretty stable in terms of flux. 
 We also want to make sure that reference star are correctly comoving: to do that, 
-we plot the variation in position at every time step and check we have similar 
-motion.
-\begin{figure}[H]
+we plot the variation in position at every time step and make sure we have 
+similar motion (\ref{fig:target-ref_position}). Plotting FWHM reveals an increasing trend, at odds with 
+the sky pattern.
+\begin{figure}
     \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/target-ref_position.png}
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/target-ref_position.png}
+    \caption{Upper and middle panel: target and reference star show the same 
+    coordinate variation in the CCD. Bottom panel: full width half maximum 
+    of the peak flux.}
+    \label{fig:target-ref_position}
 \end{figure}
-Next, we compare the flux plot with the two different aperture we have chosen.
-\begin{figure}[H]
+Next, we compare the flux plot of all three different aperture we have 
+chosen (\ref{fig:apertures}).
+\begin{figure}
     \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/apertures.png}
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/apertures.png}
+    \caption{From top to bottom: 90, 95 and 99\% apertures, showing 
+    both the target and reference star. Dispersion is reduced as the 
+    aperture grows.}
+    \label{fig:apertures}
 \end{figure}
-The second case (95\%) seems to be slighly less noisy: that's our first clue 
+The second case (99\%) seems to be slighly less noisy: that's our first clue 
 that this aperture might be the best suited choice for the aperture analysis.
-
 As a further goodness check, one may take a look at the peak value trend of 
-the target source and compare it to the saturation level.
-\begin{figure}[H]
+the target source and compare it to the saturation level. We also plot the 
+reference star flux to see whether they are above the quality threshold.
+\begin{figure}
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/taste/saturation-quality.png}
-\end{figure}
-In the 95-99\% case the peak value is well below the saturation limit, and we also see that the 
-quality factor is above the required threshold. The situation is still 
-acceptable, but a little worse for the 90-95\% case.
-\begin{figure}[H]
-    \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/taste/saturation-quality2.png}
+    \caption{Upper panel: narrow apertures, bottom panel: wider apertures.
+    In both cases the peak value is well below the saturation limit, and 
+    we also see that the reference data are above the required threshold. 
+    A few points at late times are below the quality factor for the 90-95\% 
+    case, thus supporting the choice of the widest aperture at 99\%.}
+    \label{fig:saturation-quality}
 \end{figure}
 
-We can can finally visualise the transit, with both apertures.
-\begin{figure}[H]
-    \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/transits.png}
-\end{figure}
+We can can finally visualise the transit in all three cases. To do that, we 
+plot the ratio between target and reference star: \textit{differential 
+photometry} helps us get rid of systematic errors affecting both sources.
 We still see that the wider aperture seems to have less dispersion than 
 the other case, and we keep that in mind.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/transits.png}
+    \caption{Transit image for growing aperture, top to bottom. Note that 
+    the above case (90\%) shows the most outliers.}
+    \label{fig:transits}
+\end{figure}
+
 
 In order to evaluate the depth of the transit, we need to identify the "height" 
 of the continuous level: to do that, we need to exclude the transit datapoints 
-and try out a polynomial fit, hoping to find a perfectly horizontal line. That will 
-be our reference for the stellar flux.
-\begin{figure}[H]
+and try out a polynomial fit, hoping to find a perfectly horizontal line. That 
+will be our reference trend for the stellar flux.
+\begin{figure}
     \centering  
-    \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit_setting.png}
+    \includegraphics[scale=0.5, angle=0]{../pictures/taste/fit_setting.png}
+    \caption{Time boundaries for the transit are roughly ballparked to 
+    prepare a proper, flat dataset to fit with a straight line.}
+    \label{fig:fit_setting}
 \end{figure}
 To perform the fit, we ruled out all the points during the transit by roughly 
 selecting an ingress and egress time. A quadratic law ($p_0 x^2 + p_1 x +p_2$)
 was chosen to set things up in the most general case. A least square fitting 
-via numpy function \textit{np.polyfit} yields the following results:
-\begin{figure}[H]
+via numpy function \textit{np.polyfit} yields Fig.\ref{fig:fit}.
+\begin{figure}
     \centering  
     \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit.png}
+    \includegraphics[scale=0.45, angle=0]{../pictures/taste/residuals.png}
+    \caption{Horizontal fit and residuals for the three cases.}
+    \label{fig:fit}
 \end{figure}
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
     \hline
     \# ap & $p_0 (\cdot 10^{-10})$ & $p_1 (\cdot 10^{-7})$ & $p_2 ( \cdot 10^3)$ \\
     \hline
-    1 &  $-7.98$   & $1.43$    &  $4.82$\\
-    2 & $-8.98$ & $1.42$  & $5.43$\\
+    90 & $-1.19$ & $1.43$  & $0.72$\\
+    95 & $-7.98$ & $1.43$  &  $4.82$\\
+    99 & $-8.98$ & $1.42$  & $5.43$\\
     \hline
     \end{tabular}
 \end{center}
 We immediately notice that both $p_0$ and $p_1$ are well compatible with zero,
 meaning that only a constant term survives: that represents the level of the 
-continuous, with respect to which we're going to compute the depth of the
-transit.
+continuous. 
 
+After the fit, we also considered discarding outliers: however, a quick 
+analyisis reveal that all point are well within $5\sigma$. Actually, 
+except for the 90\% aperture, even a more strict $3\sigma$ criterion 
+would not rule out any data point.
+
+We display the standard deviation of the points of the 
+continuous with respect to the linear fit. These quantify scattering and 
+indicate that the 99\% aperture is indeed the best photometric choice, 
+having the smallest standard deviation.
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+    $\sigma_{90}$ & $0.0063$ \\
+    $\sigma_{95}$ & $0.0061$ \\
+    $\sigma_{99}$ & $0.0059$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+
+
+
+
+
+
+\newpage
 \section{Conclusions}
 
 
