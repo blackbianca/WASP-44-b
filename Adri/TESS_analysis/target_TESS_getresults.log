@@ -1,0 +1,274 @@
+
+PyORBIT v8.3
+
+Python version in use:
+3.8.8 (default, Apr 13 2021, 19:58:26) 
+[GCC 7.3.0]
+ LaTeX disabled
+
+emcee version:  3.1.1
+
+ Reference Time Tref: 5000.0
+
+ Dimensions = 8
+ Nwalkers = 64
+
+ Steps: 100000
+
+The chains are more than 50 times longer than the ACF, the estimate can be trusted
+
+Computing the autocorrelation time of the chains
+Reference thinning used in the analysis: 200
+Step length used in the analysis: 1*nthin = 200
+
+Convergence criteria: less than 1% variation in ACF after 50 times the integrated ACF
+At least 50*ACF after convergence, 100*ACF would be ideal
+Negative values: not converged yet
+
+          sample variable      |    ACF   | ACF*nthin | converged at | nteps/ACF 
+                               |          |           |              |           
+          LCdata_jitter_0      |   1.199  |    239.8  |    12000     |    367.0   
+          b_P                  |   1.264  |    252.9  |    13000     |    344.1   
+          b_Tc                 |   1.264  |    252.9  |    13000     |    344.1   
+          b_R                  |   1.359  |    271.8  |    13800     |    317.1   
+          b_b                  |   1.248  |    249.6  |    12600     |    350.2   
+          star_parameters_rho  |   1.194  |    238.8  |    12400     |    366.9   
+          limb_darkening_ld_q1 |   1.407  |    281.4  |    14200     |    304.9   
+          limb_darkening_ld_q2 |   1.396  |    279.2  |    14000     |    308.0   
+
+All the chains are longer than 100*ACF 
+Suggested value for burnin:  14200
+
+
+ LN posterior:  6083.840003      -1.920979     1.288841 (15-84 p) 
+
+ Median log_priors     = 4.229208262106576
+ Median log_likelihood = 6082.0179845546245
+ Median BIC  (using likelihood) = -12105.578350591131
+ Median AIC  (using likelihood) = -12148.035969109249
+ Median AICc (using likelihood) = -12147.938803117346
+
+ Median BIC  (using posterior)  = -12114.036767115345
+ Median AIC  (using posterior)  = -12156.494385633463
+ Median AICc (using posterior)  = -12156.39721964156
+
+ MAP log_priors     = 4.199016486008942
+ MAP log_likelihood = 6082.227488839362
+ MAP BIC  (using likelihood) = -12105.997359160607
+ MAP AIC  (using likelihood) = -12148.454977678724
+ MAP AICc (using likelihood) = -12148.357811686821
+
+ MAP BIC  (using posterior)  = -12114.395392132625
+ MAP AIC  (using posterior)  = -12156.853010650742
+ MAP AICc (using posterior)  = -12156.75584465884
+
+ AIC suggested over AICs because NDATA (  1491.000000 ) > 40 * NDIM (     8.000000 )
+
+****************************************************************************************************
+****************************************************************************************************
+
+ Confidence intervals (median value, 34.135th percentile from the median on the left and right side)
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  LCdata
+jitter_0         7      0.000240      -0.000141      0.000223 (15-84 p) ([ 0.000043,  0.446000])
+
+----------  LCdata      ----- model:  lc_model_b
+
+----- common model:  b
+P                0      2.423844      -0.000000      0.000000 (15-84 p) ([ 2.182923,  2.668017])
+Tc               1  2458386.572921      -0.024639      0.024702 (15-84 p) ([2458386.537000, 2458386.609000])
+R                2      0.116991      -0.002654      0.002520 (15-84 p) ([ 0.000010,  0.500000])
+b                3      0.526370      -0.051861      0.047392 (15-84 p) ([ 0.000000,  2.000000])
+
+----- common model:  star_parameters
+rho              6      1.211115      -0.087901      0.089153 (15-84 p) ([ 0.000000,  5.000000])
+
+----- common model:  limb_darkening
+ld_q1            4      0.452390      -0.221227      0.329035 (15-84 p) ([ 0.000000,  1.000000])
+ld_q2            5      0.372913      -0.224297      0.348337 (15-84 p) ([ 0.000000,  1.000000])
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  LCdata
+jitter_0              0.000240         -0.000141         0.000223 (15-84 p)
+
+
+----------  LCdata      ----- model:  lc_model_b
+
+----- common model:  b
+P                 2.423844e+00     -2.435584e-08     2.445850e-08 (15-84 p)
+Tc              2458386.572921         -0.024639         0.024702 (15-84 p)
+R                     0.116991         -0.002654         0.002520 (15-84 p)
+b                     0.526370         -0.051861         0.047392 (15-84 p)
+o                     1.570796 
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+rho                   1.211115         -0.087901         0.089153 (15-84 p)
+
+----- common model:  limb_darkening
+ld_c1                 0.501395         -0.275812         0.257970 (15-84 p)
+ld_c2                 0.171798         -0.392338         0.395039 (15-84 p)
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+a                     8.090606         -0.200672         0.193841 (15-84 p)
+i                    86.269816         -0.419154         0.431756 (15-84 p)
+f                     0.358300         -0.001092         0.001096 (15-84 p)
+R_Rj                  1.057418         -0.027362         0.026710 (15-84 p)
+R_Re                 11.852511         -0.306696         0.299387 (15-84 p)
+T_41                  0.094392         -0.001512         0.001578 (15-84 p)
+T_32                  0.067817         -0.002863         0.002739 (15-84 p)
+a_AU_(rho,R)          0.034944         -0.000965         0.000964 (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the Maximum a Posteriori probability ( 6086.426505325371 )
+
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  LCdata
+jitter_0         7      0.000086 ([  0.000043,   0.446000])
+
+----------  LCdata      ----- model:  lc_model_b
+
+----- common model:  b
+P                0      2.423844 ([  2.182923,   2.668017])
+Tc               1  2458386.552892 ([2458386.537000, 2458386.609000])
+R                2      0.119693 ([  0.000010,   0.500000])
+b                3      0.549007 ([  0.000000,   2.000000])
+
+----- common model:  star_parameters
+rho              6      1.221474 ([  0.000000,   5.000000])
+
+----- common model:  limb_darkening
+ld_q1            4      0.188128 ([  0.000000,   1.000000])
+ld_q2            5      0.908089 ([  0.000000,   1.000000])
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  LCdata
+jitter_0              0.000086 
+
+
+----------  LCdata      ----- model:  lc_model_b
+
+----- common model:  b
+P                     2.423844 
+Tc              2458386.552892 
+R                     0.119693 
+b                     0.549007 
+o                     1.570796 
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+rho                   1.221474 
+
+----- common model:  limb_darkening
+ld_c1                 0.787743 
+ld_c2                -0.354006 
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+a                     8.113607 
+i                    86.120121 
+f                     0.358017 
+R_Rj                  1.079421 
+R_Re                 12.099143 
+T_41                  0.093236 
+T_32                  0.065665 
+a_AU_(rho,R)          0.034968 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+Note: priors on stellar mass and radius provided independently from the measured density, no check for consistency is performed
+
+ Plot FLAT chain 
+
+****************************************************************************************************
+
+ Plotting full_correlation plot with GetDist
+
+ Ignore the no burn in error warning from getdist
+ since burn in has been already removed from the chains
+Removed no burn in
+
+
+****************************************************************************************************
+
+ Plotting the chains... 
+
+****************************************************************************************************
+
+ Plotting the Gelman-Rubin traces... 
+
+     Gelman-Rubin:     7     0.999959 LCdata_jitter_0 
+     Gelman-Rubin:     0     1.000821 b_P 
+     Gelman-Rubin:     1     1.000818 b_Tc 
+     Gelman-Rubin:     2     1.000102 b_R 
+     Gelman-Rubin:     3     1.000183 b_b 
+     Gelman-Rubin:     6     1.000007 star_parameters_rho 
+     Gelman-Rubin:     4     1.000252 limb_darkening_ld_q1 
+     Gelman-Rubin:     5     1.000261 limb_darkening_ld_q2 
+
+****************************************************************************************************
+
+ Plotting the common models corner plots
+     Common model:  b
+     Common model:  star_parameters
+     Common model:  limb_darkening
+
+****************************************************************************************************
+
+ Dataset + models corner plots 
+
+     Dataset:  LCdata     model:  lc_model_b  corner plot  done 
+
+****************************************************************************************************
+
+ Saving the planet variable samplings to files (with plots)
+
+****************************************************************************************************
+
+ Saving all the variable samplings to files (with plots)
+
+****************************************************************************************************
+
+ Computing the models for plot/data writing 
+ Writing the plots 
+ Writing the   data files 
+ Writing the  MAP_ data files 
+
+****************************************************************************************************
+
