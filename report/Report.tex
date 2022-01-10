@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 %\usepackage[italian]{babel}
-
+\usepackage{comment}
 %\usepackage{lipsum}
 \usepackage{float}
 \usepackage{graphicx}
@@ -487,28 +487,30 @@ WASP-44 was observed by TESS (Transiting Exoplanet Survey Satellite) in 120 s ca
 
 The photometric observations for WASP-44 were reduced by the Science Processing Operations Center (SPOC) pipeline (\cite{Jenkins}).
 
-From ExoFOP-TESS \footnote{Exoplanet Follow-up Observing Program for TESS website, to be found at https://exofop.ipac.caltech.edu/tess/} we retrieved the TIC (TESS Input Catalog) identification number for our target star, 12862099.
+From ExoFOP-TESS \footnote{Exoplanet Follow-up Observing Program for TESS website, to be found at https://exofop.ipac.caltech.edu/tess/} 
+we retrieved the TIC (TESS Input Catalog) identification number for our target star, 12862099.
+We were then able to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and 
+PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry ) flux files from the Mikulski Archive for Space 
+Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html}, after a previous selection 
+of the data exclusive to the TESS mission.
 
-We were then able to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry ) flux files from the Mikulski Archive for Space Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html}, after a previous selection of the data exclusive to the TESS mission.
 
 
-
-
-We performed a preliminary contamination check with \textit{tpfplotter} \footnote{https://github.com/jlillo/tpfplotter.git}, aiming to establish whether our default photometric aperture includes any contaminant star that may cause a dilution of the transit.
+We performed a preliminary contamination check with \textit{tpfplotter} \footnote{https://github.com/jlillo/tpfplotter.git}, 
+aiming to establish whether our default photometric aperture includes any contaminant star that may cause a dilution of the transit.
 
 By running
 \begin{lstlisting}
 python tpfplotter.py 12862099 --maglim 6 --SAVEGAIA
 \end{lstlisting}
-we obtained the following tpf plot \ref{fig: tpfplot}, which shows how only one star is present within the mask, but since it is over 4 magnitudes fainter than the target in the G band, it does not constitutes a contaminant and can therefore be ignored.
+we obtained the following tpf plot \ref{fig:tpfplot}, which shows how only one star is present within the mask, 
+but since it is over 4 magnitudes fainter than the target in the G band, it does not constitutes a contaminant and can therefore be ignored.
 \begin{figure}
     \centering
     \includegraphics[scale=0.4, angle=0]{../pictures/tess/TPF.pdf}
     \caption{TPF plot.}
     \label{fig:tpfplot}
 \end{figure}
-
-
 
 
 In order to obtain an independent confirmation of the signals
@@ -518,8 +520,11 @@ search on the detrended light curve using the Transit Least Squares
 
 
 
-We proceeded to perform aperture and time series photometry on the TPF in order to select only the pixels belonging to the optimal aperture; from the obtained calibrated pixels, we derived the transit and the background flux light curves.
-Afterwards we removed from the time series dataset of the optimal aperture all the TESS cadences flagged as anomalous or encoded as NaN, as can be seen in the following plot:
+We proceeded to perform aperture and time series photometry on the TPF in order to select only the 
+pixels belonging to the optimal aperture; from the obtained calibrated pixels, we derived 
+the transit and the background flux light curves. Afterwards we removed from the time series 
+dataset of the optimal aperture all the TESS cadences flagged as anomalous or encoded as NaN, 
+as can be seen in the following plot:
 
 \begin{figure}
     \centering
@@ -531,8 +536,12 @@ Afterwards we removed from the time series dataset of the optimal aperture all t
 
 
 
-Subsequently we repeat the quality selection analysis on the lightcurve files (provided by the TESS team and obtained from the MAST portal as previously addressed), and plot both the optimal aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time. We can be sure of the correctness of the analysis we carried on from the observed overlapping between the the optimal aperture and SAP lightcurve.
-For our photometric analysis, however, we will make use of the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and affected by fewer systematic trends.
+Subsequently we repeat the quality selection analysis on the lightcurve files (provided by the 
+TESS team and obtained from the MAST portal as previously addressed), and plot both the optimal 
+aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time. We can be sure of 
+the correctness of the analysis we carried on from the observed overlapping between the the 
+optimal aperture and SAP lightcurve. For our photometric analysis, however, we will make use of 
+the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and affected by fewer systematic trends.
 
 
 \begin{figure}
@@ -546,8 +555,11 @@ For our photometric analysis, however, we will make use of the PDCSAP light curv
 
 \subsection{Detrending methods}
 
-It is of capital importance to flatten and de-trend the light curve, meaning to correct for stellar activity, flares, gaps in the data and interrupted transits by removal of the curve modulation due to the stellar and instrumental systematics.
-Via the \textit{WOTAN} package \footnote{https://github.com/hippke/wotan} (\cite{Hippke et al}) we applied to the PDCSAP light curve a biweight filter with a time window of 1d and a hspline filter with a time window of 2d \ref{fig:filters}; afterwards we normalized and folded the lightcurves, with the aim of studying the transits in phase.\ref{fig:Transits}
+It is of capital importance to flatten and de-trend the light curve, meaning to correct for stellar activity, 
+flares, gaps in the data and interrupted transits by removal of the curve modulation due to the stellar and instrumental systematics.
+Via the \textit{WOTAN} package \footnote{https://github.com/hippke/wotan} (\cite{Hippke1}) we applied to the 
+PDCSAP light curve a biweight filter with a time window of 1d and a hspline filter with a time window of 2d 
+\ref{fig:filters}; afterwards we normalized and folded the lightcurves, with the aim of studying the transits in phase.\ref{fig:Transits}
 
 
 \begin{figure}
@@ -567,16 +579,21 @@ Via the \textit{WOTAN} package \footnote{https://github.com/hippke/wotan} (\cite
 \end{figure}
 
 
-We obtained for the PDCSAP, biweight and hspline fluxes' standard deviations the values of 0.00440736, 0.00406469 and 0.00407942 respectively. Therefore, having the smallest $\sigma$, we considered the flattened biweight lightcurve as the most accurate one.
+We obtained for the PDCSAP, biweight and hspline fluxes' standard deviations the values of 0.00440736, 0.00406469 and 
+0.00407942 respectively. Therefore, having the smallest $\sigma$, we considered the flattened biweight lightcurve as the most accurate one.
 
 \subsection{Identification of periodic signals}
 
-We proceeded to perform an iterative  transit search on the detrended light curve in order to independently confirm the detection of the periodic signals in the TESS light curve.
+We proceeded to perform an iterative  transit search on the detrended light curve in order to independently 
+confirm the detection of the periodic signals in the TESS light curve.
+We used  the Transit Least Squares (TLS) \footnote{https://github.com/hippke/tls} algorithm (\cite{Hippke2}), 
+which offers one of the best method to detect planetary transits from time-series photometry.
+Indeed it searches for transit-like features with stellar limb-darkening, includes the effects of planetary 
+ingress and egress, analyses the entire data of the phase-folded light curve and yields a $\approx 10 \% $ higher 
+detection efficiency (SDE) compared to the Box-fitting Least Square (BLS) method, therefore being more accurate but more time-consuming. 
 
-We used  the Transit Least Squares (TLS) \footnote{https://github.com/hippke/tls} algorithm (\cite{Hippke}), which offers one of the best method to detect planetary transits from time-series photometry.
-Indeed it searches for transit-like features with stellar limb-darkening, includes the effects of planetary ingress and egress, analyses the entire data of the phase-folded light curve and yields a $\approx 10 \% $ higher detection efficiency (SDE) compared to the Box-fitting Least Square (BLS) method, therefore being more accurate but more time-consuming. 
-
-We obtained the following periodgram and folded lightcurve with a SDE of 15.15413, a period of 2.42547 d, a central transit time of 2458386.57308 BJD and a best transit duration of 0.07180 d.
+We obtained the following periodgram and folded lightcurve with a SDE of 15.15413, a period of 2.42547 d, a central transit time of 
+2458386.57308 BJD and a best transit duration of 0.07180 d.
  
 
 
@@ -594,15 +611,14 @@ We obtained the following periodgram and folded lightcurve with a SDE of 15.1541
  %  \label{fig:Transits}
 \end{figure}
 
-At last, we chose to select only the data points that are at a distance which is within twice the value of the transit duration from the center of the transit, we saved the output in a data file that will be the basis for the subsequent analysis and we plotted the resulting transit light curve.
+At last, we chose to select only the data points that are at a distance which is within twice the value of the transit duration from the center of the transit, 
+we saved the output in a data file that will be the basis for the subsequent analysis and we plotted the resulting transit light curve.
 \begin{figure}
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/final.png}
     \caption{Final selection}
  %  \label{fig:Transits}
 \end{figure}
-
-
 
 
 
