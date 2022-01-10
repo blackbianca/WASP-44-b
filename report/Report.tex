@@ -491,7 +491,7 @@ From ExoFOP-TESS \footnote{Exoplanet Follow-up Observing Program for TESS websit
 we retrieved the TIC (TESS Input Catalog) identification number for our target star, 12862099.
 We were then able to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and 
 PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry ) flux files from the Mikulski Archive for Space 
-Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html}, after a previous selection 
+Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/ Clients/Mast/Portal.html}, after a previous selection 
 of the data exclusive to the TESS mission.
 
 
@@ -515,7 +515,7 @@ but since it is over 4 magnitudes fainter than the target in the G band, it does
 
 In order to obtain an independent confirmation of the signals
 detected in the TESS light curve, we performed an iterative transit
-search on the detrended light curve using the Transit Least Squares
+search on the detrended light curve using the Transit Least Squares method.
 %(TLS) algorithm (Hippke & Heller 2019)
 
 
@@ -524,14 +524,14 @@ We proceeded to perform aperture and time series photometry on the TPF in order 
 pixels belonging to the optimal aperture; from the obtained calibrated pixels, we derived 
 the transit and the background flux light curves. Afterwards we removed from the time series 
 dataset of the optimal aperture all the TESS cadences flagged as anomalous or encoded as NaN, 
-as can be seen in the following plot:
+as can be seen in \ref{fig:tess}
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/tess.png}
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/zoom.png}	
     \caption{Flux derived from the calibrated pixels (up) and detail of the first cadence (bottom).}
-   %\label{fig:tess}
+    \label{fig:tess}
 \end{figure}
 
 
@@ -541,7 +541,7 @@ TESS team and obtained from the MAST portal as previously addressed), and plot b
 aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time. We can be sure of 
 the correctness of the analysis we carried on from the observed overlapping between the the 
 optimal aperture and SAP lightcurve. For our photometric analysis, however, we will make use of 
-the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and affected by fewer systematic trends.
+the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and corrected for systematic trends.
 
 
 \begin{figure}
@@ -559,7 +559,7 @@ It is of capital importance to flatten and de-trend the light curve, meaning to 
 flares, gaps in the data and interrupted transits by removal of the curve modulation due to the stellar and instrumental systematics.
 Via the \textit{WOTAN} package \footnote{https://github.com/hippke/wotan} (\cite{Hippke1}) we applied to the 
 PDCSAP light curve a biweight filter with a time window of 1d and a hspline filter with a time window of 2d 
-\ref{fig:filters}; afterwards we normalized and folded the lightcurves, with the aim of studying the transits in phase.\ref{fig:Transits}
+(\ref{fig:filters}); afterwards we normalized and folded the lightcurves, with the aim of studying the transits in phase (\ref{fig:Transits}).
 
 
 \begin{figure}
