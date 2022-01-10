@@ -13,13 +13,18 @@
 %\usepackage{color}
 %\usepackage[dvipsnames]{xcolor}
 %\sectionfont{\bfseries\Large\raggedright}
-\usepackage{hyperref}
+
+%\usepackage{hyperref}
+\usepackage[hyperfootnotes=false]{hyperref}
+%\hypersetup{hidelinks}
+
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
 
 \usepackage{listings}
 \usepackage{color}
+%\usepackage[svgnames]{xcolor}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -524,7 +529,7 @@ We proceeded to perform aperture and time series photometry on the TPF in order 
 pixels belonging to the optimal aperture; from the obtained calibrated pixels, we derived 
 the transit and the background flux light curves. Afterwards we removed from the time series 
 dataset of the optimal aperture all the TESS cadences flagged as anomalous or encoded as NaN, 
-as can be seen in \ref{fig:tess}
+as can be seen in \ref{fig:tess} .
 
 \begin{figure}
     \centering
@@ -622,6 +627,12 @@ we saved the output in a data file that will be the basis for the subsequent ana
 
 
 
+\section{Light curve fit}
+
+
+\subsection{TESS}
+\subsection{TASTE}
+\subsection{Comparison}
 
 
 \newpage
