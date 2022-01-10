@@ -14,10 +14,10 @@ common:
         K: [0.01, 4200.0]
         Tc: [2458386.00, 2458386.10]
       priors:
-        P: ['Gaussian', 2.423940e+00, -2.422365e-08]  # Values from TESS analysis
-        Tc: ['Gaussian', 2458386.573427, 0.0245075] # Values from TESS analysis
+        P: ['Gaussian', 2.423846, 0.000168]  # Values from TESS analysis
+        Tc: ['Gaussian', 2458386.578204, 0.000721] # Values from TESS analysis
       fixed:
-        i: [86.274613, 0.422477] # Values from TESS analysis
+        i: [86.270929, 0.4321465] # Values from TESS analysis
       spaces:
         P: Linear
   star:
@@ -29,7 +29,7 @@ models:
   radial_velocities:
     planets: b
 parameters:
-  Tref: 5000.0 # As in the TESS/TASTE file
+  Tref: 2450000.0 # As in the TESS/TASTE file
 solver:
   pyde:
     ngen: 50000
