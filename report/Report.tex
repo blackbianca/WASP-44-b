@@ -625,14 +625,81 @@ we saved the output in a data file that will be the basis for the subsequent ana
  %  \label{fig:Transits}
 \end{figure}
 
-
+\newpage
 
 \section{Light curve fit}
 
+%Conversion from fit parameters to physical parameters
+Once obtained the datasets and prepared the configuration files written in YAML language both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
+
+To this aim we performed the analysis using \textit{PyORBIT} \footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta et al. 2016}, \cite{2018}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
+
+All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE} \footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{emcee}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
+
+For the Bayesian analysis of the TESS lightcurve, we assumed a circular orbit, a quadratic law for the limb darkening coefficients, uniform priors for the period, the central time of transit, the impact parameter, the scaled planetary radius, and gaussian priors for the stellar parameters.
+
+For the Bayesian analysis of the TASTE lightcurve, we chose a second order polynomial trend as a model for out of transit flattening, gaussian priors for the period, the limb darkening coefficients, the stellar parameters and uniform priors for all the other parameters.
+
+Since the resulting chains were more than 50 times longer than the autocorrelation function, we are assured that the estimate can be trusted.
+
+
 
 \subsection{TESS}
+
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.2, angle=0]{../pictures/tess/acf_tess.pdf}
+    \caption{Autocorrelation chain}
+ %  \label{fig: lctess}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.3, angle=0]{../pictures/tess/lctess.png}
+    \caption{TESS lightcurve}
+ %  \label{fig: lctess}
+\end{figure}
+
+\newpage
 \subsection{TASTE}
+
+
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.2, angle=0]{../pictures/taste/acf_taste.pdf}
+    \caption{Autocorrelation chain}
+ %  \label{fig: lctess}
+\end{figure}
+
+
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.3, angle=0]{../pictures/taste/lctaste.png}
+    \caption{TASTE lightcurve}
+ %  \label{fig: lctaste}
+\end{figure}
+
+
+
+
 \subsection{Comparison}
+
+As a further check on the output values of our analysis, we apply 
+the (OC) method in order to compare the observed (O)
+central transit time (from TASTE observations) to the expected calculated (C) value (TESS results) .
+
+We obtain a O-C value of -0.010331 which indicates the accuracy of our analysis.
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.4, angle=0]{../pictures/comparison/oc.png}
+    \caption{O-C plot}
+ %  \label{fig: ocplot}
+\end{figure}
 
 
 \newpage
