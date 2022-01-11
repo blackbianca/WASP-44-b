@@ -12,7 +12,7 @@ common:
       boundaries:
         P: [2.40, 2.44]
         K: [0.01, 4200.0]
-        Tc: [2458386.00, 2458386.10]
+        Tc: [2458386.5, 2458386.65]
       priors:
         P: ['Gaussian', 2.423846, 0.000168]  # Values from TESS analysis
         Tc: ['Gaussian', 2458386.578204, 0.000721] # Values from TESS analysis
