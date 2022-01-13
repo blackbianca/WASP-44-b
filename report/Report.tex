@@ -142,9 +142,10 @@ all three parameters (\cite{Sousa}). We are in fact more interested in an
 accurate result rather than in a precise one.
 This leads to the following results 
 \begin{center}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
     \hline
     $T_{eff}$ (K) & $\log{g^*}$ & $[Fe/H]$ \\
+    \hline
     $5400 \pm 162$ & $4.5 \pm 0.2$ & $0.06 \pm 0.11$ \\
     \hline
     \end{tabular}
@@ -154,13 +155,14 @@ with posterior sampling performed by \textit{MultiNest} and including Gaia
 parallax $p=2.764 \pm 0.020$ $\mu as$. These are the results of the 
 analysis:
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{cc}
     \hline
-    $M/M_{\odot}$ & $R/R_{\odot}$  \\
-    $0.95\pm0.05$ & $0.93 \pm 0.01$  \\
+    Parameter & Value \\
     \hline
-    $\rho/\rho_{\odot}$ & $age[Gyr]$ \\
-    $1.19 \pm 0.09$ & $4.8^{+3.5}_{-2.9}$ \\
+     $M (M_{\odot})$ &  $0.95\pm0.05$ \\
+     $R (R_{\odot})$ & $0.93 \pm 0.01$  \\
+     $\rho (\rho_{\odot})$ & $1.19 \pm 0.09$ \\
+     $age (Gyr)$  & $4.8^{+3.5}_{-2.9}$ \\
     \hline
     \end{tabular}
 \end{center}
@@ -304,7 +306,7 @@ on a properly selected reference star, close to and roughly as bright
 as the target. We hereby report the coordinates of the target and of the 
 chosen reference star, in pixel units.
 \begin{center}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{ccc}
     \hline
      & $x_c$ & $y_c$ \\
     \hline
@@ -444,7 +446,7 @@ via numpy function \textit{np.polyfit} yields Fig.\ref{fig:fit}.
     \label{fig:fit}
 \end{figure}
 \begin{center}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{cccc}
     \hline
     \# ap & $p_0 (\cdot 10^{-10})$ & $p_1 (\cdot 10^{-7})$ & $p_2 ( \cdot 10^3)$ \\
     \hline
@@ -468,7 +470,7 @@ continuous with respect to the linear fit. These quantify scattering and
 indicate that the 99\% aperture is indeed the best photometric choice, 
 having the smallest standard deviation.
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{cc}
     \hline
     $\sigma_{90}$ & $0.0063$ \\
     $\sigma_{95}$ & $0.0061$ \\
@@ -494,8 +496,8 @@ The photometric observations for WASP-44 were reduced by the Science Processing 
 
 From ExoFOP-TESS \footnote{Exoplanet Follow-up Observing Program for TESS website, to be found at https://exofop.ipac.caltech.edu/tess/} 
 we retrieved the TIC (TESS Input Catalog) identification number for our target star, 12862099.
-We were then able to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and 
-PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry ) flux files from the Mikulski Archive for Space 
+We were able then to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and 
+PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry) flux files from the Mikulski Archive for Space 
 Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/ Clients/Mast/Portal.html}, after a previous selection 
 of the data exclusive to the TESS mission.
 
@@ -541,11 +543,10 @@ as can be seen in \ref{fig:tess} .
 
 
 
-Subsequently we repeat the quality selection analysis on the lightcurve files (provided by the 
-TESS team and obtained from the MAST portal as previously addressed), and plot both the optimal 
+Subsequently we repeated the quality selection analysis on the lightcurve files (provided by the 
+TESS team and obtained from the MAST portal as previously addressed), and plotted both the optimal 
 aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time. We can be sure of 
-the correctness of the analysis we carried on from the observed overlapping between the the 
-optimal aperture and SAP lightcurve. For our photometric analysis, however, we will make use of 
+the correctness of the analysis we carried on from the observed overlapping between the optimal aperture and the SAP lightcurve. For our photometric analysis, however, we will make use of 
 the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and corrected for systematic trends.
 
 
@@ -563,7 +564,7 @@ the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux 
 It is of capital importance to flatten and de-trend the light curve, meaning to correct for stellar activity, 
 flares, gaps in the data and interrupted transits by removal of the curve modulation due to the stellar and instrumental systematics.
 Via the \textit{WOTAN} package \footnote{https://github.com/hippke/wotan} (\cite{Hippke1}) we applied to the 
-PDCSAP light curve a biweight filter with a time window of 1d and a hspline filter with a time window of 2d 
+PDCSAP light curve a biweight filter with a time window of 1 d and a hspline filter with a time window of 2 d 
 (\ref{fig:filters}); afterwards we normalized and folded the lightcurves, with the aim of studying the transits in phase (\ref{fig:Transits}).
 
 
@@ -632,26 +633,64 @@ we saved the output in a data file that will be the basis for the subsequent ana
 %Conversion from fit parameters to physical parameters
 Once obtained the datasets and prepared the configuration files written in YAML language both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
 
-To this aim we performed the analysis using \textit{PyORBIT} \footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta16}, \cite{Malavolta18}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
+To this aim we performed the analysis using \textit{PyORBIT}\footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta16}, \cite{Malavolta18}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
 
-All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE} \footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
+All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE}\footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
+
+In the chosen models the orbits were assumed to be tidally circularized, and a jitter flag was activated in order to add a jitter parameter in quadrature to the flux errors to compensate their under-estimation.
 
 For the Bayesian analysis of the TESS lightcurve, we assumed a circular orbit, a quadratic law for the limb darkening coefficients, uniform priors for the period, the central time of transit, the impact parameter, the scaled planetary radius, and gaussian priors for the stellar parameters.
+
 
 For the Bayesian analysis of the TASTE lightcurve, we chose a second order polynomial trend as a model for out of transit flattening, gaussian priors for the period, the limb darkening coefficients, the stellar parameters and uniform priors for all the other parameters.
 
 Since the resulting chains were more than 50 times longer than the autocorrelation function, we are assured that the estimate can be trusted.
 
+The physical parameters obtained from the posterior samples are collected in tables \ref{table:1} and \ref{table:3} in the following sections.
 
+%\ref{table:2} for TESS and Tables for TASTE.
+The corner plots of the posterior samples showing the correlation between the parameters are reported in Fig. \ref{fig: cptess}, \ref{fig: cptaste} and \ref{fig: ptrend} .
+
+Along the diagonal there are histograms of the estimated 1D posterior probability distribution for each parameter. 
+
+The histograms show that the recovered parameters are both accurate (close to injected value) and precise (narrow posterior distribution). 
+
+The off-diagonal plots are the 2D histograms of the estimated joint posterior probability distribution of each pair of parameters, which show the correlation between pairs of parameters.
+
+The normalized stellar fluxes, fitted with the model of the exoplanetary transit, along with the residuals are reported in Fig. \ref{fig: lc1} and \ref{fig: lc2} .
 
 \subsection{TESS}
+
+
+
+
+ \begin{table}[h!]
+ \centering
+    \begin{tabular}{cccc}
+    \hline
+     Parameter& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+    \hline
+    P ($d_{BJD}$)   &  2.423846   &  0.000168 &     0.000167 \\
+    $T_{c} (d_{BJD})$ &  2458386.578204 & 0.000720  & 0.000721  \\ 
+    b & 0.526068  & 0.052957    & 0.047805  \\
+    $R_{P }/ R_{\star}$&  0.116950 & 0.002680   &  0.002595\\
+    $\rho (\rho_{\odot})$ & 1.209717 & 0.088844  &  0.090123\\
+    $c1_{ld}$ & 0.509840    & 0.282570  & 0.257019\\
+    $c2_{ld}$ &0.167904 & 0.392996 & 0.396461\\
+    jitter & 0.000241 &0.000141 &0.000219 \\
+    \hline
+    \end{tabular} 
+  \caption{Physical parameters obtained from TESS analysis}
+ \label{table:1}
+ \end{table}
+
 
 
 \begin{figure}
   \centering
     \includegraphics[scale=0.2, angle=0]{../pictures/tess/acf_tess.pdf}
-    \caption{Autocorrelation chain}
- %  \label{fig: lctess}
+     \caption{Full variables TESS corner plot}
+    \label{fig: cptess}
 \end{figure}
 
 
@@ -659,28 +698,58 @@ Since the resulting chains were more than 50 times longer than the autocorrelati
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/lctess.png}
     \caption{TESS lightcurve}
- %  \label{fig: lctess}
+   \label{fig: lc1}
 \end{figure}
 
 \newpage
 \subsection{TASTE}
 
 
+ \begin{table}[h!]
+ \centering
+    \begin{tabular}{cccc}
+    \hline
+     Parameter& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+    \hline
+    P ($d_{BJD}$)   &  2.468733    &  0.158915  &  0.131093 \\
+    $T_{c} (d_{BJD})$ &  2459174.317823 & 0.000566  &  0.000554  \\ 
+    b &  0.585133  & 0.051438    &  0.042263  \\
+    $R_{P }/ R_{\star}$ & 0.129397 & 0.003821 &  0.003747 \\
+    $\rho (\rho_{\odot})$ & 1.156424 &0.088183   &   0.090487 \\
+    $c1_{ld}$ &  0.345531     & 0.090242  &  0.091553 \\
+    $c2_{ld}$ &0.230632 & 0.098916 &0.099288\\
+    jitter & 0.003067  &0.000359  &0.000341\\
+    $p_{0}$ & 1.053690  & 0.001014&  0.001026\\
+    $p_{1}$ &0.001706 &0.004975  & 0.004923\\
+    $p_{2}$ &0.553433  &0.218298  & 0.211560\\ 
+    \hline
+    \end{tabular} 
+   \caption{Physical parameters obtained from TASTE analysis}
+ \label{table:3}
+ \end{table}
+
 
 \begin{figure}
   \centering
     \includegraphics[scale=0.2, angle=0]{../pictures/taste/acf_taste.pdf}
-    \caption{Autocorrelation chain}
- %  \label{fig: lctess}
+    \caption{Correlation between all the TASTE variables}
+   \label{fig: cptaste}
 \end{figure}
 
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=0.3, angle=0]{../pictures/taste/poly.pdf}
+    \caption{Polynomial trend corner plot}
+   \label{fig: ptrend}
+\end{figure}
 
 
 \begin{figure}
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/taste/lctaste.png}
     \caption{TASTE lightcurve}
- %  \label{fig: lctaste}
+   \label{fig: lc2}
 \end{figure}
 
 
