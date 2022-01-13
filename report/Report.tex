@@ -15,24 +15,22 @@
 %\sectionfont{\bfseries\Large\raggedright}
 
 %\usepackage{hyperref}
-\usepackage[hyperfootnotes=false]{hyperref}
+
 %\hypersetup{hidelinks}
 
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
-
 \usepackage{listings}
 \usepackage{color}
-%\usepackage[svgnames]{xcolor}
-
+\usepackage[svgnames]{xcolor}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
   language=python,
-  aboveskip=3mm,
+ aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
@@ -55,7 +53,9 @@
 \renewcommand*{\finentrypunct}{}
 \addbibresource{bibliography.bib}
 
+
 %\usepackage[T1]{fontenc}
+\usepackage[hyperfootnotes=false]{hyperref}
 
 \pagestyle{headings}
 
@@ -632,9 +632,9 @@ we saved the output in a data file that will be the basis for the subsequent ana
 %Conversion from fit parameters to physical parameters
 Once obtained the datasets and prepared the configuration files written in YAML language both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
 
-To this aim we performed the analysis using \textit{PyORBIT} \footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta et al. 2016}, \cite{2018}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
+To this aim we performed the analysis using \textit{PyORBIT} \footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta16}, \cite{Malavolta18}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
 
-All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE} \footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{emcee}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
+All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE} \footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
 
 For the Bayesian analysis of the TESS lightcurve, we assumed a circular orbit, a quadratic law for the limb darkening coefficients, uniform priors for the period, the central time of transit, the impact parameter, the scaled planetary radius, and gaussian priors for the stellar parameters.
 
@@ -851,7 +851,7 @@ travel is variable and follows a sinusoidal behaviour.
     \includegraphics[scale=0.55, angle=0]{../pictures/time_corr.png}
 \end{figure}
 
-
+\nocite{*}
 \printbibliography
 
 \end{document}
