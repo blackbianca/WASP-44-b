@@ -81,11 +81,9 @@
             the alleged planet.}
 
         \end{abstract}
+        \vspace*{1cm}
     \end{@twocolumnfalse}
 ]
-
-
-
 
 
 \section{Introduction}
@@ -499,27 +497,27 @@ having the smallest standard deviation.
 
 \subsection{Light curve extraction via aperture photometry}
 
-WASP-44 was observed by TESS (Transiting Exoplanet Survey Satellite) in 120 s cadence mode during observations of sector 3, between 2018 September 20 and October 17.
+WASP-44 was observed by TESS (Transiting Exoplanet Survey Satellite) in $120 s$-cadence mode during observations of sector 3, between 2018 September 20 and October 17.
 
 The photometric observations for WASP-44 were reduced by the Science Processing Operations Center (SPOC) pipeline (\cite{Jenkins}).
 
 From ExoFOP-TESS \footnote{Exoplanet Follow-up Observing Program for TESS website, to be found at https://exofop.ipac.caltech.edu/tess/} 
-we retrieved the TIC (TESS Input Catalog) identification number for our target star, 12862099.
+we retrieved the TIC (TESS Input Catalog) identification number for our target star (12862099).
 We were able then to download the 2-min cadence target pixel file (TPF), the SAP (Simple Aperture Photometry) and 
 PDCSAP (Pre-search Data Conditioning Simple Aperture Photometry) flux files from the Mikulski Archive for Space 
-Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/ Clients/Mast/Portal.html}, after a previous selection 
+Telescopes (MAST)\footnote{https://mast.stsci.edu/portal/Mashup/ Clients/Mast/Portal.html}, after previous selection 
 of the data exclusive to the TESS mission.
 
 
 
-We performed a preliminary contamination check with \textit{tpfplotter} \footnote{https://github.com/jlillo/tpfplotter.git}, 
+We performed a preliminary contamination check with \textit{tpfplotter}\footnote{https://github.com/jlillo/tpfplotter.git}, 
 aiming to establish whether our default photometric aperture includes any contaminant star that may cause a dilution of the transit.
 
 By running
 \begin{lstlisting}
 python tpfplotter.py 12862099 --maglim 6 --SAVEGAIA
 \end{lstlisting}
-we obtained the following tpf plot \ref{fig:tpfplot}, which shows how only one star is present within the mask, 
+we obtained \ref{fig:tpfplot}, which shows how only one star is present within the aperture, 
 but since it is over 4 magnitudes fainter than the target in the G band, it does not constitutes a contaminant and can therefore be ignored.
 \begin{figure}
     \centering
@@ -532,6 +530,8 @@ but since it is over 4 magnitudes fainter than the target in the G band, it does
 In order to obtain an independent confirmation of the signals
 detected in the TESS light curve, we performed an iterative transit
 search on the detrended light curve using the Transit Least Squares method.
+Due to the fact that we're combining information coming from many transits, 
+the results are probably going to be more precise than TASTE.
 %(TLS) algorithm (Hippke & Heller 2019)
 
 
@@ -554,16 +554,18 @@ as can be seen in \ref{fig:tess} .
 
 Subsequently we repeated the quality selection analysis on the lightcurve files (provided by the 
 TESS team and obtained from the MAST portal as previously addressed), and plotted both the optimal 
-aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time. We can be sure of 
-the correctness of the analysis we carried on from the observed overlapping between the optimal aperture and the SAP lightcurve. For our photometric analysis, however, we will make use of 
-the PDCSAP light curve, being the PDCSAP flux usually cleaner than the SAP flux and corrected for systematic trends.
+aperture, the SAP and the PDCSAP fluxes thus obtained as a function of time (\ref{fig:tess_lc}). 
+The observed overlapping between the optimal aperture and the SAP lightcurve is evidence for the goodness 
+of the anlysis. For our photometric analysis, however, we will make use of 
+the PDCSAP light curve, being it usually cleaner than the SAP flux and also 
+corrected for systematic trends.
 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/lightcurve.png}
     \caption{Optimal aperture, SAP and PDCSAP lightcurves.}
-   %\label{fig:tess}
+    \label{fig:tess_lc}
 \end{figure}
 
 
@@ -601,14 +603,15 @@ We obtained for the PDCSAP, biweight and hspline fluxes' standard deviations the
 
 We proceeded to perform an iterative  transit search on the detrended light curve in order to independently 
 confirm the detection of the periodic signals in the TESS light curve.
-We used  the Transit Least Squares (TLS) \footnote{https://github.com/hippke/tls} algorithm (\cite{Hippke2}), 
+We used  the Transit Least Squares (TLS)\footnote{https://github.com/hippke/tls} algorithm (\cite{Hippke2}), 
 which offers one of the best method to detect planetary transits from time-series photometry.
 Indeed it searches for transit-like features with stellar limb-darkening, includes the effects of planetary 
 ingress and egress, analyses the entire data of the phase-folded light curve and yields a $\approx 10 \% $ higher 
 detection efficiency (SDE) compared to the Box-fitting Least Square (BLS) method, therefore being more accurate but more time-consuming. 
 
-We obtained the following periodgram and folded lightcurve with a SDE of 15.15413, a period of 2.42547 d, a central transit time of 
-2458386.57308 BJD and a best transit duration of 0.07180 d.
+We obtained the periodogram (\ref{fig:TLS_periodogram}) and folded lightcurve (\ref{fig:detrended_transits}) 
+with a SDE of 15.15413, a period  $P=2.42547 d$, a central transit time 
+$T_c=2458386.57308 BJD$ and a best transit duration of $0.07180 d$ (roughly $1h43min$).
  
 
 
@@ -616,14 +619,14 @@ We obtained the following periodgram and folded lightcurve with a SDE of 15.1541
    \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/sde.png}
     \caption{TLS periodgram}
-%   \label{fig:Transits}
+    \label{fig:TLS_periodogram}
 \end{figure}
 
 \begin{figure}
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/transit.png}
     \caption{Detrended transits}
- %  \label{fig:Transits}
+    \label{fig:detrended_transits}
 \end{figure}
 
 At last, we chose to select only the data points that are at a distance which is within twice the value of the transit duration from the center of the transit, 
@@ -640,13 +643,13 @@ we saved the output in a data file that will be the basis for the subsequent ana
 \section{Light curve fit}
 
 %Conversion from fit parameters to physical parameters
-Once obtained the datasets and prepared the configuration files written in YAML language both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
+Once obtained the datasets and prepared the .yaml configuration files both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
 
 To this aim we performed the analysis using \textit{PyORBIT}\footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta16}, \cite{Malavolta18}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
 
 All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE}\footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
 
-In the chosen models the orbits were assumed to be tidally circularized, and a jitter flag was activated in order to add a jitter parameter in quadrature to the flux errors to compensate their under-estimation.
+In the chosen models the orbits were assumed to be tidally circularized, and a jitter flag was activated in order to add a jitter parameter in quadrature to the flux errors to compensate for their under-estimation.
 
 For the Bayesian analysis of the TESS lightcurve, we assumed a circular orbit, a quadratic law for the limb darkening coefficients, uniform priors for the period, the central time of transit, the impact parameter, the scaled planetary radius, and gaussian priors for the stellar parameters.
 
@@ -668,13 +671,10 @@ The off-diagonal plots are the 2D histograms of the estimated joint posterior pr
 
 The normalized stellar fluxes, fitted with the model of the exoplanetary transit, along with the residuals are reported in Fig. \ref{fig: lc1} and \ref{fig: lc2} .
 
-\subsection{TESS}
-
-
-
 
  \begin{table}[h!]
  \centering
+ \resizebox{\columnwidth}{!}{%
     \begin{tabular}{cccc}
     \hline
      Parameter& Value & $\sigma_{-}$ & $\sigma_{+}$\\
@@ -689,33 +689,23 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
     jitter & 0.000241 &0.000141 &0.000219 \\
     \hline
     \end{tabular} 
+ }
   \caption{Physical parameters obtained from TESS analysis}
  \label{table:1}
  \end{table}
 
 
-
 \begin{figure}
-  \centering
-    \includegraphics[scale=0.2, angle=0]{../pictures/tess/acf_tess.pdf}
-     \caption{Full variables TESS corner plot}
-    \label{fig: cptess}
-\end{figure}
-
-
-\begin{figure}
-  \centering
+    \hspace*{-2cm}
+    \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/lctess.png}
     \caption{TESS lightcurve}
    \label{fig: lc1}
 \end{figure}
 
-\newpage
-\subsection{TASTE}
-
-
  \begin{table}[h!]
  \centering
+ \resizebox{\columnwidth}{!}{%
     \begin{tabular}{cccc}
     \hline
      Parameter& Value & $\sigma_{-}$ & $\sigma_{+}$\\
@@ -733,29 +723,26 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
     $p_{2}$ &0.553433  &0.218298  & 0.211560\\ 
     \hline
     \end{tabular} 
+ }
    \caption{Physical parameters obtained from TASTE analysis}
  \label{table:3}
  \end{table}
 
 
-\begin{figure}
-  \centering
-    \includegraphics[scale=0.2, angle=0]{../pictures/taste/acf_taste.pdf}
-    \caption{Correlation between all the TASTE variables}
-   \label{fig: cptaste}
-\end{figure}
+
 
 
 \begin{figure}
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/taste/poly.pdf}
-    \caption{Polynomial trend corner plot}
+    \caption{TASTE polynomial trend corner plot}
    \label{fig: ptrend}
 \end{figure}
 
 
 \begin{figure}
-  \centering
+    \hspace*{-2cm}
+    \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/taste/lctaste.png}
     \caption{TASTE lightcurve}
    \label{fig: lc2}
@@ -763,7 +750,7 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
 
 
 
-
+\clearpage
 \subsection{Comparison}
 
 As a further check on the output values of our analysis, we apply 
@@ -772,13 +759,16 @@ central transit time (from TASTE observations) to the expected calculated (C) va
 
 We obtain a O-C value of -0.010331 which indicates the accuracy of our analysis.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
     \includegraphics[scale=0.4, angle=0]{../pictures/comparison/oc.png}
     \caption{O-C plot: checking compatibility between TESS prediction and TASTE result.}
     \label{fig:ocplot}
 \end{figure}
-
+The plot shows the propagation of the error on TESS prediction,
+increasing throughout time up to the epoch of our TASTE measurement. See 
+that TASTE result falls within the cone, proving compatibility of the 
+two results.
 
 \newpage
 
@@ -803,7 +793,7 @@ We ran PyORBIT again to fit the RV curve with a proper model. Radial velocity in
 file can be equipped with an extra "0" column, in order to enable the code to compute
 any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
-\textit{harmonics}. See \ref{sect:app_C} for plots and full results.
+\textit{harmonics}. See \ref{sect:app_C_RV} for plots and full results.
 
 \begin{comment}
     
@@ -1003,9 +993,10 @@ travel is variable and follows a sinusoidal behaviour.
 \end{figure}
 
 
-\section{Radial velocity tables and figures}
-\label{sect:app_C}
+\section{Tables and figures}
 
+\subsection{Radial velocity}
+\label{sect:app_C_RV}
 
 \begin{table}[h!]
     \centering
@@ -1058,6 +1049,37 @@ travel is variable and follows a sinusoidal behaviour.
 	\label{fig:RV2}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+      \includegraphics[scale=0.3, angle=0]{../pictures/RV/WASP44_RV_cornerplot.pdf}
+      \caption{Correlation between parameters of the \textit{radial velocities} model}
+     \label{fig: cpRV}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[scale=0.3, angle=0]{../pictures/RV/WASP44_RV_harmonics_cornerplot.pdf}
+      \caption{Correlation between parameters of the \textit{harmonics} model}
+     \label{fig: cpRV2}
+\end{figure}
+
+
+
+
+\subsection{TESS and TASTE}
+\begin{figure}[H]
+    \centering
+      \includegraphics[scale=0.38, angle=0]{../pictures/tess/acf_tess.pdf}
+       \caption{Correlation between TESS parameters}
+      \label{fig: cptess}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[scale=0.38, angle=0]{../pictures/taste/acf_taste.pdf}
+      \caption{Correlation between TASTE parameters}
+     \label{fig: cptaste}
+\end{figure}
 
 
 
