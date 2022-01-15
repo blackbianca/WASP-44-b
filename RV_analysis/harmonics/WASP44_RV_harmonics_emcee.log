@@ -1,0 +1,259 @@
+
+PyORBIT v8.3
+
+Python version in use:
+3.8.8 (default, Apr 13 2021, 19:58:26) 
+[GCC 7.3.0]
+
+reloaded_optimize:  False
+reloaded_pyde:  False
+reloaded_emcee:  False
+
+Opening:  RVdata
+Adding common model of planet:  b
+Using orbital model:  circular
+Using orbital parametrization:  Eastman2013_Tcent
+Using Central Time of Transit instead of phase
+Inclination will be included as free parameter:  True
+
+
+====================================================================================================
+     Boundaries of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+jitter_0         5  ([  0.180000, 4000.000000])
+offset_0         6  ([-14173.000000, 6106.000000])
+
+----------  RVdata      ----- model:  harmonics
+amp_S1           7  ([-19.931569,  19.931569])
+amp_S2           8  ([-19.931569,  19.931569])
+amp_C1           9  ([-19.931569,  19.931569])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+Tc               0  ([2458386.500000, 2458386.650000])
+K                1  ([ -6.643856,  12.036174])
+P                2  ([  2.400000,   2.440000])
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+P                3  ([  0.000000,   5.000000])
+phase            4  ([  0.000000,   6.283185])
+
+Include priors:  True
+
+Reference Time Tref:  2450000.0
+
+Dimensions =  10
+Nwalkers =  40
+
+Using threading pool for PyDE: True
+PyDE running
+Boundaries redefined after PyDE output
+PyDE completed
+
+
+====================================================================================================
+     Starting point of the sample/optimization routines    
+====================================================================================================
+
+----- dataset:  RVdata
+jitter_0         5      0.584324 ([  0.180000, 4000.000000])
+offset_0         6  -4042.126428 ([-14173.000000, 6106.000000])
+
+----------  RVdata      ----- model:  harmonics
+amp_S1           7     -7.491529 ([-19.931569,  19.931569])
+amp_S2           8      3.385084 ([-19.931569,  19.931569])
+amp_C1           9    -11.946890 ([-19.931569,  19.931569])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+Tc               0  2458386.578208 ([2458386.500000, 2458386.650000])
+K                1      7.161010 ([ -6.643856,  12.036174])
+P                2      2.423809 ([  2.400000,   2.440000])
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+P                3      2.423845 ([  0.000000,   5.000000])
+phase            4      5.847428 ([  2.705835,   8.989020])
+
+====================================================================================================
+     Starting point projected onto the physical space     
+====================================================================================================
+
+----- dataset:  RVdata
+jitter_0              0.584324 
+offset_0          -4042.126428 
+
+
+----------  RVdata      ----- model:  harmonics
+amp_S1                0.005557 
+amp_S2               10.447488 
+amp_C1                0.000253 
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+o                     1.570796 
+Tc              2458386.578208 
+K                   143.112956 
+e                 0.000000e+00 
+P                     2.423809 
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+P                     2.423845 
+phase                 5.847428 
+
+====================================================================================================
+     Derived parameters obtained from starting point     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+a                     8.036144 
+i                    86.251376 
+M                     0.000919 
+M_Mj                  0.962571 
+M_Me                305.995868 
+f                     1.050379 
+a_AU_(M)              0.035589 
+a_AU_(rho,R)          0.035578 
+
+
+====================================================================================================
+     Statistics on the log-likelihood     
+====================================================================================================
+
+ LN probability:  -124.169582 
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+*************************************************************
+
+Running emcee
+
+emcee version:  3.1.1
+Using threading pool for emcee: True
+
+
+***** WARNING ******
+The integrated autocorrelation time cannot be reliably estimated
+likely the chains are too short, and ACF analysis is not fully reliable
+emcee.autocorr.integrated_time tolerance lowered to 20
+If you still get a warning, you should drop these results entirely
+
+Computing the autocorrelation time of the chains
+Reference thinning used in the analysis: 200
+Step length used in the analysis: 15*nthin = 3000
+
+Convergence criteria: less than 1% variation in ACF after 20 times the integrated ACF
+At least 50*ACF after convergence, 100*ACF would be ideal
+Negative values: not converged yet
+
+          sample variable      |    ACF   | ACF*nthin | converged at | nteps/ACF 
+                               |          |           |              |           
+          RVdata_jitter_0      |   3.254  |    650.8  |    18000     |    126.0   
+          RVdata_offset_0      |   2.949  |    589.9  |      464     |    168.7   
+          RVdata_harmonics_amp_S1 |   6.518  |   1303.7  |    12464     |     67.1   
+          RVdata_harmonics_amp_S2 |   3.510  |    702.0  |     6464     |    133.2   
+          RVdata_harmonics_amp_C1 |   5.436  |   1087.3  |      464     |     91.5   
+          b_Tc                 |   2.778  |    555.6  |     3464     |    173.8   
+          b_K                  |  15.314  |   3062.9  |     9464     |     29.6   
+          b_P                  |  14.398  |   2879.5  |       -1     |     -1.0   
+          harmonics_P          |   3.106  |    621.3  |      464     |    160.2   
+          harmonics_phase      |   4.316  |    863.3  |      464     |    115.3   
+
+     1 chains have not converged yet, keep going 
+
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+jitter_0         5      8.412502      -5.733187      9.012852 (15-84 p) ([ 0.180000, 4000.000000])
+offset_0         6  -4043.655266      -7.025075      7.166508 (15-84 p) ([-14173.000000, 6106.000000])
+
+----------  RVdata      ----- model:  harmonics
+amp_S1           7     -6.545445      -9.119067      9.209120 (15-84 p) ([-19.931569, 19.931569])
+amp_S2           8     -8.116609      -8.119048      8.117224 (15-84 p) ([-19.931569, 19.931569])
+amp_C1           9     -6.673833      -9.051378      8.939593 (15-84 p) ([-19.931569, 19.931569])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+Tc               0  2458386.578202      -0.000708      0.000741 (15-84 p) ([2458386.500000, 2458386.650000])
+K                1      7.098580      -0.156575      0.130929 (15-84 p) ([-6.643856, 12.036174])
+P                2      2.423806      -0.000029      0.000028 (15-84 p) ([ 2.400000,  2.440000])
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+P                3      2.423850      -0.000166      0.000167 (15-84 p) ([ 0.000000,  5.000000])
+phase            4      5.935336      -2.241898      2.102363 (15-84 p) ([ 2.705835,  8.989020])
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  RVdata
+jitter_0              8.412502         -5.733187         9.012852 (15-84 p)
+offset_0          -4043.655266         -7.025075         7.166508 (15-84 p)
+
+
+----------  RVdata      ----- model:  harmonics
+amp_S1                0.010706         -0.010687         6.325745 (15-84 p)
+amp_S2                0.003603         -0.003590         0.996824 (15-84 p)
+amp_C1                0.009794         -0.009776         4.799285 (15-84 p)
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+o                     1.570796 
+Tc              2458386.578202         -0.000708         0.000741 (15-84 p)
+K                   137.052049        -14.095483        13.019732 (15-84 p)
+e                 0.000000e+00 
+P                     2.423806         -0.000029         0.000028 (15-84 p)
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+P                     2.423850         -0.000166         0.000167 (15-84 p)
+phase                 5.935336         -2.241898         2.102363 (15-84 p)
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+Computing exact mass of the planet (average approximate mass larger than 30.0 Me)
+a                     8.043266         -0.172719         0.169495 (15-84 p)
+i                    86.266036         -0.429034         0.440299 (15-84 p)
+M                     0.000838         -0.000092         0.000088 (15-84 p)
+M_Mj                  0.877899         -0.095983         0.092113 (15-84 p)
+M_Me                279.079072        -30.512460        29.282176 (15-84 p)
+f                     1.044241         -0.235271         0.277274 (15-84 p)
+a_AU_(M)              0.034760         -0.000602         0.000593 (15-84 p)
+a_AU_(rho,R)          0.034749         -0.000602         0.000593 (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+emcee completed
+

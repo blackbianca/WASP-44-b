@@ -790,20 +790,64 @@ to this RV dataset. We made sure the time range of this set did not overlap
 with the time range of the transits: any stellar spectra taken while the planet is 
 transiting is missing a contribution and can be no longer considered as a RV 
 datapoint.
-We ran PyORBIT and got
+We ran PyORBIT again to fit the RV curve with a proper model. Radial velocity input
+file can be equipped with an extra "0" column, in order to enable the code to compute
+any RV offset due to the peculiar velocity of the star.
+Two models were exploited for the analysis: \textit{radial velocities} and 
+\textit{harmonics}.
 \begin{table}[h!]
     \centering
        \begin{tabular}{cccc}
        \hline
         Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
        \hline
-       $P$   &2.423806        & -0.000022   &      0.000021   \\
-       $T_c$  &2458386.578204  & -0.000728   &      0.000726  \\
-       $K$   &137.437324      & -10.397997  &      10.170602\\
+		$jitter$ &            8.186931  &        -5.674228  &       8.840726 \\
+		$offset$ &         -4044.009310 &        -6.587574 &        7.142502 \\
+	    $P$   &2.423806        & -0.000022   &      0.000021   \\
+	    $T_c$  &2458386.578204  & -0.000728   &      0.000726  \\
+	    $K$   &137.437324      & -10.397997  &      10.170602\\
        \hline
        \end{tabular} 
-     \caption{Physical parameters obtained from RV analysis.}
-    \end{table}
+     \caption{Physical parameters obtained for \textit{radial velocities} model.}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV.png}
+	\caption{Radial velocities fitting, unfolded and folded model.}
+	\label{fig:RV1}
+\end{figure}
+
+As for the second model:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cccc}
+		\hline
+		Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+		\hline
+		$jitter$ &            8.412502 &        -5.733187  &       9.012852 \\
+		$offset$ &         -4043.655266 &        -7.025075 &        7.166508 \\
+		$P$   &2.423806       & -0.000029    &      0.000028   \\
+		$T_c$  &2458386.578202  & -0.000708   &      0.000741  \\
+		$K$   &137.052049      & -14.095483  &      13.019732\\
+		\hline
+		Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+		\hline
+		$P$ &            2.423850 &        -0.000166   &       0.000167 \\
+		$phase$ &         7.003042  &        -2.175383 &        2.084340  \\
+		\hline
+	\end{tabular} 
+	\caption{Physical parameters obtained for \textit{harmonics} model.}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2.png}
+	\caption{Radial velocities fitting, unfolded and folded model.}
+	\label{fig:RV2}
+\end{figure}
 
 \newpage
 
