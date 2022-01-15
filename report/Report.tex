@@ -9,6 +9,7 @@
 \usepackage{multirow}
 \usepackage{hyphenat}
 \usepackage{sectsty}
+\usepackage{multicol}
 %\usepackage{subfigure}
 %\usepackage{color}
 %\usepackage[dvipsnames]{xcolor}
@@ -64,19 +65,29 @@
 \author{Adriana Barbieri \and Alessandro Bianchetti}
 
 \begin{document}
-\maketitle
-\begin{abstract}
 
-\emph{In the following report we work on WASP-44 b, an exoplanet orbiting 
-around its G-type parent star, located in the constellation of Cetus. 
-We first examine its atmospheric parameters and derive its mass and 
-radius (\cite{Morton}). Then, we correct for limb darkening effect through different methods 
-(\cite{claret2011}, \cite{claret2017}, \cite{claret2018}). We also take 
-some images obtained with Copernico telescope at the Asiago Observatory into consideration 
-and, after proper correction, we use them to extract the light curve of 
-the alleged planet.}
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \maketitle
+        \begin{abstract}
 
-\end{abstract}
+            \emph{In the following report we work on WASP-44 b, an exoplanet orbiting 
+            around its G-type parent star, located in the constellation of Cetus. 
+            We first examine its atmospheric parameters and derive its mass and 
+            radius (\cite{Morton}). Then, we correct for limb darkening effect through different methods 
+            (\cite{claret2011}, \cite{claret2017}, \cite{claret2018}). We also take 
+            some images obtained with Copernico telescope at the Asiago Observatory into consideration 
+            and, after proper correction, we use them to extract the light curve of 
+            the alleged planet.}
+
+        \end{abstract}
+    \end{@twocolumnfalse}
+]
+
+
+
+
+
 \section{Introduction}
 
 Confirmed exoplanets are growing in number year by year, and transit method 
@@ -854,6 +865,7 @@ Two models were exploited for the analysis: \textit{radial velocities} and
 
 \nocite{*}
 \printbibliography
+
 
 \onecolumn
 
