@@ -773,6 +773,40 @@ We obtain a O-C value of -0.010331 which indicates the accuracy of our analysis.
 
 \newpage
 
+\section{Radial velocity analysis}
+Knowing the RV semi-amplitude $K_*$ and the mass $M_*$ of the star,
+the planetary mass $M_p$ is obtained by inverting the following equation. 
+\begin{equation}
+    K_* = \frac{1}{\sqrt{1-e^2}}\frac{M_p \sin{i}}{(M_*+M_p)^{2/3}}\left(\frac{P}{2\pi G}\right)^{-1/3}
+\end{equation}
+where $M_p\sin{i}$ represents a \textit{minimum mass} estimate. $i$ can be 
+measured for a transiting planet, thus yielding $M_p$.
+Velocity was observed by hashafasha. Only one radial velocity time series
+is available at NASA Exoplanet Archive \footnote{https://exoplanetarchive.ipac.caltech.edu/}, 
+involving 17 points and based on optical band spectral measurements 
+(\cite{Anderson}). CORALIE spectrograph mounted on the 1.2-m
+Euler-Swiss telescope was used in 2010 to gather the 17 spectra that lead
+to this RV dataset. We made sure the time range of this set did not overlap 
+with the time range of the transits: any stellar spectra taken while the planet is 
+transiting is missing a contribution and can be no longer considered as a RV 
+datapoint.
+We ran PyORBIT and got
+\begin{table}[h!]
+    \centering
+       \begin{tabular}{cccc}
+       \hline
+        Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+       \hline
+       $P$   &2.423806        & -0.000022   &      0.000021   \\
+       $T_c$  &2458386.578204  & -0.000728   &      0.000726  \\
+       $K$   &137.437324      & -10.397997  &      10.170602\\
+       \hline
+       \end{tabular} 
+     \caption{Physical parameters obtained from RV analysis.}
+    \end{table}
+
+\newpage
+
 \section{Conclusions}
 
 
