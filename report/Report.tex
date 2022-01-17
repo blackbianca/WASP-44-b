@@ -216,13 +216,16 @@ addressed in \ref{sect:app_A}.
 
 \section{TASTE data analysis}
 
-Before actually analysing data from TASTE, we need to properly correct them.
+TASTE project provides us with data by Asiago Copernico telescope, observing the target. 
+The dataset used only contains one transit, to make the analysis simpler.
+Before actually analysing this data, we need to properly correct it. Removing 
+instrumental effects will largely improve the final result.
 Then, we're going to have a look at and correctly format them, preparing 
 the configurations file for the PyORBIT run. 
 
 
 \subsection{Bias and flat field correction}
-CCD s(Charged Coupled Devices) are the privileged detectors for photon counting, 
+CCD s(Charged Coupled Devices) are the favourite detectors for photon counting, 
 due to their high quantum efficiency. The images produced are \textit{raw}
 and must be properly \textit{pre-reduced} before being analysed. Pre-reduction 
 goes through different steps:
@@ -710,17 +713,17 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
     \hline
      Parameter& Value & $\sigma_{-}$ & $\sigma_{+}$\\
     \hline
-    P ($d_{BJD}$)   &  2.468733    &  0.158915  &  0.131093 \\
-    $T_{c} (d_{BJD})$ &  2459174.317823 & 0.000566  &  0.000554  \\ 
-    b &  0.585133  & 0.051438    &  0.042263  \\
-    $R_{P }/ R_{\star}$ & 0.129397 & 0.003821 &  0.003747 \\
-    $\rho (\rho_{\odot})$ & 1.156424 &0.088183   &   0.090487 \\
-    $c1_{ld}$ &  0.345531     & 0.090242  &  0.091553 \\
-    $c2_{ld}$ &0.230632 & 0.098916 &0.099288\\
-    jitter & 0.003067  &0.000359  &0.000341\\
-    $p_{0}$ & 1.053690  & 0.001014&  0.001026\\
-    $p_{1}$ &0.001706 &0.004975  & 0.004923\\
-    $p_{2}$ &0.553433  &0.218298  & 0.211560\\ 
+    P ($d_{BJD}$)   &  2.455655    &  0.157179  &  0.137930 \\
+    $T_{c} (d_{BJD})$ &  2459174.317801 & 0.000575  &  0.000568  \\ 
+    b &  0.557512  & 0.047496    &  0.040594  \\
+    $R_{P }/ R_{\star}$ & 0.128461 & 0.003655 &  0.003610 \\
+    $\rho (\rho_{\odot})$ & 1.168052 &0.089077   &   0.090373 \\
+    $c1_{ld}$ &  0.510932    & 0.012888  &  0.013152 \\
+    $c2_{ld}$ &0.169946 & 0.005925 &0.005985\\
+    jitter & 0.003079 &0.000357  &0.000340\\
+    $p_{c0}$ & 1.053799  & 0.001015&  0.001027\\
+    $p_{c1}$ &0.001981 &0.004952  & 0.004962\\
+    $p_{c2}$ &-0.575506  &0.215254  & 0.215155\\ 
     \hline
     \end{tabular} 
  }
@@ -840,9 +843,31 @@ and a central transit time $T_c=2458386.5782\pm0.0007d$.
 \newpage
 
 \section{Conclusions}
-Best estimates for P and Tc, check with literature
-conclude something about LD coefficients
+The main goal of this work was extracting the lightcurve both from TASTE
+and TESS data, compute transit time of TESS (trustable because obtained 
+from several transits) and TASTE and check whether the latter falls inside 
+the propagated error of the former. This check is fulfilled so the estimates 
+are compatible.
 
+
+
+
+
+
+
+LD COEFFICIENTS
+
+We can compare Claret2011 only with TASTE, since the paper is older 
+than the launch of TESS. Claret2017 and Claret2018 are instead referred
+to the only TESS built-in filter and so they're available for 
+comparison.
+For TASTE we have to select the r* filter (SDSS) from the table in Claret2011,
+since it is the best filter in terms of CCD efficiency and in terms 
+boxiness of the transit, making it easier to determine ingress and egress 
+time, and therefore central time of transit.
+
+Changing stellar model means changing the way we comput the gradient of temperature 
+and the flux in stellar photosphere.
 
 
 

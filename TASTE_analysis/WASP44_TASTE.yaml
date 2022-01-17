@@ -28,8 +28,8 @@ common:
       type: batman_ld_quadratic
       parametrization: Kipping
       priors:
-        ld_c1: ['Gaussian', 0.366, 0.10]
-        ld_c2: ['Gaussian', 0.243, 0.10]
+        ld_c1: ['Gaussian', 0.512, 0.013]
+        ld_c2: ['Gaussian', 0.170, 0.006]
   polynomial_trend:
     normalization_model: True
     order: 2
