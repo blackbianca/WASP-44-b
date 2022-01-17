@@ -793,11 +793,7 @@ We ran PyORBIT again to fit the RV curve with a proper model. Radial velocity in
 file can be equipped with an extra "0" column, in order to enable the code to compute
 any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
-\textit{harmonics}. See \ref{sect:app_C_RV} for plots and full results.
-
-\begin{comment}
-    
-
+\textit{harmonics}. 
 \begin{table}[h!]
     \centering
        \begin{tabular}{cccc}
@@ -813,8 +809,6 @@ Two models were exploited for the analysis: \textit{radial velocities} and
        \end{tabular} 
      \caption{Physical parameters obtained for \textit{radial velocities} model.}
 \end{table}
-
-
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{cccc}
@@ -835,14 +829,19 @@ Two models were exploited for the analysis: \textit{radial velocities} and
 	\end{tabular} 
 	\caption{Physical parameters obtained for \textit{harmonics} model.}
 \end{table}
-\end{comment}
+They yield very 
+similar results both in terms of value and error (full results in 
+\ref{sect:app_C_RV}), but the simplest model yields results with slightly 
+smaller errrobars. These are a period $P=2.42381\pm0.00002d$
+and a central transit time $T_c=2458386.5782\pm0.0007d$.
 
 
 
 \newpage
 
 \section{Conclusions}
-
+Best estimates for P and Tc, check with literature
+conclude something about LD coefficients
 
 
 
@@ -875,43 +874,64 @@ coefficients $c_1$ and $c_2$ depend on all three atmospheric parameters.
 
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c1_fixedg}
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c2_fixedg}
-    \caption{LD coefficient with fixed metallicty, fixed gravity}
+    \caption{LD coefficient with fixed metallicty (top panels), fixed gravity (bottom panels)}
 \end{figure}
-Furthermore, it's very interesting to check the strength of the dependance 
-on each atmospheric parameters. Turns out LD coefficients are essentially a 
-function of temperature, and minor dependences on gravity and metallicity 
-can be barely appreciated.
+We immediately visualize a vertical gradient rather than a horizontal one,
+showing that temperature dependence is very strong. Turns out LD 
+coefficients are essentially a function of temperature, and minor 
+dependences on gravity and metallicity can be barely appreciated.
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c1}
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c2}
-    \caption{LD coefficient as a function of atmospheric parameters}
+    \caption{LD coefficient as a function of atmospheric parameters. Curves 
+    deviate at $T\leq 4500K$ and $T\geq 8000K$. Central part of the 
+    function is not sensitive to gravity and metallicty, both for $c_1$ 
+    and $c_2$.}
 \end{figure}
 A relevant dependance on gravity and metallicity can only be noticed at 
-high temperatures, where we should carefully select the proper curve. But 
+high temperatures, where we should carefully select the proper curve. However,
 in the range we're interested in ($\approx 5400 K$) the curve is 
 degenerate and the choice of these parameters is secondary.
 
 We perform a Montecarlo simulation, generating 1000 random atmospheric 
-parameters around the actual ones. Even in this case we see that the 
+parameters around the actual ones, using the reference errorbar, 
+thus conserving the error scale. This expedient will enable us 
+to consider the result of this analysis as a good physical 
+estimate of the LD coefficients. 
+Even in this case we see that the 
 distribution of the fixed-metallicity estimates is almost overlapping 
-with the fixed-gravity one, thus confirming $c_1$ and $c_2$ not very 
-sensitive on metallicity and gravity.
+with the fixed-gravity one, thus confirming that, according to the 
+exploited table, $c_1$ and $c_2$ not very sensitive on metallicity and gravity.
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c1_comp}
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c2_comp}
-    \caption{Montecarlo simulation for $c_1$ and $c_2$, for fixed metallicity 
-    and for fixed gravity}
+    \caption{Montecarlo simulation for $c_1$ (left) and $c_2$ (right), 
+    for fixed metallicity and for fixed gravity.}
 \end{figure}
-The two estimates are well compatible, thus authorizing a weighted average: 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ccccc}
+		\hline
+		& $c_1$ & $\sigma_{c1}$ & $c_2$ & $\sigma_{c2}$\\
+		\hline
+		Fixed $[Fe/H]$ Median   & 0.3662 & 0.0271 & 0.2433 & 0.0157\\
+		Fixed $\log{g}$ Median: & 0.3648 & 0.0277 & 0.2436 & 0.0157 \\
+		\hline
+	\end{tabular} 
+\end{table}
+For both coefficients, the two estimates coming from metallicty and 
+gravity fixing are well compatible, thus authorizing a weighted average: 
 $c_1 = 0.366 \pm 0.019$ and $c_2 = 0.243 \pm 0.011$.
+
+\medskip
 
 Another way to deal with the same table is by selecting from the set two values
 of metallicity or gravity, an upper and lower limit, instead of just one reference 
 value. This way we build two matrices and 
-interpolate between the two to get to the desired result. The rest of the procedure is 
-the same as just explained, leading to other estimate of the LD coefficients.
+interpolate between the two to get to the desired result. The rest of the 
+procedure is identical, leading to similar estimates of the LD coefficients.
 \begin{figure}[H]
     \centering  
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg4}
@@ -925,12 +945,34 @@ the same as just explained, leading to other estimate of the LD coefficients.
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/double_c2}
     \caption{LD coefficients trend in the $T_{eff}-[Fe/H]$ plane}
 \end{figure}
-This can be done in the same exact way by fixing metallicity instead.
+Degeneracy is less pronounced if we treat data this way. In fact, changing 
+secondary atmopsheric parameters ($g$ and $[Fe/H]$) now produces a still 
+modest, but visible scatter. This is confirmed by the Montecarlo analysis, 
+that yields results compatible with the previous case but with larger errorbars.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ccccc}
+		\hline
+		& $c_1$ & $\sigma_{c1}$ & $c_2$ & $\sigma_{c2}$\\
+		\hline
+		Fixed $\log{g}$ Median: & 0.3650 & 0.0276 & 0.2436 & 0.0156 \\
+		\hline
+	\end{tabular} 
+\end{table}
+
+
+
+
+
+The procedure could be repeated in the same way by fixing metallicity instead.
+
+
+
 
 \subsection{Claret 2018}
-A successive paper provided a new method to model the LD coefficients dependency 
+A followup paper (\cite{claret2018}) provided a new method to model the LD coefficients dependency 
 on atmospheric parameters. We'd like to check if this leads to different results 
-with respect to the 2017 paper. Unfolding the table requires the same procedure 
+with respect to \cite{claret2017}. Unfolding the table requires the same procedure 
 we've already described. Just note that in both cases we fix metallicity, and for 
 the 2018 table metallicity must be fixed to 0, since the method is conceived for
 zero-metallicity stars.
@@ -938,7 +980,8 @@ zero-metallicity stars.
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/ClaretvClaret/2017.png}
     \includegraphics[scale=0.5, angle=0]{../pictures/ClaretvClaret/2018.png}
-    \caption{Final, interpolated matrices for the two methods (2017 left, 2018 right)}
+    \caption{Comparison between interpolated matrices at fixed metallicity, to the 
+    stellar metallicity (2017 left), and to 0 (2018 right).}
 \end{figure}
 And finally we can display the dependency of the LD coefficients for the 
 two-parameters game.
@@ -948,20 +991,42 @@ two-parameters game.
     \includegraphics[scale=0.5, angle=0]{../pictures/ClaretvClaret/c2.png}
     \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c1_comp.png}
     \includegraphics[scale=0.35, angle=0]{../pictures/ClaretvClaret/c2_comp.png}
-    \caption{$c_1$ and $c_2$ trend, and comparison between the final results}
+    \caption{$c_1$ and $c_2$ trend, and comparison between the final results. Gaussian bells of the 2018 model are narrower.}
 \end{figure}
-See how there is an actual difference between the adopted methods, that lead 
-in fact to slightly different results for the LD coefficients. The good news is, 
-they're largely compatible: see how each value is within a few errorbars away 
-from the other.
+First, the degeneracy on $g$ and $[Fe/H]$ is completely removed, so that they 
+can no longer be referred to as "secondary parameters". The comparison above shows 
+that choosing the model will influence, even strongly, the estimate of 
+the parameters. Quantitatively, the region characterised by $T\approx5400 K$
+is one of the least affected by model choice, but the difference is still 
+too wide to be neglected.
+The final estimates for the parameters are also quite different, both in 
+terms of value and in terms of error. This indicates a systematic difference 
+caused by the choice of the model. Because of this, we need to artificially 
+inflate the error before using limb darkening parameters. This is very 
+important especially for shallow transits like ours.
+Anyway, they're largely compatible still: see how each value is within a 
+few errorbars away from the other.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ccccc}
+		\hline
+		& $c_1$ & $\sigma_{c1}$ & $c_2$ & $\sigma_{c2}$\\
+		\hline
+		2017 Median & 0.3631 & 0.0272 & 0.2444 & 0.0157 \\
+		2018 Median & 0.3961 & 0.0155 & 0.2030 & 0.0048 \\
+		\hline
+	\end{tabular} 
+\end{table}
+The model from \cite{claret2018} yields results with 
+smaller errorbars for both coefficients.
 
 \subsection{Claret 2011}
-We use another table from an older paper by the same author, where even 
-filters have a role. By looking at the header of our dataset, we find the 
-right filter to be $r^{*}$ (SDSS). Remember that transits look differently 
+We use another table from an older paper (\cite{claret2011}) by the same author, 
+this time including filters. The header of our dataset shows that the filter $r^{*}$
+was used (SDSS). Remember that transits look differently 
 when observed through different filters, and also that boxier transits make 
-ingress/egress time determination easier. The unfolding technique is always 
-the same.
+ingress/egress time determination easier. The unfolding technique of the 
+data pack is always the same.
 This time, we account for stellar models (ATLAS/PHOENIX) and interpolation 
 technique (least squares/flux conservation), for a grand total of 4 
 combinations. These are the very final results.
@@ -973,7 +1038,31 @@ combinations. These are the very final results.
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2011/c2_comp.png}
     \caption{$c_1$ and $c_2$ trend, and comparison between the final results}
 \end{figure}
-Again, all results are fully compatible.
+Again, see how the choice of the model is deeply influencing the trend of 
+the coefficients with respect to the atmospheric parameters, and the results 
+consequently. 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ccccc}
+		\hline
+		& $c_1$ & $\sigma_{c1}$ & $c_2$ & $\sigma_{c2}$\\
+		\hline
+		ATLAS, LS:      & 0.4701 & 0.0367 &0.2327 &0.0231 \\
+		ATLAS, FC:      & 0.4848 & 0.0347 & 0.2142 &  0.0205 \\
+		PHOENIX, LS:    & 0.5251 & 0.0219 & 0.1728 & 0.0098 \\
+		PHOENIX, FC:    & 0.5434 & 0.0212 &  0.1499 & 0.0088 \\
+        \hline
+	\end{tabular} 
+\end{table}
+Despite being compatible between each other, the estimates of 
+the coefficients are quite detached from the one inferred following 
+\cite{claret2017} and \cite{claret2018}. This reinforces the need to add 
+a systematic error term. Phoenix stellar model is associated with quite 
+thin errorbars.
+
+
+
+
 
 \section{Time correction}
 \label{sect:app_B}
@@ -1004,11 +1093,11 @@ travel is variable and follows a sinusoidal behaviour.
        \hline
         Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
        \hline
-		$\sigma_{jit}$ &      8.186931  &     -5.674228  &    8.840726 \\
-		$v_{off} (m/s)$ &         -4044.009310 &        -6.587574 &        7.142502 \\
-	    $P (d_{BJD})$   &2.423806        & -0.000022   &      0.000021   \\
-	    $T_c (d_{BJD})$  &2458386.578204  & -0.000728   &      0.000726  \\
-	    $K (m/s)$   &137.437324      & -10.397997  &      10.170602\\
+		$\sigma_{jit}$ &      8.186931  &     5.674228  &    8.840726 \\
+		$v_{off} (m/s)$ &         -4044.009310 &        6.587574 &        7.142502 \\
+	    $P (d_{BJD})$   &2.423806        & 0.000022   &      0.000021   \\
+	    $T_c (d_{BJD})$  &2458386.578204  & 0.000728   &      0.000726  \\
+	    $K (m/s)$   &137.437324      & 10.397997  &      10.170602\\
        \hline
        \end{tabular} 
      \caption{Physical parameters obtained for \textit{radial velocities} model.}
@@ -1027,16 +1116,16 @@ travel is variable and follows a sinusoidal behaviour.
 		\hline
 		Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
 		\hline
-		$\sigma_{jit}$ &            8.412502 &        -5.733187  &       9.012852 \\
-		$v_{off} (m/s)$ &         -4043.655266 &        -7.025075 &        7.166508 \\
-		$P (d_{BJD})$   &2.423806       & -0.000029    &      0.000028   \\
-		$T_c (d_{BJD})$  &2458386.578202  & -0.000708   &      0.000741  \\
-		$K (m/s)$   &137.052049      & -14.095483  &      13.019732\\
+		$\sigma_{jit}$ &            8.412502 &        5.733187  &       9.012852 \\
+		$v_{off} (m/s)$ &         -4043.655266 &        7.025075 &        7.166508 \\
+		$P (d_{BJD})$   &2.423806       & 0.000029    &      0.000028   \\
+		$T_c (d_{BJD})$  &2458386.578202  & 0.000708   &      0.000741  \\
+		$K (m/s)$   &137.052049      & 14.095483  &      13.019732\\
 		\hline
 		Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
 		\hline
-		$P (d_{BJD})$ &            2.423850 &        -0.000166   &       0.000167 \\
-		$phase$ &         7.003042  &        -2.175383 &        2.084340  \\
+		$P (d_{BJD})$ &            2.423850 &        0.000166   &       0.000167 \\
+		$phase$ &         7.003042  &        2.175383 &        2.084340  \\
 		\hline
 	\end{tabular} 
 	\caption{Physical parameters obtained for \textit{harmonics} model.}
