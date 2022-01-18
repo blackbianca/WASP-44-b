@@ -1,23 +1,20 @@
 inputs:
   LCdata:
-    file: WASP44_TASTE_PyORBIT.dat
+    file: WASP44_TESS_PyORBIT.dat
     kind: Phot
     models:
       - lc_model
-      - polynomial_trend
 common:
   planets:
     b:
       orbit: circular
       parametrization: Eastman2013_Tcent
       boundaries:
-        # TLS: transit duration is 0.1
+        # TLS: transit duration is 0.07180
         P: [2.182923, 2.668017]  # TLS: 2.42547
-        Tc: [2459174.262, 2459174.372]  # TASTE: 2459174.3170 , 0.0546, eyeballed from the graph
+        Tc: [2458386.537,2458386.609]  # TLS: 2458386.57308, with error calculated as half transit duration
       spaces:
         P: Linear
-      priors:
-        P: ['Gaussian', 2.42547, 0.242547]
   star:
     star_parameters:
       priors:
@@ -27,21 +24,19 @@ common:
     limb_darkening:
       type: batman_ld_quadratic
       parametrization: Kipping
-      priors:
-        ld_c1: ['Gaussian', 0.512, 0.013]
-        ld_c2: ['Gaussian', 0.170, 0.006]
-  polynomial_trend:
-    normalization_model: True
-    order: 2
+      #priors:
+      #  ld_c1: ['Gaussian', 0.20, 0.20]
+      #  ld_c2: ['Gaussian', 0.25, 0.10]
 models:
   lc_model:
     kind: batman_transit
     planets: b
     #LCdata: #only for full frame images
-      #supersample_factor: 11
-      #exposure_time: xxx.0
+    #  supersample_factor: 11
+    #  exposure_time: xxx.0
 parameters:
-  Tref: 2450000.0
+  Tref: 2458000.0
+  use_tex: False
 solver:
   pyde:
     ngen: 50000
