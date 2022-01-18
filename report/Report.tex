@@ -147,8 +147,9 @@ uncertainties only. In the same conservative spirit we
 previously showed, we add in quadrature a further term to the errors of 
 all three parameters (\cite{Sousa}). We are in fact more interested in an 
 accurate result rather than in a precise one.
-This leads to the following results 
-\begin{center}
+This leads to the results collected in table \ref{table:a} .
+\begin{table}[h!]
+\centering
     \begin{tabular}{ccc}
     \hline
     $T_{eff}$ (K) & $\log{g^*}$ & $[Fe/H]$ \\
@@ -156,12 +157,15 @@ This leads to the following results
     $5400 \pm 162$ & $4.5 \pm 0.2$ & $0.06 \pm 0.11$ \\
     \hline
     \end{tabular}
-\end{center}
+     \caption{Atmospheric parameters}
+\label{table:a}
+\end{table}
 We then ran \textit{isochrones} (\cite{Morton}), with Bayesian approach, 
 with posterior sampling performed by \textit{MultiNest} and including Gaia 
-parallax $p=2.764 \pm 0.020$ $\mu as$. These are the results of the 
-analysis:
-\begin{center}
+parallax $p=2.764 \pm 0.020$ $\mu as$. The results of the 
+analysis are reported in table \ref{table:b} .
+\begin{table}[h!]
+\centering
     \begin{tabular}{cc}
     \hline
     Parameter & Value \\
@@ -172,7 +176,9 @@ analysis:
      $age (Gyr)$  & $4.8^{+3.5}_{-2.9}$ \\
     \hline
     \end{tabular}
-\end{center}
+\caption{Bulk parameters}
+\label{table:b}
+\end{table}
 Huge errors on the age estimate are pretty common for this analysis, since 
 stars with this mass evolve very slowly along the Main Sequence.
 
@@ -313,9 +319,11 @@ analysis around it. To do that, we have to properly circle the source
 and create a slightly larger circle around it (we used the the $ds9$ tools).
 The same procedure must be repeated (with the same inner and outer radii) 
 on a properly selected reference star, close to and roughly as bright 
-as the target. We hereby report the coordinates of the target and of the 
+as the target. We report in table \ref{table:c} the coordinates of the target and of the 
 chosen reference star, in pixel units.
-\begin{center}
+
+\begin{table}[h!]
+\centering
     \begin{tabular}{ccc}
     \hline
      & $x_c$ & $y_c$ \\
@@ -324,9 +332,11 @@ chosen reference star, in pixel units.
     Reference & 288 & 57  \\
     \hline
     \end{tabular}
-
-    \medskip
-
+\caption{Target and reference star coordinates}
+\label{table:c}
+\end{table}
+%    \medskip
+\begin{center}
     $R_{in} = 11$, $R_{out} = 20$
 \end{center}
 Now we need to call \textit{huggy-psf.e} and input the coordinates of the 
@@ -447,7 +457,8 @@ will be our reference trend for the stellar flux.
 To perform the fit, we ruled out all the points during the transit by roughly 
 selecting an ingress and egress time. A quadratic law ($p_0 x^2 + p_1 x +p_2$)
 was chosen to set things up in the most general case. A least square fitting 
-via numpy function \textit{np.polyfit} yields Fig.\ref{fig:fit}.
+via numpy function \textit{np.polyfit} yields the values collected in table \ref{table:d} .
+%Fig.\ref{fig:fit} .
 \begin{figure}
     \centering  
     \includegraphics[scale=0.45, angle=0]{../pictures/taste/fit.png}
@@ -455,7 +466,9 @@ via numpy function \textit{np.polyfit} yields Fig.\ref{fig:fit}.
     \caption{Horizontal fit and residuals for the three cases.}
     \label{fig:fit}
 \end{figure}
-\begin{center}
+
+\begin{table}[h!]
+\centering
     \begin{tabular}{cccc}
     \hline
     \# ap & $p_0 (\cdot 10^{-10})$ & $p_1 (\cdot 10^{-7})$ & $p_2 ( \cdot 10^3)$ \\
@@ -465,7 +478,10 @@ via numpy function \textit{np.polyfit} yields Fig.\ref{fig:fit}.
     99 & $-8.98$ & $1.42$  & $5.43$\\
     \hline
     \end{tabular}
-\end{center}
+\caption{Polynomial fit parameters}
+\label{table:d}
+\end{table}
+
 We immediately notice that both $p_0$ and $p_1$ are well compatible with zero,
 meaning that only a constant term survives: that represents the level of the 
 continuous. 
@@ -475,11 +491,13 @@ analyisis reveal that all point are well within $5\sigma$. Actually,
 except for the 90\% aperture, even a more strict $3\sigma$ criterion 
 would not rule out any data point.
 
-We display the standard deviation of the points of the 
+We display in %\ref{table: f} 
+the following table the standard deviation of the points of the 
 continuous with respect to the linear fit. These quantify scattering and 
 indicate that the 99\% aperture is indeed the best photometric choice, 
 having the smallest standard deviation.
-\begin{center}
+\begin{table}[h!]
+   \centering
     \begin{tabular}{cc}
     \hline
     $\sigma_{90}$ & $0.0063$ \\
@@ -487,7 +505,9 @@ having the smallest standard deviation.
     $\sigma_{99}$ & $0.0059$ \\
     \hline
     \end{tabular}
-\end{center}
+    \caption{Standard deviation for the selected photometric apertures}
+%\label{table: f}
+\end{table}
 
 
 
@@ -633,11 +653,12 @@ $T_c=2458386.57308 BJD$ and a best transit duration of $0.07180 d$ (roughly $1h4
 \end{figure}
 
 At last, we chose to select only the data points that are at a distance which is within twice the value of the transit duration from the center of the transit, 
-we saved the output in a data file that will be the basis for the subsequent analysis and we plotted the resulting transit light curve.
+we saved the output in a data file that will be the basis for the subsequent analysis and we plotted the resulting transit light curve in \ref{fig:final}.
 \begin{figure}
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/tess/final.png}
     \caption{Final selection}
+    \label{fig:final}
  %  \label{fig:Transits}
 \end{figure}
 
@@ -661,10 +682,11 @@ For the Bayesian analysis of the TASTE lightcurve, we chose a second order polyn
 
 Since the resulting chains were more than 50 times longer than the autocorrelation function, we are assured that the estimate can be trusted.
 
-The physical parameters obtained from the posterior samples are collected in tables \ref{table:1} and \ref{table:3} in the following sections.
+The physical parameters obtained from the posterior samples are collected in tables \ref{table:1} and \ref{table:2} .
 
 %\ref{table:2} for TESS and Tables for TASTE.
-The corner plots of the posterior samples showing the correlation between the parameters are reported in Fig. \ref{fig: cptess}, \ref{fig: cptaste} and \ref{fig: ptrend} .
+The corner plots of the posterior samples showing the correlation between the parameters are reported in \ref{sect:app_C_TT} .
+% Fig. \ref{fig: cptess}, \ref{fig: cptaste} and \ref{fig: ptrend} . 
 
 Along the diagonal there are histograms of the estimated 1D posterior probability distribution for each parameter. 
 
@@ -698,13 +720,6 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
  \end{table}
 
 
-\begin{figure}
-    \hspace*{-2cm}
-    \centering
-    \includegraphics[scale=0.3, angle=0]{../pictures/tess/lctess.png}
-    \caption{TESS lightcurve}
-   \label{fig: lc1}
-\end{figure}
 
  \begin{table}[h!]
  \centering
@@ -728,19 +743,20 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
     \end{tabular} 
  }
    \caption{Physical parameters obtained from TASTE analysis}
- \label{table:3}
+ \label{table:2}
  \end{table}
 
 
 
-
-
 \begin{figure}
-  \centering
-    \includegraphics[scale=0.3, angle=0]{../pictures/taste/poly.pdf}
-    \caption{TASTE polynomial trend corner plot}
-   \label{fig: ptrend}
+    \hspace*{-2cm}
+    \centering
+    \includegraphics[scale=0.3, angle=0]{../pictures/tess/lctess.png}
+    \caption{TESS lightcurve}
+   \label{fig: lc1}
 \end{figure}
+
+
 
 
 \begin{figure}
@@ -757,7 +773,7 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
 \subsection{Comparison}
 
 As a further check on the output values of our analysis, we apply 
-the (OC) method in order to compare the observed (O)
+the O-C method in order to compare the observed (O)
 central transit time (from TASTE observations) to the expected calculated (C) value (TESS results) .
 
 We obtain a O-C value of -0.010331 which indicates the accuracy of our analysis.
@@ -768,7 +784,7 @@ We obtain a O-C value of -0.010331 which indicates the accuracy of our analysis.
     \caption{O-C plot: checking compatibility between TESS prediction and TASTE result.}
     \label{fig:ocplot}
 \end{figure}
-The plot shows the propagation of the error on TESS prediction,
+The plot \ref{fig:ocplot} shows the propagation of the error on TESS prediction,
 increasing throughout time up to the epoch of our TASTE measurement. See 
 that TASTE result falls within the cone, proving compatibility of the 
 two results.
@@ -797,8 +813,14 @@ file can be equipped with an extra "0" column, in order to enable the code to co
 any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
 \textit{harmonics}. 
+They yield very 
+similar results both in terms of value and error , collected in tables \ref{table:3} and \ref{table:4}, but the simplest model yields results with slightly 
+smaller errobars. These are a period $P=2.42381\pm0.00002d$
+and a central transit time $T_c=2458386.5782\pm0.0007d$.
+
 \begin{table}[h!]
     \centering
+    \resizebox{\columnwidth}{!}{
        \begin{tabular}{cccc}
        \hline
         Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
@@ -810,10 +832,15 @@ Two models were exploited for the analysis: \textit{radial velocities} and
 	    $K (m/s)$   &137.4     & -10.4  &      10.2\\
        \hline
        \end{tabular} 
+ }
      \caption{Physical parameters obtained for \textit{radial velocities} model.}
+\label{table:3}
 \end{table}
+
+
 \begin{table}[h!]
 	\centering
+        \resizebox{\columnwidth}{!}{
 	\begin{tabular}{cccc}
 		\hline
 		Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
@@ -830,13 +857,33 @@ Two models were exploited for the analysis: \textit{radial velocities} and
 		$phase$ &         7.0  &        -2.2&        2.1  \\
 		\hline
 	\end{tabular} 
+}
 	\caption{Physical parameters obtained for \textit{harmonics} model.}
+\label{table:4}
 \end{table}
-They yield very 
-similar results both in terms of value and error (full results in 
-\ref{sect:app_C_RV}), but the simplest model yields results with slightly 
-smaller errrobars. These are a period $P=2.42381\pm0.00002d$
-and a central transit time $T_c=2458386.5782\pm0.0007d$.
+
+The radial velocities fitting, the unfolded and folded RV curves for both models are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots are collected in 
+\ref{sect:app_C_RV} .
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV.png}
+	\caption{Radial velocities fitting, unfolded and folded \textit{radial velocities} model.}
+	\label{fig:RV1}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
+	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2.png}
+	\caption{Radial velocities fitting, unfolded and folded \textit{harmonics} model.}
+	\label{fig:RV2}
+\end{figure}
+
 
 
 
@@ -1107,92 +1154,56 @@ travel is variable and follows a sinusoidal behaviour.
 \end{figure}
 
 
-\section{Tables and figures}
-
-\subsection{Radial velocity}
-\label{sect:app_C_RV}
-
-\begin{table}[h!]
-    \centering
-       \begin{tabular}{cccc}
-       \hline
-        Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
-       \hline
-		$\sigma_{jit}$ &      8.186931  &     5.674228  &    8.840726 \\
-		$v_{off} (m/s)$ &         -4044.009310 &        6.587574 &        7.142502 \\
-	    $P (d_{BJD})$   &2.423806        & 0.000022   &      0.000021   \\
-	    $T_c (d_{BJD})$  &2458386.578204  & 0.000728   &      0.000726  \\
-	    $K (m/s)$   &137.437324      & 10.397997  &      10.170602\\
-       \hline
-       \end{tabular} 
-     \caption{Physical parameters obtained for \textit{radial velocities} model.}
-\end{table}
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV.png}
-	\caption{Radial velocities fitting, unfolded and folded \textit{radial velocities} model.}
-	\label{fig:RV1}
-\end{figure}
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{cccc}
-		\hline
-		Par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
-		\hline
-		$\sigma_{jit}$ &            8.412502 &        5.733187  &       9.012852 \\
-		$v_{off} (m/s)$ &         -4043.655266 &        7.025075 &        7.166508 \\
-		$P (d_{BJD})$   &2.423806       & 0.000029    &      0.000028   \\
-		$T_c (d_{BJD})$  &2458386.578202  & 0.000708   &      0.000741  \\
-		$K (m/s)$   &137.052049      & 14.095483  &      13.019732\\
-		\hline
-		Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
-		\hline
-		$P (d_{BJD})$ &            2.423850 &        0.000166   &       0.000167 \\
-		$phase$ &         7.003042  &        2.175383 &        2.084340  \\
-		\hline
-	\end{tabular} 
-	\caption{Physical parameters obtained for \textit{harmonics} model.}
-\end{table}
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2.png}
-	\caption{Radial velocities fitting, unfolded and folded \textit{harmonics} model.}
-	\label{fig:RV2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-      \includegraphics[scale=0.3, angle=0]{../pictures/RV/WASP44_RV_cornerplot.pdf}
-      \caption{Correlation between parameters of the \textit{radial velocities} model}
-     \label{fig: cpRV}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-      \includegraphics[scale=0.3, angle=0]{../pictures/RV/WASP44_RV_harmonics_cornerplot.pdf}
-      \caption{Correlation between parameters of the \textit{harmonics} model}
-     \label{fig: cpRV2}
-\end{figure}
+\section{Figures}
 
 
 
 
 \subsection{TESS and TASTE}
+\label{sect:app_C_TT}
+
 \begin{figure}[H]
     \centering
       \includegraphics[scale=0.38, angle=0]{../pictures/tess/acf_tess.pdf}
        \caption{Correlation between TESS parameters}
-      \label{fig: cptess}
+%      \label{fig: cptess}
 \end{figure}
 
 \begin{figure}[H]
     \centering
       \includegraphics[scale=0.38, angle=0]{../pictures/taste/acf_taste.pdf}
       \caption{Correlation between TASTE parameters}
-     \label{fig: cptaste}
+%     \label{fig: cptaste}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=0.4, angle=0]{../pictures/taste/poly.pdf}
+    \caption{TASTE polynomial trend corner plot}
+ %  \label{fig: ptrend}
+\end{figure}
+
+
+\newpage
+
+\subsection{Radial velocities}
+\label{sect:app_C_RV}
+
+
+
+
+\begin{figure}[h]
+    \centering
+      \includegraphics[scale=0.4, angle=0]{../pictures/RV/WASP44_RV_cornerplot.pdf}
+      \caption{Correlation between parameters of the \textit{radial velocities} model}
+     \label{fig: cpRV}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+      \includegraphics[scale=0.4, angle=0]{../pictures/RV/WASP44_RV_harmonics_cornerplot.pdf}
+      \caption{Correlation between parameters of the \textit{harmonics} model}
+     \label{fig: cpRV2}
 \end{figure}
 
 
