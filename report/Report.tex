@@ -64,8 +64,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage[hyperfootnotes=false]{hyperref}
 
-\pagestyle{headings}
-
+\pagestyle{empty}
 
 \title{Detection of a transiting Hot Jupiter around WASP-44}
 \author{Adriana Barbieri \and Alessandro Bianchetti}
@@ -700,37 +699,57 @@ we saved the output in a data file that will be the basis for the subsequent ana
 \section{Light curve fit}
 
 %Conversion from fit parameters to physical parameters
-Once obtained the datasets and prepared the .yaml configuration files both for TASTE and TESS, we proceeded to fit the transit light curves with a planetary model.
+Once obtained the datasets and prepared the .yaml configuration files 
+both for TASTE and TESS, we proceeded to fit the transit light curves 
+with a planetary model. To this aim we performed the analysis using 
+\textit{PyORBIT}\footnote{https://github.com/LucaMalavolta/PyORBIT} 
+(\cite{Malavolta16}, \cite{Malavolta18}), a framework for the 
+characterization of planetary systems that is able to analyse photometry, 
+RVs and ancillary data and model stellar activity and transit time 
+variations.
 
-To this aim we performed the analysis using \textit{PyORBIT}\footnote{https://github.com/LucaMalavolta/PyORBIT} (\cite{Malavolta16}, \cite{Malavolta18}), a framework for the characterization of planetary systems that is able to analyse photometry, RVs and ancillary data and model stellar activity and transit time variations.
+All the planetary transits were modelled using the Python package 
+\textit{BATMAN} (\cite{Kreidberg}); we used also the differential 
+evolution tool \textit{PyDE}\footnote{https://github.com/hpparvi/PyDE} 
+in combination with the affine-invariant Markov chain Monte Carlo (MCMC) 
+sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization 
+of the input parameters and an autocorrelation analysis of the chains.
 
-All the planetary transits were modelled using the Python package \textit{BATMAN} (\cite{Kreidberg}); we used also the differential evolution tool \textit{PyDE}\footnote{https://github.com/hpparvi/PyDE} in combination with the affine-invariant Markov chain Monte Carlo (MCMC) sampler \textit{EMCEE} (\cite{Foreman}) to perform global optimization of the input parameters and an autocorrelation analysis of the chains.
+In the chosen models the orbits were assumed to be tidally circularized, 
+meaning $e=0$, and a jitter flag was activated in order to add a jitter 
+parameter in quadrature to the flux errors to compensate for their 
+under-estimation. Both for TASTE and TESS, we ran a total of 100000 steps, 
+from which we cut 20000 steps as burn-in transient phase.
 
-In the chosen models the orbits were assumed to be tidally circularized, and a jitter flag was activated in order to add a jitter parameter in quadrature to the flux errors to compensate for their under-estimation.
+For the Bayesian analysis of the TESS lightcurve, we assumed a circular 
+orbit, a quadratic law for the limb darkening coefficients, uniform priors 
+for the period, the central time of transit, the impact parameter, 
+the scaled planetary radius, and gaussian priors for the stellar parameters.
 
-For the Bayesian analysis of the TESS lightcurve, we assumed a circular orbit, a quadratic law for the limb darkening coefficients, uniform priors for the period, the central time of transit, the impact parameter, the scaled planetary radius, and gaussian priors for the stellar parameters.
+For the Bayesian analysis of the TASTE lightcurve, we chose a second order 
+polynomial trend as a model for out of transit flattening, gaussian 
+priors for the period, the limb darkening coefficients, the stellar 
+parameters and uniform priors for all the other parameters.
 
-
-For the Bayesian analysis of the TASTE lightcurve, we chose a second order polynomial trend as a model for out of transit flattening, gaussian priors for the period, the limb darkening coefficients, the stellar parameters and uniform priors for all the other parameters.
-
-Since the resulting chains were more than 50 times longer than the autocorrelation function, we are assured that the estimate can be trusted.
+Since the resulting chains were more than 50 times longer than the 
+autocorrelation function, we are assured that the estimate can be trusted.
 
 The physical parameters obtained from the posterior 
 samples are collected in tables \ref{table:1} and \ref{table:2}. It should 
 be noticed that planetary parameters are compatible with literature 
-(\ref{table:0}).
+(\ref{table:0}). Particularly, TESS yields $P=2.42385\pm0.00017$
+and TASTE yields $P=2.46^{+0.14}_{-0.16}$, and they're both compatible 
+with literature $P=2.42380\pm0.000009 d$ (\cite{Anderson}) within 1$\sigma$.
 
 %\ref{table:2} for TESS and Tables for TASTE.
-The corner plots of the posterior samples showing the correlation between the parameters are reported in \ref{sect:app_C_TT} .
+The corner plots of the posterior samples showing the correlation between 
+the parameters are reported in \ref{sect:app_C_TT} .
 % Fig. \ref{fig: cptess}, \ref{fig: cptaste} and \ref{fig: ptrend} . 
 
-Along the diagonal there are histograms of the estimated 1D posterior probability distribution for each parameter. 
 
-The histograms show that the recovered parameters are both accurate (close to injected value) and precise (narrow posterior distribution). 
-
-The off-diagonal plots are the 2D histograms of the estimated joint posterior probability distribution of each pair of parameters, which show the correlation between pairs of parameters.
-
-The normalized stellar fluxes, fitted with the model of the exoplanetary transit, along with the residuals are reported in Fig. \ref{fig: lc1} and \ref{fig: lc2} .
+The normalized stellar fluxes, fitted with the model of the exoplanetary 
+transit, along with the residuals are reported in Fig. \ref{fig: lc1} 
+and \ref{fig: lc2} .
 
 
  \begin{table}[h!]
@@ -791,10 +810,8 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
 
 Now that we have ran TESS and TASTE 
 analyses, we can compare their outputs 
-to the models introduced by Claret.
-
-
-In the configuration file for TASTE, priors taken from 
+to the models introduced by Claret. In the configuration 
+file for TASTE, priors taken from 
 \cite{claret2011} were inputted, so we don't expect 
 TASTE estimates for $c_1$ and $c_2$ to deviate sensibly 
 from that input. Obviously, we cannot compare such estimates 
@@ -856,7 +873,8 @@ to this RV dataset. We made sure the time range of this set did not overlap
 with the time range of the transits: any stellar spectra taken while the planet is 
 transiting is missing a contribution and can be no longer considered as a RV 
 datapoint.
-We ran PyORBIT again to fit the RV curve with a proper model. Radial velocity input
+We ran PyORBIT again to fit the RV curve with a proper model, using N=100000 steps 
+with a burn-in cut of 25000. Radial velocity input
 file can be equipped with an extra "0" column, in order to enable the code to compute
 any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
@@ -890,6 +908,7 @@ are collected in \ref{sect:app_C_RV}.
 	    $T_c (d_{BJD})$  &2458386.578182  & 0.000710   &       0.000693 \\
 	    $K (m/s)$   &137.518014     & 10.088349  &      10.554906\\
         $M(M_J)$ & 0.881943 & 0.07155 & 0.074306 \\
+        $i(deg)$ &86.281565   &  0.436671  &  0.429073 \\
        \hline
        \end{tabular} 
  }
@@ -904,11 +923,16 @@ are collected in \ref{sect:app_C_RV}.
 	\centering
 	%\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
 	\includegraphics[scale=0.45, angle=0]{../pictures/RV/RV.png}
-	\caption{Folded curve from the \textit{radial velocities} model.}
+	\caption{Folded curve from the \textit{radial velocities} model. No systematic effect is detected on the residuals, 
+    indicating that the sinusoidal fit is correctly followed by data, thus proving that the assumption of zero eccentricity 
+    in the model is compatible with the planet.}
 	\label{fig:RV1}
 \end{figure}
 
-
+In the case of the \textit{harmonics} model, a warning by PyORBIT stated 
+that MC chains were too short. This probably means that we did not 
+achieve a stationary distribution in the MCMC algorithm, therefore the 
+estimates and the autocorrelation function should be treated carefully.
 
 \begin{table}[H]
 	\centering
@@ -923,6 +947,7 @@ are collected in \ref{sect:app_C_RV}.
 		$T_c (d_{BJD})$  &2458386.578199  & 0.000709   &      0.000731  \\
 		$K (m/s)$   &136.195670    & 15.240364 &    12.965654 \\
         $M(M_J)$ & 0.873502 & 0.105127 & 0.091176 \\
+        $i (deg)$ & 86.273745 & 0.423184  & 0.426627  \\
 		\hline
 		%Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
 		%\hline
@@ -959,14 +984,16 @@ data, compute transit time of TESS (trustable
 because obtained from several transits) and
 TASTE and check whether the latter falls in-
 side the propagated prediction of the former. 
-This is verified by \ref{fig:ocplot} so the estimates are compati-
-ble.
+This is verified by \ref{fig:ocplot} so the estimates are compatible.
 A comparison with literature is also due: we 
 mainly took \cite{Anderson} as a reference and 
 compatibility was found both for TESS and TASTE 
 results. Moreover, reasonable agreement was  
 obtained for the values derived from the radial 
 velocity analysis.
+WASP-44-b is a planet with mass $M_P=0.873^{+0.11}_{-0.09}M_J$ 
+and eccentricity laregly compatible with 0, thus 
+in agreement with tidal circularization hypothesis.
 
 
 
@@ -1226,6 +1253,14 @@ travel is variable and follows a sinusoidal behaviour.
 
 \subsection{TESS and TASTE}
 \label{sect:app_C_TT}
+
+Along the diagonal there are histograms of the estimated 1D posterior 
+probability distribution for each parameter. 
+The histograms show that the recovered parameters are both accurate 
+(close to injected value) and precise (narrow posterior distribution). 
+The off-diagonal plots are the 2D histograms of the estimated joint 
+posterior probability distribution of each pair of parameters, which 
+show the correlation between pairs of parameters.
 
 \begin{figure}[H]
     \centering
