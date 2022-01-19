@@ -1,0 +1,42 @@
+inputs:
+  RVdata:
+    file: WASP44_RV_PyORBIT.dat #Random name, it can be anything
+    kind: RV
+    models:
+      - radial_velocities
+common:
+  planets:
+    b:
+      orbit: circular
+      parametrization: Eastman2013_Tcent
+      boundaries:
+        P: [2.40, 2.44]
+        K: [0.01, 4200.0]
+        Tc: [2458386.5, 2458386.65]
+      priors:
+        P: ['Gaussian', 2.423849, 0.000168]  # Values from TESS analysis
+        Tc: ['Gaussian',  2458386.578190, 0.0007145] # Values from TESS analysis
+      fixed:
+        i: [86.273404, 0.4267745] # Values from TESS analysis
+      spaces:
+        P: Linear
+  star:
+    star_parameters:
+      priors:
+        radius: ['Gaussian',  0.928634, 0.0120785] # Values from Isochrone fit analysis
+        mass: ['Gaussian', 0.952972, 0.0491805] # Values from Isochrone fit analysis
+models:
+  radial_velocities:
+    planets: b
+parameters:
+  Tref: 2450000.0 # As in the TESS/TASTE file
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 100000
+    nburn: 25000
+    thin: 200
+  recenter_bounds: True

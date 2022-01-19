@@ -1,0 +1,206 @@
+
+PyORBIT v8.3
+
+Python version in use:
+3.8.8 (default, Apr 13 2021, 19:58:26) 
+[GCC 7.3.0]
+
+reloaded_optimize:  False
+reloaded_pyde:  False
+reloaded_emcee:  False
+
+Opening:  RVdata
+Adding common model of planet:  b
+Using orbital model:  circular
+Using orbital parametrization:  Eastman2013_Tcent
+Using Central Time of Transit instead of phase
+Inclination will be included as free parameter:  True
+
+
+====================================================================================================
+     Boundaries of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0         3  ([-14173.000000, 6106.000000])
+jitter_0         4  ([  0.180000, 4000.000000])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+K                0  ([ -6.643856,  12.036174])
+P                1  ([  2.400000,   2.440000])
+Tc               2  ([2458386.500000, 2458386.650000])
+
+----- common model:  star_parameters
+
+Include priors:  True
+
+Reference Time Tref:  2450000.0
+
+Dimensions =  5
+Nwalkers =  20
+
+Using threading pool for PyDE: True
+PyDE running
+Boundaries redefined after PyDE output
+PyDE completed
+
+
+====================================================================================================
+     Starting point of the sample/optimization routines    
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0         3  -4044.378015 ([-14173.000000, 6106.000000])
+jitter_0         4      0.281477 ([  0.180000, 4000.000000])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+K                0      7.111906 ([ -6.643856,  12.036174])
+P                1      2.423804 ([  2.400000,   2.440000])
+Tc               2  2458386.578182 ([2458386.500000, 2458386.650000])
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Starting point projected onto the physical space     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0          -4044.378015 
+jitter_0              0.281477 
+
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+o                     1.570796 
+K                   138.323810 
+P                     2.423804 
+Tc              2458386.578182 
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Derived parameters obtained from starting point     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+a                     7.810219 
+i                    86.403752 
+M                     0.000815 
+M_Mj                  0.853327 
+M_Me                271.267809 
+f                     1.014057 
+a_AU_(M)              0.034086 
+a_AU_(rho,R)          0.034076 
+
+
+====================================================================================================
+     Statistics on the log-likelihood     
+====================================================================================================
+
+ LN probability:   -89.077869 
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+*************************************************************
+
+Running emcee
+
+emcee version:  3.1.1
+Using threading pool for emcee: True
+
+
+The chains are more than 50 times longer than the ACF, the estimate can be trusted
+
+Computing the autocorrelation time of the chains
+Reference thinning used in the analysis: 200
+Step length used in the analysis: 1*nthin = 200
+
+Convergence criteria: less than 1% variation in ACF after 50 times the integrated ACF
+At least 50*ACF after convergence, 100*ACF would be ideal
+Negative values: not converged yet
+
+          sample variable      |    ACF   | ACF*nthin | converged at | nteps/ACF 
+                               |          |           |              |           
+          RVdata_offset_0      |   0.933  |    186.6  |     9400     |    485.5   
+          RVdata_jitter_0      |   1.018  |    203.6  |    11000     |    437.1   
+          b_K                  |   0.969  |    193.9  |     9800     |    465.3   
+          b_P                  |   0.999  |    199.9  |    11200     |    444.2   
+          b_Tc                 |   1.018  |    203.6  |    10200     |    441.1   
+
+All the chains are longer than 100*ACF 
+Suggested value for burnin:  11200
+
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0         3  -4043.803658      -6.798918      6.997832 (15-84 p) ([-14173.000000, 6106.000000])
+jitter_0         4      8.382227      -5.762658      8.852047 (15-84 p) ([ 0.180000, 4000.000000])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+K                0      7.103477      -0.109919      0.106687 (15-84 p) ([-6.643856, 12.036174])
+P                1      2.423805      -0.000021      0.000021 (15-84 p) ([ 2.400000,  2.440000])
+Tc               2  2458386.578182      -0.000710      0.000693 (15-84 p) ([2458386.500000, 2458386.650000])
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0          -4043.803658         -6.798918         6.997832 (15-84 p)
+jitter_0              8.382227         -5.762658         8.852047 (15-84 p)
+
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+o                     1.570796 
+K                   137.518014        -10.088349        10.554906 (15-84 p)
+P                     2.423805         -0.000021         0.000021 (15-84 p)
+Tc              2458386.578182         -0.000710         0.000693 (15-84 p)
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+Computing exact mass of the planet (average approximate mass larger than 30.0 Me)
+a                     8.042268         -0.172498         0.169512 (15-84 p)
+i                    86.268277         -0.430607         0.439951 (15-84 p)
+M                     0.000842         -0.000069         0.000071 (15-84 p)
+M_Mj                  0.881547         -0.072455         0.073972 (15-84 p)
+M_Me                280.238680        -23.033142        23.515359 (15-84 p)
+f                     1.023409         -0.191539         0.190155 (15-84 p)
+a_AU_(M)              0.034751         -0.000596         0.000604 (15-84 p)
+a_AU_(rho,R)          0.034741         -0.000596         0.000604 (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+emcee completed
+
