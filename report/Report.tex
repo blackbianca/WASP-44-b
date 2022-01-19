@@ -815,8 +815,10 @@ They yield very
 similar results both in terms of value and error , collected in tables \ref{table:3} and \ref{table:4}, but the simplest model yields results with slightly 
 smaller errobars. These are a period $P=2.42381\pm0.00002d$
 and a central transit time $T_c=2458386.5782\pm0.0007d$.
+The folded RV curves obtained from the fitting with both models are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots are collected in 
+\ref{sect:app_C_RV} .
 
-\begin{table}[h!]
+\begin{table}[h]
     \centering
     \resizebox{\columnwidth}{!}{
        \begin{tabular}{cccc}
@@ -831,12 +833,24 @@ and a central transit time $T_c=2458386.5782\pm0.0007d$.
        \hline
        \end{tabular} 
  }
-     \caption{Physical parameters obtained for \textit{radial velocities} model.}
+     \caption{Physical parameters obtained from \textit{radial velocities} model.}
 \label{table:3}
 \end{table}
 
 
-\begin{table}[h!]
+
+
+\begin{figure}[h]
+	\centering
+	%\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
+	\includegraphics[scale=0.45, angle=0]{../pictures/RV/RV.png}
+	\caption{Folded curve from the \textit{radial velocities} model.}
+	\label{fig:RV1}
+\end{figure}
+
+
+
+\begin{table}[h]
 	\centering
         \resizebox{\columnwidth}{!}{
 	\begin{tabular}{cccc}
@@ -856,29 +870,19 @@ and a central transit time $T_c=2458386.5782\pm0.0007d$.
 		\hline
 	\end{tabular} 
 }
-	\caption{Physical parameters obtained for \textit{harmonics} model.}
+	\caption{Physical parameters obtained from \textit{harmonics} model.}
 \label{table:4}
 \end{table}
 
-The radial velocities fitting, the unfolded and folded RV curves for both models are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots are collected in 
-\ref{sect:app_C_RV} .
 
 
 
-\begin{figure}[H]
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV.png}
-	\caption{Radial velocities fitting, unfolded and folded \textit{radial velocities} model.}
-	\label{fig:RV1}
-\end{figure}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
-	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2.png}
-	\caption{Radial velocities fitting, unfolded and folded \textit{harmonics} model.}
+%	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
+	\includegraphics[scale=0.25, angle=0]{../pictures/RV/RV2.png}
+	\caption{Folded radial velocity curve from the \textit{harmonics} model.}
 	\label{fig:RV2}
 \end{figure}
 
@@ -1148,7 +1152,7 @@ observatory (Cima Ekar, Asiago). Since the Earth is in motion, light time
 travel is variable and follows a sinusoidal behaviour.
 \begin{figure}[H]
     \centering  
-    \includegraphics[scale=0.7, angle=0]{../pictures/time_corr.png}
+    \includegraphics[scale=0.4, angle=0]{../pictures/time_corr.png}
 \end{figure}
 
 
@@ -1162,14 +1166,14 @@ travel is variable and follows a sinusoidal behaviour.
 
 \begin{figure}[H]
     \centering
-      \includegraphics[scale=0.2, angle=0]{../pictures/tess/corner_tess.png}
+      \includegraphics[scale=0.18, angle=0]{../pictures/tess/corner_tess.png}
        \caption{Correlation between TESS parameters}
 %      \label{fig: cptess}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-      \includegraphics[scale=0.2, angle=0]{../pictures/taste/corner_taste.png}
+      \includegraphics[scale=0.18, angle=0]{../pictures/taste/corner_taste.png}
       \caption{Correlation between TASTE parameters}
 %     \label{fig: cptaste}
 \end{figure}
@@ -1182,7 +1186,7 @@ travel is variable and follows a sinusoidal behaviour.
 \end{figure}
 
 
-\newpage
+%\newpage
 
 \subsection{Radial velocities}
 \label{sect:app_C_RV}
@@ -1192,14 +1196,14 @@ travel is variable and follows a sinusoidal behaviour.
 
 \begin{figure}[h]
     \centering
-      \includegraphics[scale=0.3, angle=0]{../pictures/RV/corner_RV.png}
+      \includegraphics[scale=0.25, angle=0]{../pictures/RV/corner_RV.png}
       \caption{Correlation between parameters of the \textit{radial velocities} model}
      \label{fig: cpRV}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-      \includegraphics[scale=0.3, angle=0]{../pictures/RV/corner_RV_harmonics.png}
+      \includegraphics[scale=0.25, angle=0]{../pictures/RV/corner_RV_harmonics.png}
       \caption{Correlation between parameters of the \textit{harmonics} model}
      \label{fig: cpRV2}
 \end{figure}

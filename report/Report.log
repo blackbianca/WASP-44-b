@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.10.24)  19 JAN 2022 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.10.24)  19 JAN 2022 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,7 +894,7 @@ File: english.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 \@quotelevel=\count304
 \@quotereset=\count305
 
-No file Report.aux.
+(./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
@@ -911,6 +911,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count306
@@ -973,6 +974,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 67.
 LaTeX Info: Redefining \pageref on input line 67.
 LaTeX Info: Redefining \nameref on input line 67.
+
+(./Report.out) (./Report.out)
 \@outlinefile=\write6
 \openout6 = `Report.out'.
 
@@ -995,7 +998,7 @@ LaTeX Warning: Citation 'claret2017' on page 1 undefined on input line 86.
 
 LaTeX Warning: Citation 'claret2018' on page 1 undefined on input line 86.
 
-<../pictures/exo_dischist.png, id=4, 1230.5975pt x 936.49875pt>
+<../pictures/exo_dischist.png, id=112, 1230.5975pt x 936.49875pt>
 File: ../pictures/exo_dischist.png Graphic file (type png)
 <use ../pictures/exo_dischist.png>
 Package pdftex.def Info: ../pictures/exo_dischist.png  used on input line 97.
@@ -1007,7 +1010,7 @@ LaTeX Warning: Citation 'Anderson' on page 1 undefined on input line 105.
 
 
  <../pictures/exo_dischist.png>]
-<../pictures/transit.jpeg, id=21, 1013.7875pt x 935.495pt>
+<../pictures/transit.jpeg, id=127, 1013.7875pt x 935.495pt>
 File: ../pictures/transit.jpeg Graphic file (type jpg)
 <use ../pictures/transit.jpeg>
 Package pdftex.def Info: ../pictures/transit.jpeg  used on input line 127.
@@ -1022,25 +1025,15 @@ LaTeX Warning: Citation 'Anderson' on page 2 undefined on input line 142.
 LaTeX Warning: Citation 'Sousa' on page 2 undefined on input line 148.
 
 
-LaTeX Warning: Reference `table:a' on page 2 undefined on input line 150.
-
-
 LaTeX Warning: Citation 'Morton' on page 2 undefined on input line 163.
 
-
-LaTeX Warning: Reference `table:b' on page 2 undefined on input line 166.
-
 [2 <../pictures/transit.jpeg>]
-<../pictures/limb_darkening.png, id=35, 625.58719pt x 461.47406pt>
+<../pictures/limb_darkening.png, id=141, 625.58719pt x 461.47406pt>
 File: ../pictures/limb_darkening.png Graphic file (type png)
 <use ../pictures/limb_darkening.png>
 Package pdftex.def Info: ../pictures/limb_darkening.png  used on input line 203
 .
 (pdftex.def)             Requested size: 156.39641pt x 115.36823pt.
-
-
-LaTeX Warning: Reference `sect:app_A' on page 3 undefined on input line 220.
-
 
 Underfull \hbox (badness 1062) in paragraph at lines 234--238
 \OT1/cmr/m/n/10.95 CCD s(Charged Cou-pled De-vices) are the
@@ -1058,19 +1051,19 @@ Underfull \hbox (badness 1072) in paragraph at lines 249--253
 \OT1/cmr/m/n/10.95 idea is to take a ref-er-ence star close
  []
 
-<../pictures/pre-reduction/bias.png, id=47, 322.20375pt x 252.945pt>
+<../pictures/pre-reduction/bias.png, id=151, 322.20375pt x 252.945pt>
 File: ../pictures/pre-reduction/bias.png Graphic file (type png)
 <use ../pictures/pre-reduction/bias.png>
 Package pdftex.def Info: ../pictures/pre-reduction/bias.png  used on input line
  269.
 (pdftex.def)             Requested size: 161.10147pt x 126.47218pt.
-<../pictures/pre-reduction/master_bias.png, id=48, 322.20375pt x 252.945pt>
+<../pictures/pre-reduction/master_bias.png, id=152, 322.20375pt x 252.945pt>
 File: ../pictures/pre-reduction/master_bias.png Graphic file (type png)
 <use ../pictures/pre-reduction/master_bias.png>
 Package pdftex.def Info: ../pictures/pre-reduction/master_bias.png  used on inp
 ut line 270.
 (pdftex.def)             Requested size: 161.10147pt x 126.47218pt.
-<../pictures/pre-reduction/bias_comp.png, id=49, 403.5075pt x 262.9825pt>
+<../pictures/pre-reduction/bias_comp.png, id=153, 403.5075pt x 262.9825pt>
 File: ../pictures/pre-reduction/bias_comp.png Graphic file (type png)
 <use ../pictures/pre-reduction/bias_comp.png>
 Package pdftex.def Info: ../pictures/pre-reduction/bias_comp.png  used on input
@@ -1078,40 +1071,33 @@ Package pdftex.def Info: ../pictures/pre-reduction/bias_comp.png  used on input
 (pdftex.def)             Requested size: 201.75325pt x 131.49092pt.
 [4 <../pictures/pre-reduction/bias.png> <../pictures/pre-reduction/master_bias.
 png> <../pictures/pre-reduction/bias_comp.png>]
-<../pictures/pre-reduction/flat.png, id=62, 333.245pt x 252.945pt>
+<../pictures/pre-reduction/flat.png, id=165, 333.245pt x 252.945pt>
 File: ../pictures/pre-reduction/flat.png Graphic file (type png)
 <use ../pictures/pre-reduction/flat.png>
 Package pdftex.def Info: ../pictures/pre-reduction/flat.png  used on input line
  296.
 (pdftex.def)             Requested size: 166.62209pt x 126.47218pt.
-<../pictures/pre-reduction/master_flat.png, id=63, 333.245pt x 252.945pt>
+<../pictures/pre-reduction/master_flat.png, id=166, 333.245pt x 252.945pt>
 File: ../pictures/pre-reduction/master_flat.png Graphic file (type png)
 <use ../pictures/pre-reduction/master_flat.png>
 Package pdftex.def Info: ../pictures/pre-reduction/master_flat.png  used on inp
 ut line 297.
 (pdftex.def)             Requested size: 166.62209pt x 126.47218pt.
-<../pictures/pre-reduction/flat_comp.png, id=64, 397.485pt x 262.9825pt>
+<../pictures/pre-reduction/flat_comp.png, id=167, 397.485pt x 262.9825pt>
 File: ../pictures/pre-reduction/flat_comp.png Graphic file (type png)
 <use ../pictures/pre-reduction/flat_comp.png>
 Package pdftex.def Info: ../pictures/pre-reduction/flat_comp.png  used on input
  line 298.
 (pdftex.def)             Requested size: 198.742pt x 131.49092pt.
-
-
-LaTeX Warning: Reference `table:c' on page 5 undefined on input line 322.
-
-[5 <../pictures/pre-reduction/flat.png> <../pictures/pre-reduction/master_flat.
-png> <../pictures/pre-reduction/flat_comp.png>]
+ [5 <../pictures/pre-reduction/flat.png> <../pictures/pre-reduction/master_flat
+.png> <../pictures/pre-reduction/flat_comp.png>]
 Underfull \hbox (badness 1533) in paragraph at lines 366--370
 \OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 c \OT1/cmr/m/n/10.95 = \OMS/cmsy/
 m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OMS/c
 msy/m/n/10.95 g$ \OT1/cmr/m/n/10.95 se-lects the cen-troid-ing
  []
 
-
-LaTeX Warning: Reference `fig:sky-ref' on page 6 undefined on input line 380.
-
-<../pictures/taste/sky-ref.png, id=80, 403.5075pt x 481.8pt>
+<../pictures/taste/sky-ref.png, id=182, 403.5075pt x 481.8pt>
 File: ../pictures/taste/sky-ref.png Graphic file (type png)
 <use ../pictures/taste/sky-ref.png>
 Package pdftex.def Info: ../pictures/taste/sky-ref.png  used on input line 383.
@@ -1121,40 +1107,32 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 387.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 387.
-
-LaTeX Warning: Reference `fig:target-ref_position' on page 6 undefined on input
- line 395.
-
-<../pictures/taste/target-ref_position.png, id=81, 385.44pt x 481.8pt>
+<../pictures/taste/target-ref_position.png, id=184, 385.44pt x 481.8pt>
 File: ../pictures/taste/target-ref_position.png Graphic file (type png)
 <use ../pictures/taste/target-ref_position.png>
 Package pdftex.def Info: ../pictures/taste/target-ref_position.png  used on inp
 ut line 399.
 (pdftex.def)             Requested size: 192.71953pt x 240.8994pt.
-
-LaTeX Warning: Reference `fig:apertures' on page 6 undefined on input line 406.
-
-
-<../pictures/taste/apertures.png, id=82, 387.4475pt x 480.79625pt>
+<../pictures/taste/apertures.png, id=186, 387.4475pt x 480.79625pt>
 File: ../pictures/taste/apertures.png Graphic file (type png)
 <use ../pictures/taste/apertures.png>
 Package pdftex.def Info: ../pictures/taste/apertures.png  used on input line 40
 9.
 (pdftex.def)             Requested size: 193.72327pt x 240.39752pt.
-<../pictures/taste/saturation-quality.png, id=83, 402.50375pt x 262.9825pt>
+<../pictures/taste/saturation-quality.png, id=187, 402.50375pt x 262.9825pt>
 File: ../pictures/taste/saturation-quality.png Graphic file (type png)
 <use ../pictures/taste/saturation-quality.png>
 Package pdftex.def Info: ../pictures/taste/saturation-quality.png  used on inpu
 t line 422.
 (pdftex.def)             Requested size: 201.25137pt x 131.49092pt.
-<../pictures/taste/saturation-quality2.png, id=84, 403.5075pt x 262.9825pt>
+<../pictures/taste/saturation-quality2.png, id=188, 403.5075pt x 262.9825pt>
 File: ../pictures/taste/saturation-quality2.png Graphic file (type png)
 <use ../pictures/taste/saturation-quality2.png>
 Package pdftex.def Info: ../pictures/taste/saturation-quality2.png  used on inp
 ut line 423.
 (pdftex.def)             Requested size: 201.75325pt x 131.49092pt.
 [6 <../pictures/taste/sky-ref.png>]
-<../pictures/taste/transits.png, id=97, 505.89pt x 481.8pt>
+<../pictures/taste/transits.png, id=202, 505.89pt x 481.8pt>
 File: ../pictures/taste/transits.png Graphic file (type png)
 <use ../pictures/taste/transits.png>
 Package pdftex.def Info: ../pictures/taste/transits.png  used on input line 439
@@ -1163,27 +1141,24 @@ Package pdftex.def Info: ../pictures/taste/transits.png  used on input line 439
 
 Underfull \vbox (badness 1558) has occurred while \output is active []
 
-<../pictures/taste/fit_setting.png, id=98, 393.47pt x 372.39125pt>
+<../pictures/taste/fit_setting.png, id=203, 393.47pt x 372.39125pt>
 File: ../pictures/taste/fit_setting.png Graphic file (type png)
 <use ../pictures/taste/fit_setting.png>
 Package pdftex.def Info: ../pictures/taste/fit_setting.png  used on input line 
 452.
 (pdftex.def)             Requested size: 196.73451pt x 186.19516pt.
-
-
-LaTeX Warning: Reference `table:d' on page 7 undefined on input line 460.
-
-<../pictures/taste/fit.png, id=99, 393.47pt x 372.39125pt>
+<../pictures/taste/fit.png, id=205, 393.47pt x 372.39125pt>
 File: ../pictures/taste/fit.png Graphic file (type png)
 <use ../pictures/taste/fit.png>
 Package pdftex.def Info: ../pictures/taste/fit.png  used on input line 464.
 (pdftex.def)             Requested size: 177.05986pt x 167.57451pt.
-<../pictures/taste/residuals.png, id=100, 401.5pt x 374.39874pt>
+<../pictures/taste/residuals.png, id=206, 401.5pt x 374.39874pt>
 File: ../pictures/taste/residuals.png Graphic file (type png)
 <use ../pictures/taste/residuals.png>
 Package pdftex.def Info: ../pictures/taste/residuals.png  used on input line 46
 5.
 (pdftex.def)             Requested size: 180.67332pt x 168.47787pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1212,23 +1187,17 @@ Underfull \hbox (badness 5637) in paragraph at lines 531--531
  []
 
 [9 <../pictures/taste/fit.png> <../pictures/taste/residuals.png>]
-
-LaTeX Warning: Reference `fig:tpfplot' on page 10 undefined on input line 543.
-
-<../pictures/tess/TPF.pdf, id=134, 500.83109pt x 397.485pt>
+<../pictures/tess/TPF.pdf, id=239, 500.83109pt x 397.485pt>
 File: ../pictures/tess/TPF.pdf Graphic file (type pdf)
 <use ../pictures/tess/TPF.pdf>
 Package pdftex.def Info: ../pictures/tess/TPF.pdf  used on input line 547.
 (pdftex.def)             Requested size: 200.32889pt x 158.99118pt.
-
-LaTeX Warning: Reference `fig:tess' on page 10 undefined on input line 566.
-
-<../pictures/tess/tess.png, id=135, 803.0pt x 534.99875pt>
+<../pictures/tess/tess.png, id=241, 803.0pt x 534.99875pt>
 File: ../pictures/tess/tess.png Graphic file (type png)
 <use ../pictures/tess/tess.png>
 Package pdftex.def Info: ../pictures/tess/tess.png  used on input line 570.
 (pdftex.def)             Requested size: 240.90186pt x 160.50085pt.
-<../pictures/tess/zoom.png, id=136, 803.0pt x 534.99875pt>
+<../pictures/tess/zoom.png, id=242, 803.0pt x 534.99875pt>
 File: ../pictures/tess/zoom.png Graphic file (type png)
 <use ../pictures/tess/zoom.png>
 Package pdftex.def Info: ../pictures/tess/zoom.png  used on input line 571.
@@ -1243,12 +1212,9 @@ Overfull \hbox (19.90186pt too wide) in paragraph at lines 570--572
  [] 
  []
 
-
-LaTeX Warning: Reference `fig:tess_lc' on page 10 undefined on input line 580.
-
 [10 <../pictures/tess/TPF.pdf> <../pictures/tess/tess.png> <../pictures/tess/zo
 om.png>]
-<../pictures/tess/lightcurve.png, id=202, 803.0pt x 534.99875pt>
+<../pictures/tess/lightcurve.png, id=309, 803.0pt x 534.99875pt>
 File: ../pictures/tess/lightcurve.png Graphic file (type png)
 <use ../pictures/tess/lightcurve.png>
 Package pdftex.def Info: ../pictures/tess/lightcurve.png  used on input line 58
@@ -1262,14 +1228,7 @@ Overfull \hbox (19.90186pt too wide) in paragraph at lines 589--590
 
 LaTeX Warning: Citation 'Hippke1' on page 11 undefined on input line 600.
 
-
-LaTeX Warning: Reference `fig:filters' on page 11 undefined on input line 602.
-
-
-LaTeX Warning: Reference `fig:Transits' on page 11 undefined on input line 602.
-
-
-<../pictures/tess/filters.png, id=203, 1337.99875pt x 803.0pt>
+<../pictures/tess/filters.png, id=312, 1337.99875pt x 803.0pt>
 File: ../pictures/tess/filters.png Graphic file (type png)
 <use ../pictures/tess/filters.png>
 Package pdftex.def Info: ../pictures/tess/filters.png  used on input line 607.
@@ -1279,7 +1238,7 @@ Overfull \hbox (19.82938pt too wide) in paragraph at lines 607--608
 [][] 
  []
 
-<../pictures/tess/phase.png, id=204, 1337.99875pt x 1071.00125pt>
+<../pictures/tess/phase.png, id=313, 1337.99875pt x 1071.00125pt>
 File: ../pictures/tess/phase.png Graphic file (type png)
 <use ../pictures/tess/phase.png>
 Package pdftex.def Info: ../pictures/tess/phase.png  used on input line 616.
@@ -1305,19 +1264,11 @@ Underfull \hbox (badness 1331) in paragraph at lines 627--634
  []
 
 
-LaTeX Warning: Reference `fig:TLS_periodogram' on page 12 undefined on input li
-ne 635.
-
-
-LaTeX Warning: Reference `fig:detrended_transits' on page 12 undefined on input
- line 635.
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 635--638
-[]\OT1/cmr/m/n/10.95 We ob-tained the pe-ri-odogram ([]) and
+Underfull \hbox (badness 1521) in paragraph at lines 635--638
+[]\OT1/cmr/m/n/10.95 We ob-tained the pe-ri-odogram ([]18[]) and
  []
 
-<../pictures/tess/sde.png, id=216, 803.0pt x 803.0pt>
+<../pictures/tess/sde.png, id=326, 803.0pt x 803.0pt>
 File: ../pictures/tess/sde.png Graphic file (type png)
 <use ../pictures/tess/sde.png>
 Package pdftex.def Info: ../pictures/tess/sde.png  used on input line 643.
@@ -1327,7 +1278,7 @@ Overfull \hbox (19.90186pt too wide) in paragraph at lines 643--644
  [][] 
  []
 
-<../pictures/tess/transit.png, id=217, 803.0pt x 803.0pt>
+<../pictures/tess/transit.png, id=327, 803.0pt x 803.0pt>
 File: ../pictures/tess/transit.png Graphic file (type png)
 <use ../pictures/tess/transit.png>
 Package pdftex.def Info: ../pictures/tess/transit.png  used on input line 650.
@@ -1337,10 +1288,7 @@ Overfull \hbox (19.90186pt too wide) in paragraph at lines 650--651
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:final' on page 12 undefined on input line 656.
-
-<../pictures/tess/final.png, id=218, 803.0pt x 803.0pt>
+<../pictures/tess/final.png, id=329, 803.0pt x 803.0pt>
 File: ../pictures/tess/final.png Graphic file (type png)
 <use ../pictures/tess/final.png>
 Package pdftex.def Info: ../pictures/tess/final.png  used on input line 659.
@@ -1374,33 +1322,17 @@ Underfull \hbox (badness 1286) in paragraph at lines 678--679
  []
 
 
-LaTeX Warning: Reference `table:1' on page 13 undefined on input line 685.
-
-
-LaTeX Warning: Reference `table:2' on page 13 undefined on input line 685.
-
-
-LaTeX Warning: Reference `sect:app_C_TT' on page 13 undefined on input line 688
-.
-
-
-LaTeX Warning: Reference `fig: lc1' on page 13 undefined on input line 697.
-
-
-LaTeX Warning: Reference `fig: lc2' on page 13 undefined on input line 697.
-
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../pictures/tess/lctess.png, id=229, 1071.00125pt x 1071.00125pt>
+<../pictures/tess/lctess.png, id=344, 1071.00125pt x 1071.00125pt>
 File: ../pictures/tess/lctess.png Graphic file (type png)
 <use ../pictures/tess/lctess.png>
 Package pdftex.def Info: ../pictures/tess/lctess.png  used on input line 752.
 (pdftex.def)             Requested size: 214.19646pt x 214.19646pt.
-<../pictures/taste/lctaste.png, id=230, 499.8675pt x 537.00626pt>
+<../pictures/taste/lctaste.png, id=345, 499.8675pt x 537.00626pt>
 File: ../pictures/taste/lctaste.png Graphic file (type png)
 <use ../pictures/taste/lctaste.png>
 Package pdftex.def Info: ../pictures/taste/lctaste.png  used on input line 763.
@@ -1408,7 +1340,7 @@ Package pdftex.def Info: ../pictures/taste/lctaste.png  used on input line 763.
 (pdftex.def)             Requested size: 199.94345pt x 214.79869pt.
 [13 <../pictures/tess/final.png>] [14 <../pictures/tess/lctess.png> <../picture
 s/taste/lctaste.png>]
-<../pictures/comparison/oc.png, id=249, 803.0pt x 534.99875pt>
+<../pictures/comparison/oc.png, id=362, 803.0pt x 534.99875pt>
 File: ../pictures/comparison/oc.png Graphic file (type png)
 <use ../pictures/comparison/oc.png>
 Package pdftex.def Info: ../pictures/comparison/oc.png  used on input line 781.
@@ -1420,366 +1352,315 @@ Overfull \hbox (19.90186pt too wide) in paragraph at lines 781--782
  []
 
 
-LaTeX Warning: Reference `fig:ocplot' on page 15 undefined on input line 785.
-
-
 LaTeX Warning: Citation 'Anderson' on page 15 undefined on input line 803.
 
 
-LaTeX Warning: Reference `table:3' on page 15 undefined on input line 815.
-
-
-LaTeX Warning: Reference `table:4' on page 15 undefined on input line 815.
-
-
-Underfull \hbox (badness 2111) in paragraph at lines 797--818
+Underfull \hbox (badness 2111) in paragraph at lines 797--820
 \OT1/cmr/m/n/10.95 Ex-o-planet Archive [], in-volv-ing 17 points
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `fig:RV1' on page 15 undefined on input line 863.
-
-
-LaTeX Warning: Reference `fig:RV2' on page 15 undefined on input line 863.
-
-
-LaTeX Warning: Reference `sect:app_C_RV' on page 15 undefined on input line 864
-.
-
-<../pictures/RV/RV_unfolded.png, id=250, 505.89pt x 433.62pt>
-File: ../pictures/RV/RV_unfolded.png Graphic file (type png)
-<use ../pictures/RV/RV_unfolded.png>
-Package pdftex.def Info: ../pictures/RV/RV_unfolded.png  used on input line 870
-.
-(pdftex.def)             Requested size: 202.3524pt x 173.44492pt.
-<../pictures/RV/RV.png, id=251, 447.6725pt x 422.57875pt>
+<../pictures/RV/RV.png, id=369, 447.6725pt x 422.57875pt>
 File: ../pictures/RV/RV.png Graphic file (type png)
 <use ../pictures/RV/RV.png>
-Package pdftex.def Info: ../pictures/RV/RV.png  used on input line 871.
-(pdftex.def)             Requested size: 179.06583pt x 169.0285pt.
+Package pdftex.def Info: ../pictures/RV/RV.png  used on input line 846.
+(pdftex.def)             Requested size: 201.45076pt x 190.15868pt.
 
-Underfull \vbox (badness 7397) has occurred while \output is active []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- [15
 
- <../pictures/comparison/oc.png>]
-Overfull \vbox (43.42876pt too high) has occurred while \output is active []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../pictures/RV/RV2_unfolded.png, id=262, 447.6725pt x 422.57875pt>
-File: ../pictures/RV/RV2_unfolded.png Graphic file (type png)
-<use ../pictures/RV/RV2_unfolded.png>
-Package pdftex.def Info: ../pictures/RV/RV2_unfolded.png  used on input line 87
-9.
-(pdftex.def)             Requested size: 179.06583pt x 169.0285pt.
-<../pictures/RV/RV2.png, id=263, 505.89pt x 433.62pt>
+<../pictures/RV/RV2.png, id=370, 936.49875pt x 803.0pt>
 File: ../pictures/RV/RV2.png Graphic file (type png)
 <use ../pictures/RV/RV2.png>
-Package pdftex.def Info: ../pictures/RV/RV2.png  used on input line 880.
-(pdftex.def)             Requested size: 202.3524pt x 173.44492pt.
+Package pdftex.def Info: ../pictures/RV/RV2.png  used on input line 884.
+(pdftex.def)             Requested size: 234.12411pt x 200.74951pt.
 
-[16 <../pictures/RV/RV_unfolded.png> <../pictures/RV/RV.png> <../pictures/RV/RV
-2_unfolded.png> <../pictures/RV/RV2.png>]
-Underfull \hbox (badness 2469) in paragraph at lines 905--913
+Overfull \hbox (13.12411pt too wide) in paragraph at lines 884--885
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15
+
+ <../pictures/comparison/oc.png>]
+Underfull \hbox (badness 2469) in paragraph at lines 909--917
 []\OT1/cmr/m/n/10.95 We can com-pare Claret2011 only with
  []
 
 
-LaTeX Warning: Empty bibliography on input line 926.
+LaTeX Warning: Empty bibliography on input line 930.
 
-[17
+[16 <../pictures/RV/RV.png> <../pictures/RV/RV2.png>]
 
-]
+LaTeX Warning: Citation 'claret2017' on page 17 undefined on input line 940.
 
-LaTeX Warning: Citation 'claret2017' on page 18 undefined on input line 936.
-
-<../pictures/Claret2017/2017_c1_fixedmet.png, id=281, 397.485pt x 334.24875pt>
+<../pictures/Claret2017/2017_c1_fixedmet.png, id=390, 397.485pt x 334.24875pt>
 File: ../pictures/Claret2017/2017_c1_fixedmet.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c1_fixedmet.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c1_fixedmet.png  used on i
-nput line 942.
+nput line 946.
 (pdftex.def)             Requested size: 198.742pt x 167.12396pt.
-<../pictures/Claret2017/2017_c2_fixedmet.png, id=282, 403.5075pt x 334.24875pt>
+<../pictures/Claret2017/2017_c2_fixedmet.png, id=391, 403.5075pt x 334.24875pt>
 
 File: ../pictures/Claret2017/2017_c2_fixedmet.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c2_fixedmet.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c2_fixedmet.png  used on i
-nput line 943.
+nput line 947.
 (pdftex.def)             Requested size: 201.75325pt x 167.12396pt.
-<../pictures/Claret2017/2017_c1_fixedg.png, id=283, 397.485pt x 334.24875pt>
+<../pictures/Claret2017/2017_c1_fixedg.png, id=392, 397.485pt x 334.24875pt>
 File: ../pictures/Claret2017/2017_c1_fixedg.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c1_fixedg.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c1_fixedg.png  used on inp
-ut line 945.
+ut line 949.
 (pdftex.def)             Requested size: 198.742pt x 167.12396pt.
-<../pictures/Claret2017/2017_c2_fixedg.png, id=284, 403.5075pt x 334.24875pt>
+<../pictures/Claret2017/2017_c2_fixedg.png, id=393, 403.5075pt x 334.24875pt>
 File: ../pictures/Claret2017/2017_c2_fixedg.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c2_fixedg.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c2_fixedg.png  used on inp
-ut line 946.
+ut line 950.
 (pdftex.def)             Requested size: 201.75325pt x 167.12396pt.
-<../pictures/Claret2017/2017_c1.png, id=285, 387.4475pt x 372.39125pt>
+<../pictures/Claret2017/2017_c1.png, id=394, 387.4475pt x 372.39125pt>
 File: ../pictures/Claret2017/2017_c1.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c1.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c1.png  used on input line
- 955.
+ 959.
 (pdftex.def)             Requested size: 193.72327pt x 186.19516pt.
-<../pictures/Claret2017/2017_c2.png, id=286, 400.49625pt x 372.39125pt>
+<../pictures/Claret2017/2017_c2.png, id=395, 400.49625pt x 372.39125pt>
 File: ../pictures/Claret2017/2017_c2.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c2.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c2.png  used on input line
- 956.
+ 960.
 (pdftex.def)             Requested size: 200.24763pt x 186.19516pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18
+ [17
 
  <../pictures/Claret2017/2017_c1_fixedmet.png> <../pictures/Claret2017/2017_c2_
 fixedmet.png> <../pictures/Claret2017/2017_c1_fixedg.png> <../pictures/Claret20
 17/2017_c2_fixedg.png>]
-<../pictures/Claret2017/2017_c1_comp.png, id=298, 608.2725pt x 372.39125pt>
+<../pictures/Claret2017/2017_c1_comp.png, id=405, 608.2725pt x 372.39125pt>
 File: ../pictures/Claret2017/2017_c1_comp.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c1_comp.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c1_comp.png  used on input
- line 978.
+ line 982.
 (pdftex.def)             Requested size: 212.89856pt x 130.33888pt.
-<../pictures/Claret2017/2017_c2_comp.png, id=299, 608.2725pt x 372.39125pt>
+<../pictures/Claret2017/2017_c2_comp.png, id=406, 608.2725pt x 372.39125pt>
 File: ../pictures/Claret2017/2017_c2_comp.png Graphic file (type png)
 <use ../pictures/Claret2017/2017_c2_comp.png>
 Package pdftex.def Info: ../pictures/Claret2017/2017_c2_comp.png  used on input
- line 979.
+ line 983.
 (pdftex.def)             Requested size: 212.89856pt x 130.33888pt.
- [19 <../pictures/Claret2017/2017_c1.png> <../pictures/Claret2017/2017_c2.png> 
+ [18 <../pictures/Claret2017/2017_c1.png> <../pictures/Claret2017/2017_c2.png> 
 <../pictures/Claret2017/2017_c1_comp.png> <../pictures/Claret2017/2017_c2_comp.
 png>]
-<../pictures/Claret2017/double_logg4.png, id=313, 396.48125pt x 334.24875pt>
+<../pictures/Claret2017/double_logg4.png, id=419, 396.48125pt x 334.24875pt>
 File: ../pictures/Claret2017/double_logg4.png Graphic file (type png)
 <use ../pictures/Claret2017/double_logg4.png>
 Package pdftex.def Info: ../pictures/Claret2017/double_logg4.png  used on input
- line 1007.
+ line 1011.
 (pdftex.def)             Requested size: 138.77051pt x 116.9888pt.
-<../pictures/Claret2017/double_logg45.png, id=314, 396.48125pt x 334.24875pt>
+<../pictures/Claret2017/double_logg45.png, id=420, 396.48125pt x 334.24875pt>
 File: ../pictures/Claret2017/double_logg45.png Graphic file (type png)
 <use ../pictures/Claret2017/double_logg45.png>
 Package pdftex.def Info: ../pictures/Claret2017/double_logg45.png  used on inpu
-t line 1008.
+t line 1012.
 (pdftex.def)             Requested size: 138.77051pt x 116.9888pt.
-<../pictures/Claret2017/double_logg_interp.png, id=315, 396.48125pt x 334.24875
+<../pictures/Claret2017/double_logg_interp.png, id=421, 396.48125pt x 334.24875
 pt>
 File: ../pictures/Claret2017/double_logg_interp.png Graphic file (type png)
 <use ../pictures/Claret2017/double_logg_interp.png>
 Package pdftex.def Info: ../pictures/Claret2017/double_logg_interp.png  used on
- input line 1009.
+ input line 1013.
 (pdftex.def)             Requested size: 138.77051pt x 116.9888pt.
-<../pictures/Claret2017/double_c1.png, id=316, 387.4475pt x 372.39125pt>
+<../pictures/Claret2017/double_c1.png, id=422, 387.4475pt x 372.39125pt>
 File: ../pictures/Claret2017/double_c1.png Graphic file (type png)
 <use ../pictures/Claret2017/double_c1.png>
 Package pdftex.def Info: ../pictures/Claret2017/double_c1.png  used on input li
-ne 1014.
+ne 1018.
 (pdftex.def)             Requested size: 193.72327pt x 186.19516pt.
-<../pictures/Claret2017/double_c2.png, id=317, 400.49625pt x 372.39125pt>
+<../pictures/Claret2017/double_c2.png, id=423, 400.49625pt x 372.39125pt>
 File: ../pictures/Claret2017/double_c2.png Graphic file (type png)
 <use ../pictures/Claret2017/double_c2.png>
 Package pdftex.def Info: ../pictures/Claret2017/double_c2.png  used on input li
-ne 1015.
+ne 1019.
 (pdftex.def)             Requested size: 200.24763pt x 186.19516pt.
 
 
-LaTeX Warning: Citation 'claret2018' on page 20 undefined on input line 1043.
+LaTeX Warning: Citation 'claret2018' on page 19 undefined on input line 1047.
 
 
-LaTeX Warning: Citation 'claret2017' on page 20 undefined on input line 1045.
+LaTeX Warning: Citation 'claret2017' on page 19 undefined on input line 1049.
 
-<../pictures/ClaretvClaret/2017.png, id=318, 396.48125pt x 334.24875pt>
+<../pictures/ClaretvClaret/2017.png, id=424, 396.48125pt x 334.24875pt>
 File: ../pictures/ClaretvClaret/2017.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/2017.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/2017.png  used on input line
- 1051.
+ 1055.
 (pdftex.def)             Requested size: 198.24013pt x 167.12396pt.
-<../pictures/ClaretvClaret/2018.png, id=319, 396.48125pt x 334.24875pt>
+<../pictures/ClaretvClaret/2018.png, id=425, 396.48125pt x 334.24875pt>
 File: ../pictures/ClaretvClaret/2018.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/2018.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/2018.png  used on input line
- 1052.
+ 1056.
 (pdftex.def)             Requested size: 198.24013pt x 167.12396pt.
-[20 <../pictures/Claret2017/double_logg4.png> <../pictures/Claret2017/double_lo
+[19 <../pictures/Claret2017/double_logg4.png> <../pictures/Claret2017/double_lo
 gg45.png> <../pictures/Claret2017/double_logg_interp.png> <../pictures/Claret20
 17/double_c1.png> <../pictures/Claret2017/double_c2.png>]
-<../pictures/ClaretvClaret/c1.png, id=332, 387.4475pt x 372.39125pt>
+<../pictures/ClaretvClaret/c1.png, id=439, 387.4475pt x 372.39125pt>
 File: ../pictures/ClaretvClaret/c1.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/c1.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/c1.png  used on input line 1
-060.
+064.
 (pdftex.def)             Requested size: 193.72327pt x 186.19516pt.
-<../pictures/ClaretvClaret/c2.png, id=333, 394.47375pt x 372.39125pt>
+<../pictures/ClaretvClaret/c2.png, id=440, 394.47375pt x 372.39125pt>
 File: ../pictures/ClaretvClaret/c2.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/c2.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/c2.png  used on input line 1
-061.
+065.
 (pdftex.def)             Requested size: 197.23639pt x 186.19516pt.
-<../pictures/ClaretvClaret/c1_comp.png, id=334, 608.2725pt x 372.39125pt>
+<../pictures/ClaretvClaret/c1_comp.png, id=441, 608.2725pt x 372.39125pt>
 File: ../pictures/ClaretvClaret/c1_comp.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/c1_comp.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/c1_comp.png  used on input l
-ine 1062.
+ine 1066.
 (pdftex.def)             Requested size: 212.89856pt x 130.33888pt.
-<../pictures/ClaretvClaret/c2_comp.png, id=335, 614.295pt x 374.39874pt>
+<../pictures/ClaretvClaret/c2_comp.png, id=442, 614.295pt x 374.39874pt>
 File: ../pictures/ClaretvClaret/c2_comp.png Graphic file (type png)
 <use ../pictures/ClaretvClaret/c2_comp.png>
 Package pdftex.def Info: ../pictures/ClaretvClaret/c2_comp.png  used on input l
-ine 1063.
+ine 1067.
 (pdftex.def)             Requested size: 215.00647pt x 131.04152pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21 <../pictures/ClaretvClaret/2017.png> <../pictures/ClaretvClaret/2018.png>]
+ [20 <../pictures/ClaretvClaret/2017.png> <../pictures/ClaretvClaret/2018.png>]
 
 
-LaTeX Warning: Citation 'claret2018' on page 22 undefined on input line 1090.
+LaTeX Warning: Citation 'claret2018' on page 21 undefined on input line 1094.
 
 
-LaTeX Warning: Citation 'claret2011' on page 22 undefined on input line 1094.
+LaTeX Warning: Citation 'claret2011' on page 21 undefined on input line 1098.
 
-<../pictures/Claret2011/c1.png, id=344, 387.4475pt x 372.39125pt>
+<../pictures/Claret2011/c1.png, id=450, 387.4475pt x 372.39125pt>
 File: ../pictures/Claret2011/c1.png Graphic file (type png)
 <use ../pictures/Claret2011/c1.png>
-Package pdftex.def Info: ../pictures/Claret2011/c1.png  used on input line 1105
+Package pdftex.def Info: ../pictures/Claret2011/c1.png  used on input line 1109
 .
 (pdftex.def)             Requested size: 193.72327pt x 186.19516pt.
-<../pictures/Claret2011/c2.png, id=345, 396.48125pt x 372.39125pt>
+<../pictures/Claret2011/c2.png, id=451, 396.48125pt x 372.39125pt>
 File: ../pictures/Claret2011/c2.png Graphic file (type png)
 <use ../pictures/Claret2011/c2.png>
-Package pdftex.def Info: ../pictures/Claret2011/c2.png  used on input line 1106
+Package pdftex.def Info: ../pictures/Claret2011/c2.png  used on input line 1110
 .
 (pdftex.def)             Requested size: 198.24013pt x 186.19516pt.
-<../pictures/Claret2011/c1_comp.png, id=346, 626.34pt x 372.39125pt>
+<../pictures/Claret2011/c1_comp.png, id=452, 626.34pt x 372.39125pt>
 File: ../pictures/Claret2011/c1_comp.png Graphic file (type png)
 <use ../pictures/Claret2011/c1_comp.png>
 Package pdftex.def Info: ../pictures/Claret2011/c1_comp.png  used on input line
- 1107.
+ 1111.
 (pdftex.def)             Requested size: 219.22227pt x 130.33888pt.
-<../pictures/Claret2011/c2_comp.png, id=347, 608.2725pt x 372.39125pt>
+<../pictures/Claret2011/c2_comp.png, id=453, 608.2725pt x 372.39125pt>
 File: ../pictures/Claret2011/c2_comp.png Graphic file (type png)
 <use ../pictures/Claret2011/c2_comp.png>
 Package pdftex.def Info: ../pictures/Claret2011/c2_comp.png  used on input line
- 1108.
+ 1112.
 (pdftex.def)             Requested size: 212.89856pt x 130.33888pt.
 
 Underfull \vbox (badness 6016) has occurred while \output is active []
 
- [22 <../pictures/ClaretvClaret/c1.png> <../pictures/ClaretvClaret/c2.png> <../
+ [21 <../pictures/ClaretvClaret/c1.png> <../pictures/ClaretvClaret/c2.png> <../
 pictures/ClaretvClaret/c1_comp.png> <../pictures/ClaretvClaret/c2_comp.png>]
 
-LaTeX Warning: Citation 'claret2017' on page 23 undefined on input line 1129.
+LaTeX Warning: Citation 'claret2017' on page 22 undefined on input line 1133.
 
 
-LaTeX Warning: Citation 'claret2018' on page 23 undefined on input line 1129.
+LaTeX Warning: Citation 'claret2018' on page 22 undefined on input line 1133.
 
-[23 <../pictures/Claret2011/c1.png> <../pictures/Claret2011/c2.png> <../picture
+[22 <../pictures/Claret2011/c1.png> <../pictures/Claret2011/c2.png> <../picture
 s/Claret2011/c1_comp.png> <../pictures/Claret2011/c2_comp.png>]
-<../pictures/time_corr.png, id=369, 385.44pt x 262.9825pt>
+<../pictures/time_corr.png, id=474, 803.0pt x 534.99875pt>
 File: ../pictures/time_corr.png Graphic file (type png)
 <use ../pictures/time_corr.png>
-Package pdftex.def Info: ../pictures/time_corr.png  used on input line 1151.
-(pdftex.def)             Requested size: 269.80615pt x 184.08649pt.
-<../pictures/tess/corner_tess.png, id=370, 2703.09875pt x 2703.09875pt>
+Package pdftex.def Info: ../pictures/time_corr.png  used on input line 1155.
+(pdftex.def)             Requested size: 321.1943pt x 213.9957pt.
+<../pictures/tess/corner_tess.png, id=475, 2703.09875pt x 2703.09875pt>
 File: ../pictures/tess/corner_tess.png Graphic file (type png)
 <use ../pictures/tess/corner_tess.png>
 Package pdftex.def Info: ../pictures/tess/corner_tess.png  used on input line 1
-165.
-(pdftex.def)             Requested size: 540.61018pt x 540.61018pt.
+169.
+(pdftex.def)             Requested size: 486.53679pt x 486.53679pt.
 
-Overfull \hbox (88.61018pt too wide) in paragraph at lines 1165--1166
+Overfull \hbox (34.53679pt too wide) in paragraph at lines 1169--1170
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24 <../pictures/time_corr.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-Overfull \vbox (20.7253pt too high) has occurred while \output is active []
-
-
-[26 <../pictures/tess/corner_tess.png>]
-<../pictures/taste/corner_taste.png, id=391, 2703.09875pt x 2703.09875pt>
+ [23 <../pictures/time_corr.png>]
+<../pictures/taste/corner_taste.png, id=482, 2703.09875pt x 2703.09875pt>
 File: ../pictures/taste/corner_taste.png Graphic file (type png)
 <use ../pictures/taste/corner_taste.png>
 Package pdftex.def Info: ../pictures/taste/corner_taste.png  used on input line
- 1172.
-(pdftex.def)             Requested size: 540.61018pt x 540.61018pt.
+ 1176.
+(pdftex.def)             Requested size: 486.53679pt x 486.53679pt.
 
-Overfull \hbox (88.61018pt too wide) in paragraph at lines 1172--1173
+Overfull \hbox (34.53679pt too wide) in paragraph at lines 1176--1177
  [][] 
  []
 
-<../pictures/taste/poly.pdf, id=392, 666.78487pt x 666.80055pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24 <../pictures/tess/corner_tess.png>]
+<../pictures/taste/poly.pdf, id=489, 666.78487pt x 666.80055pt>
 File: ../pictures/taste/poly.pdf Graphic file (type pdf)
 <use ../pictures/taste/poly.pdf>
-Package pdftex.def Info: ../pictures/taste/poly.pdf  used on input line 1179.
+Package pdftex.def Info: ../pictures/taste/poly.pdf  used on input line 1183.
 (pdftex.def)             Requested size: 266.70921pt x 266.71548pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27 <../pictures/taste/corner_taste.png>] [28 <../pictures/taste/poly.pdf>]
-<../pictures/RV/corner_RV.png, id=455, 1578.89874pt x 1578.89874pt>
+ [25 <../pictures/taste/corner_taste.png>]
+<../pictures/RV/corner_RV.png, id=497, 1578.89874pt x 1578.89874pt>
 File: ../pictures/RV/corner_RV.png Graphic file (type png)
 <use ../pictures/RV/corner_RV.png>
-Package pdftex.def Info: ../pictures/RV/corner_RV.png  used on input line 1195.
+Package pdftex.def Info: ../pictures/RV/corner_RV.png  used on input line 1199.
 
-(pdftex.def)             Requested size: 473.67328pt x 473.67328pt.
-
-Overfull \hbox (21.67328pt too wide) in paragraph at lines 1195--1196
- [][] 
- []
+(pdftex.def)             Requested size: 394.72372pt x 394.72372pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../pictures/RV/corner_RV_harmonics.png, id=456, 1578.89874pt x 1578.89874pt>
+<../pictures/RV/corner_RV_harmonics.png, id=498, 1578.89874pt x 1578.89874pt>
 File: ../pictures/RV/corner_RV_harmonics.png Graphic file (type png)
 <use ../pictures/RV/corner_RV_harmonics.png>
 Package pdftex.def Info: ../pictures/RV/corner_RV_harmonics.png  used on input 
-line 1202.
-(pdftex.def)             Requested size: 473.67328pt x 473.67328pt.
-
-Overfull \hbox (21.67328pt too wide) in paragraph at lines 1202--1203
- [][] 
- []
-
+line 1206.
+(pdftex.def)             Requested size: 394.72372pt x 394.72372pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1210.
-[29] [30 <../pictures/RV/corner_RV.png>] [31 <../pictures/RV/corner_RV_harmonic
-s.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1210.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1214.
+[26 <../pictures/taste/poly.pdf>] [27 <../pictures/RV/corner_RV.png>] [28 <../p
+ictures/RV/corner_RV_harmonics.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1214.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1210.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1210.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1214.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1214.
 
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: C16B4B7B4FB6FB6E84080BD7BD37519E;1725.
 
-
-Package rerunfilecheck Warning: File `Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Report.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  C16B4B7B4FB6FB6E84080BD7BD37519E;1725.
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
@@ -1791,10 +1672,10 @@ Package logreq Info: Writing requests to 'Report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 16184 strings out of 494923
- 267369 string characters out of 6180741
- 554602 words of memory out of 5000000
- 19141 multiletter control sequences out of 15000+600000
+ 16205 strings out of 494923
+ 267493 string characters out of 6180741
+ 555602 words of memory out of 5000000
+ 19161 multiletter control sequences out of 15000+600000
  11244 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,11n,41p,816b,1201s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1815,10 +1696,10 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Report.pdf (31 pages, 7403854 bytes).
+Output written on Report.pdf (28 pages, 7374933 bytes).
 PDF statistics:
- 560 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
- 124 named destinations out of 1000 (max. 500000)
- 316 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 653 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 522 words of extra memory for PDF output out of 10000 (max. 10000000)
 
