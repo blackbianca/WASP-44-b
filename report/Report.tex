@@ -15,7 +15,13 @@
 %\usepackage[dvipsnames]{xcolor}
 %\sectionfont{\bfseries\Large\raggedright}
 
-%\usepackage{hyperref}
+\usepackage[a4paper,
+            bindingoffset=0.2in,
+            left=0.5in,
+            right=0.5in,
+            top=0.5in,
+            bottom=0.5in,
+            footskip=.25in]{geometry}
 
 %\hypersetup{hidelinks}
 
@@ -105,6 +111,24 @@ spectroscopy. This leads us to rule out several papers regarding our target of i
  work with the discovery paper (\cite{Anderson}). In this paper, estimates 
 of the atmospheric parameters of WASP-44 are provided via an analysis of 
 the width of the spectral lines.
+As for the planet $WASP-44-b$, its main parameters from (\cite{Anderson})
+are displayed in the following table. 
+\begin{table}[H]
+    \centering
+        \begin{tabular}{cccc}
+        \hline
+        Par & Value & $\sigma_{-}$ & $\sigma_{+}$\\
+        \hline
+        $M (M_J)$ & 0.889 & 0.062 & 0.062 \\
+        $P (d)$ & 2.4238039 & 0.0000087 & 0.0000087 \\
+        $i (deg)$ & 86.02 & 0.86 & 1.11 \\
+        $(R/R_{*})^2$ & 0.01588 & 0.00076 & 0.00076 \\
+        $b$ & 0.560 & 0.123 & 0.076 \\
+        \hline
+        \end{tabular}
+         \caption{Planetary parameters according to literature.}
+    \label{table:0}
+    \end{table}
 
 %\section{Instruments}
 
@@ -114,9 +138,7 @@ the width of the spectral lines.
 \section{The transit method }
 
 The transit method is a photometric indirect method of detection of exoplanets, which consists in the observation of a drop in the flux of a star due to the transit of a planet across the stellar disk. 
-
 The subsequent variation of the measured stellar luminosity is proportional to the ratio of the projected areas of the planet and the star, or equivalently, the dimming of the flux is proportional to the ratio of the square of the respective radii; therefore, known the radius of the star from its spectrum, the radius of the planet can be easily obtained from the measured depth of the flux.
-
 Moreover, if combined with radial velocities measurements, this method allows to compute also the average densitiy of the exoplanet.
 
 It is important however to notice that limb darkening, stellar activity and atmospheric effects may pollute the observational transit curve and must be all taken into account.
@@ -148,7 +170,7 @@ previously showed, we add in quadrature a further term to the errors of
 all three parameters (\cite{Sousa}). We are in fact more interested in an 
 accurate result rather than in a precise one.
 This leads to the results collected in table \ref{table:a} .
-\begin{table}[h!]
+\begin{table}[H]
 \centering
     \begin{tabular}{ccc}
     \hline
@@ -215,9 +237,20 @@ based on a large sample of stars) allows to obtain the coefficients directly
 from the atmopsheric parameters. 
 The alternative way is fitting the light curve leaving the coefficients as free parameters.
 
-The choice of the functional dependence on $\mu$ is a delicate one. Multiple 
-approaches can be followed, basing on different papers. This analysis is 
-addressed in \ref{sect:app_A}.
+The choice of the functional dependence on
+$\mu$ is a delicate one. Multiple modelling approaches can
+be followed, basing on different papers. This
+analysis is addressed in \ref{sect:app_A}, 
+where we face three different publications 
+by the author Antonio Claret, who provided 
+tables to study the relationship between limb 
+darkening coefficients and atmospheric 
+parameters. The oldest paper, \cite{claret2011},
+provides a variety of filters from both the Johnson 
+system and SDSS, including filter $r^*$, used for TASTE analysis. 
+\cite{claret2017} and \cite{claret2018}
+are instead referred to the only TESS built-in filter and 
+so they're available for comparison with TESS output alone.
 
 
 \section{TASTE data analysis}
@@ -682,7 +715,10 @@ For the Bayesian analysis of the TASTE lightcurve, we chose a second order polyn
 
 Since the resulting chains were more than 50 times longer than the autocorrelation function, we are assured that the estimate can be trusted.
 
-The physical parameters obtained from the posterior samples are collected in tables \ref{table:1} and \ref{table:2} .
+The physical parameters obtained from the posterior 
+samples are collected in tables \ref{table:1} and \ref{table:2}. It should 
+be noticed that planetary parameters are compatible with literature 
+(\ref{table:0}).
 
 %\ref{table:2} for TESS and Tables for TASTE.
 The corner plots of the posterior samples showing the correlation between the parameters are reported in \ref{sect:app_C_TT} .
@@ -747,18 +783,32 @@ The normalized stellar fluxes, fitted with the model of the exoplanetary transit
 
 
 \begin{figure}
-    \hspace*{-2cm}
     \centering
     \includegraphics[scale=0.2, angle=0]{../pictures/tess/lctess.png}
     \caption{TESS lightcurve}
    \label{fig: lc1}
 \end{figure}
 
+Now that we have ran TESS and TASTE 
+analyses, we can compare their outputs 
+to the models introduced by Claret.
+
+
+In the configuration file for TASTE, priors taken from 
+\cite{claret2011} were inputted, so we don't expect 
+TASTE estimates for $c_1$ and $c_2$ to deviate sensibly 
+from that input. Obviously, we cannot compare such estimates 
+to Claret models because they descend from the models themselves.
+As for TESS, a uniform prior was selected in  the configuration 
+file, making LD coefficients estimates independent on Claret 
+models. The comparison between such estimates (\ref{table:1}) and 
+and both \cite{claret2017} and \cite{claret2018} (see \ref{sect:app_A}) 
+shows pretty different results. However, TESS estimates have errorbars 
+large enough to make the results compatible.
 
 
 
 \begin{figure}
-    \hspace*{-2cm}
     \centering
     \includegraphics[scale=0.4, angle=0]{../pictures/taste/lctaste.png}
     \caption{TASTE lightcurve}
@@ -810,15 +860,24 @@ We ran PyORBIT again to fit the RV curve with a proper model. Radial velocity in
 file can be equipped with an extra "0" column, in order to enable the code to compute
 any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
-\textit{harmonics}. 
-They yield very 
-similar results both in terms of value and error , collected in tables \ref{table:3} and \ref{table:4}, but the simplest model yields results with slightly 
-smaller errobars. These are a period $P=2.42381\pm0.00002d$
-and a central transit time $T_c=2458386.5782\pm0.0007d$.
-The folded RV curves obtained from the fitting with both models are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots are collected in 
-\ref{sect:app_C_RV} .
+\textit{harmonics}. For both models, TESS best-fit values were used as 
+Gaussian priors on period and time of transit.
+They yield very similar results both in terms of value and error, collected 
+in tables \ref{table:3} and \ref{table:4}, 
+but the simplest model yields results with slightly 
+smaller errobars. These are a period $P=2.42381\pm0.00002d$ 
+(compatible with literature, see \ref{table:0}) and a central 
+transit time $T_c=2458386.5782\pm0.0007d$. Both values are also 
+compatible with TESS and TASTE estimates.
+Morevoer, we obtain a radial velocity amplitude $K=137.52^{+10.55}_{-10.09}$
+which is fully compatible with the literature value $K=138.8\pm9$. Same for 
+$M_p = 0.88\pm0.07$, to be compared with $M_p = 0.89 \pm 0.06$.
+The phase-folded RV curves obtained from the fitting with both models 
+are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots 
+are collected in \ref{sect:app_C_RV}. 
 
-\begin{table}[h]
+
+\begin{table}[H]
     \centering
     \resizebox{\columnwidth}{!}{
        \begin{tabular}{cccc}
@@ -830,6 +889,7 @@ The folded RV curves obtained from the fitting with both models are reported in 
 	    $P (d_{BJD})$   &2.423805        & 0.000021   &      0.000021   \\
 	    $T_c (d_{BJD})$  &2458386.578182  & 0.000710   &       0.000693 \\
 	    $K (m/s)$   &137.518014     & 10.088349  &      10.554906\\
+        $M(M_J)$ & 0.881943 & 0.07155 & 0.074306 \\
        \hline
        \end{tabular} 
  }
@@ -840,7 +900,7 @@ The folded RV curves obtained from the fitting with both models are reported in 
 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	%\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
 	\includegraphics[scale=0.45, angle=0]{../pictures/RV/RV.png}
@@ -850,7 +910,7 @@ The folded RV curves obtained from the fitting with both models are reported in 
 
 
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
         \resizebox{\columnwidth}{!}{
 	\begin{tabular}{cccc}
@@ -862,12 +922,13 @@ The folded RV curves obtained from the fitting with both models are reported in 
 		$P (d_{BJD})$   &2.423808     &0.000028   &  0.000030 \\
 		$T_c (d_{BJD})$  &2458386.578199  & 0.000709   &      0.000731  \\
 		$K (m/s)$   &136.195670    & 15.240364 &    12.965654 \\
+        $M(M_J)$ & 0.873502 & 0.105127 & 0.091176 \\
 		\hline
-		Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
-		\hline
-		$P (d_{BJD})$ &      2.423846 &        0.000171  &      0.000170\\
-		$phase$ &        6.224110  &        2.214455 &        2.098655  \\
-		\hline
+		%Stellar par& Value & $\sigma_{-}$ & $\sigma_{+}$\\
+		%\hline
+		%$P (d_{BJD})$ &      2.423846 &        0.000171  &      0.000170\\
+		%$phase$ &        6.224110  &        2.214455 &        2.098655  \\
+		%\hline
 	\end{tabular} 
 }
 	\caption{Physical parameters obtained from \textit{harmonics} model.}
@@ -878,7 +939,7 @@ The folded RV curves obtained from the fitting with both models are reported in 
 
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 %	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
 	\includegraphics[scale=0.25, angle=0]{../pictures/RV/RV2.png}
@@ -892,31 +953,20 @@ The folded RV curves obtained from the fitting with both models are reported in 
 \newpage
 
 \section{Conclusions}
-The main goal of this work was extracting the lightcurve both from TASTE
-and TESS data, compute transit time of TESS (trustable because obtained 
-from several transits) and TASTE and check whether the latter falls inside 
-the propagated error of the former. This check is fulfilled so the estimates 
-are compatible.
-
-
-
-
-
-
-
-LD COEFFICIENTS
-
-We can compare Claret2011 only with TASTE, since the paper is older 
-than the launch of TESS. Claret2017 and Claret2018 are instead referred
-to the only TESS built-in filter and so they're available for 
-comparison.
-For TASTE we have to select the r* filter (SDSS) from the table in Claret2011,
-since it is the best filter in terms of CCD efficiency and in terms 
-boxiness of the transit, making it easier to determine ingress and egress 
-time, and therefore central time of transit.
-
-Changing stellar model means changing the way we comput the gradient of temperature 
-and the flux in stellar photosphere.
+The main goal of this work was extracting
+the lightcurve both from TASTE and TESS
+data, compute transit time of TESS (trustable
+because obtained from several transits) and
+TASTE and check whether the latter falls in-
+side the propagated prediction of the former. 
+This is verified by \ref{fig:ocplot} so the estimates are compati-
+ble.
+A comparison with literature is also due: we 
+mainly took \cite{Anderson} as a reference and 
+compatibility was found both for TESS and TASTE 
+results. Moreover, reasonable agreement was  
+obtained for the values derived from the radial 
+velocity analysis.
 
 
 
@@ -1099,7 +1149,13 @@ We use another table from an older paper (\cite{claret2011}) by the same author,
 this time including filters. The header of our dataset shows that the filter $r^{*}$
 was used (SDSS). Remember that transits look differently 
 when observed through different filters, and also that boxier transits make 
-ingress/egress time determination easier. The unfolding technique of the 
+ingress/egress time determination easier. $r^*$ filter was selected
+(SDSS), since it
+is the best choice in terms of CCD efficiency and
+in terms boxiness of the transit, making it eas-
+ier to determine ingress and egress time, and
+therefore central time of transit.
+The unfolding technique of the 
 data pack is always the same.
 This time, we account for stellar models (ATLAS/PHOENIX) and interpolation 
 technique (least squares/flux conservation), for a grand total of 4 
@@ -1131,8 +1187,15 @@ consequently.
 Despite being compatible between each other, the estimates of 
 the coefficients are quite detached from the one inferred following 
 \cite{claret2017} and \cite{claret2018}. This reinforces the need to add 
-a systematic error term. Phoenix stellar model is associated with quite 
-thin errorbars.
+a systematic error term. 
+
+
+Note that changing stellar model means changing the
+way we compute the gradient of temperature
+and the flux in stellar photosphere. 
+In our case, Phoenix stellar model seems to be associated with 
+slightly thinner errorbars, but the difference form ATLAS is not 
+a relevant one.
 
 
 
