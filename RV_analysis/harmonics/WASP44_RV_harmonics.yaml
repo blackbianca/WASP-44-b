@@ -15,10 +15,10 @@ common:
         K: [0.01, 4200.0]
         Tc: [2458386.5, 2458386.65]
       priors:
-        P: ['Gaussian', 2.423846, 0.000168]  # Values from TESS analysis
-        Tc: ['Gaussian', 2458386.578204, 0.000721] # Values from TESS analysis
+        P: ['Gaussian', 2.423849, 0.000168]  # Values from TESS analysis
+        Tc: ['Gaussian',  2458386.578190, 0.0007145] # Values from TESS analysis
       fixed:
-        i: [86.270929, 0.4321465] # Values from TESS analysis
+        i: [86.273404, 0.4267745] # Values from TESS analysis
       spaces:
         P: Linear
   harmonics:
