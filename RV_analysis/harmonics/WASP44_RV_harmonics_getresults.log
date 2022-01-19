@@ -1,0 +1,300 @@
+
+PyORBIT v8.3
+
+Python version in use:
+3.8.8 (default, Apr 13 2021, 19:58:26) 
+[GCC 7.3.0]
+
+emcee version:  3.1.1
+
+ Reference Time Tref: 2450000.0
+
+ Dimensions = 10
+ Nwalkers = 40
+
+ Steps: 100000
+
+***** WARNING ******
+The integrated autocorrelation time cannot be reliably estimated
+likely the chains are too short, and ACF analysis is not fully reliable
+emcee.autocorr.integrated_time tolerance lowered to 20
+If you still get a warning, you should drop these results entirely
+
+Computing the autocorrelation time of the chains
+Reference thinning used in the analysis: 200
+Step length used in the analysis: 15*nthin = 3000
+
+Convergence criteria: less than 1% variation in ACF after 20 times the integrated ACF
+At least 50*ACF after convergence, 100*ACF would be ideal
+Negative values: not converged yet
+
+          sample variable      |    ACF   | ACF*nthin | converged at | nteps/ACF 
+                               |          |           |              |           
+          RVdata_offset_0      |   3.129  |    625.9  |      464     |    159.0   
+          RVdata_jitter_0      |   3.129  |    625.8  |     6464     |    149.5   
+          RVdata_harmonics_amp_S1 |   6.042  |   1208.4  |    24464     |     62.5   
+          RVdata_harmonics_amp_S2 |   3.723  |    744.7  |    21000     |    106.1   
+          RVdata_harmonics_amp_C1 |   5.975  |   1195.1  |    12464     |     73.2   
+          b_P                  |  13.640  |   2728.0  |       -1     |     -1.0   
+          b_K                  |  15.279  |   3055.8  |       -1     |     -1.0   
+          b_Tc                 |   3.782  |    756.5  |      464     |    131.6   
+          harmonics_phase      |   4.363  |    872.5  |    30000     |     80.2   
+          harmonics_P          |   3.549  |    709.9  |    27000     |    102.8   
+
+     2 chains have not converged yet, keep going 
+
+
+ LN posterior:  -127.677061      -2.280360     1.477960 (15-84 p) 
+
+ Median log_priors     = -47.99878255782503
+ Median log_likelihood = -77.06314119096668
+ Median BIC  (using likelihood) = 182.4584158224955
+ Median AIC  (using likelihood) = 174.12628238193335
+ Median AICc (using likelihood) = 210.7929490486
+
+ Median BIC  (using posterior)  = 278.45598093814556
+ Median AIC  (using posterior)  = 270.1238474975834
+ Median AICc (using posterior)  = 306.7905141642501
+
+ MAP log_priors     = -48.033859658537544
+ MAP log_likelihood = -76.4733388579887
+ MAP BIC  (using likelihood) = 181.27881115653955
+ MAP AIC  (using likelihood) = 172.9466777159774
+ MAP AICc (using likelihood) = 209.61334438264404
+
+ MAP BIC  (using posterior)  = 277.3465304736146
+ MAP AIC  (using posterior)  = 269.0143970330525
+ MAP AICc (using posterior)  = 305.6810636997192
+
+ AICc suggested over AIC because NDATA (    17.000000 ) < 40 * NDIM (    10.000000 )
+
+****************************************************************************************************
+****************************************************************************************************
+
+ Confidence intervals (median value, 34.135th percentile from the median on the left and right side)
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0         5  -4043.889094      -7.052356      7.220652 (15-84 p) ([-14173.000000, 6106.000000])
+jitter_0         6      8.568773      -5.792098      9.198208 (15-84 p) ([ 0.180000, 4000.000000])
+
+----------  RVdata      ----- model:  harmonics
+amp_S1           7     -6.289537      -9.142564      9.194744 (15-84 p) ([-19.931569, 19.931569])
+amp_S2           8     -8.415254      -7.969734      8.334084 (15-84 p) ([-19.931569, 19.931569])
+amp_C1           9     -6.715660      -8.872508      9.119199 (15-84 p) ([-19.931569, 19.931569])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+P                0      2.423808      -0.000028      0.000030 (15-84 p) ([ 2.400000,  2.440000])
+K                1      7.089537      -0.171207      0.131193 (15-84 p) ([-6.643856, 12.036174])
+Tc               2  2458386.578199      -0.000709      0.000731 (15-84 p) ([2458386.500000, 2458386.650000])
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+phase            3      5.794810      -2.188690      2.132732 (15-84 p) ([ 2.640051,  8.923237])
+P                4      2.423846      -0.000171      0.000170 (15-84 p) ([ 0.000000,  5.000000])
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0          -4043.889094         -7.052356         7.220652 (15-84 p)
+jitter_0              8.568773         -5.792098         9.198208 (15-84 p)
+
+
+----------  RVdata      ----- model:  harmonics
+amp_S1                0.012784         -0.012761         7.478468 (15-84 p)
+amp_S2                0.002929         -0.002918         0.942362 (15-84 p)
+amp_C1                0.009514         -0.009494         5.281481 (15-84 p)
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+P                     2.423808         -0.000028         0.000030 (15-84 p)
+o                     1.570796 
+K                   136.195670        -15.240364        12.965654 (15-84 p)
+Tc              2458386.578199         -0.000709         0.000731 (15-84 p)
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+phase                 6.224110         -2.214455         2.098655 (15-84 p)
+P                     2.423846         -0.000171         0.000170 (15-84 p)
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+Computing exact mass of the planet (average approximate mass larger than 30.0 Me)
+a                     8.039408         -0.172499         0.175902 (15-84 p)
+i                    86.273745         -0.423184         0.426627 (15-84 p)
+M                     0.000834         -0.000100         0.000087 (15-84 p)
+M_Mj                  0.873502         -0.105127         0.091176 (15-84 p)
+M_Me                277.681288        -33.419174        28.984301 (15-84 p)
+f                     1.052305         -0.240803         0.290567 (15-84 p)
+a_AU_(M)              0.034754         -0.000614         0.000598 (15-84 p)
+a_AU_(rho,R)          0.034744         -0.000614         0.000598 (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the Maximum a Posteriori probability ( -124.50719851652624 )
+
+
+====================================================================================================
+     Statistics on the posterior of the sampler variables     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0         5  -4040.801866 ([-14173.000000, 6106.000000])
+jitter_0         6      4.247337 ([  0.180000, 4000.000000])
+
+----------  RVdata      ----- model:  harmonics
+amp_S1           7     -4.784511 ([-19.931569,  19.931569])
+amp_S2           8      3.021499 ([-19.931569,  19.931569])
+amp_C1           9     -5.611085 ([-19.931569,  19.931569])
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+P                0      2.423802 ([  2.400000,   2.440000])
+K                1      7.174118 ([ -6.643856,  12.036174])
+Tc               2  2458386.578255 ([2458386.500000, 2458386.650000])
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+phase            3      6.186606 ([  2.640051,   8.923237])
+P                4      2.423882 ([  0.000000,   5.000000])
+
+====================================================================================================
+     Statistics on the physical parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  RVdata
+offset_0          -4040.801866 
+jitter_0              4.247337 
+
+
+----------  RVdata      ----- model:  harmonics
+amp_S1                0.036284 
+amp_S2                8.120107 
+amp_C1                0.020460 
+
+----------  RVdata      ----- model:  radial_velocities_b
+
+----- common model:  b
+P                     2.423802 
+o                     1.570796 
+K                   144.419159 
+Tc              2458386.578255 
+e                 0.000000e+00 
+
+----- common model:  star_parameters
+
+----- common model:  harmonics
+phase                 6.186606 
+P                     2.423882 
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination randomized to 86.27 +- 0.43 deg
+a                     7.905038 
+i                    87.030692 
+M                     0.000858 
+M_Mj                  0.898294 
+M_Me                285.562522 
+f                     0.994084 
+a_AU_(M)              0.034238 
+a_AU_(rho,R)          0.034227 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+Note: stellar density derived from its mass and radius
+
+ Plot FLAT chain 
+
+****************************************************************************************************
+
+ Plotting full_correlation plot with GetDist
+
+ Ignore the no burn in error warning from getdist
+ since burn in has been already removed from the chains
+Removed no burn in
+
+
+****************************************************************************************************
+
+ Plotting the chains... 
+
+****************************************************************************************************
+
+ Plotting the Gelman-Rubin traces... 
+
+     Gelman-Rubin:     5     1.004182 RVdata_offset_0 
+     Gelman-Rubin:     6     1.004222 RVdata_jitter_0 
+     Gelman-Rubin:     7     1.018364 RVdata_harmonics_amp_S1 
+     Gelman-Rubin:     8     1.007472 RVdata_harmonics_amp_S2 
+     Gelman-Rubin:     9     1.015505 RVdata_harmonics_amp_C1 
+     Gelman-Rubin:     0     1.070744 b_P 
+     Gelman-Rubin:     1     1.130886 b_K 
+     Gelman-Rubin:     2     1.002570 b_Tc 
+     Gelman-Rubin:     3     1.011088 harmonics_phase 
+     Gelman-Rubin:     4     1.008200 harmonics_P 
+
+****************************************************************************************************
+
+ Plotting the common models corner plots
+     Common model:  b
+     Common model:  star_parameters
+     Common model:  harmonics
+
+****************************************************************************************************
+
+ Dataset + models corner plots 
+
+     Dataset:  RVdata     model:  harmonics  corner plot  done 
+     Dataset:  RVdata     model:  radial_velocities_b  corner plot  done 
+
+****************************************************************************************************
+
+ Saving the planet variable samplings to files (with plots)
+
+****************************************************************************************************
+
+ Saving all the variable samplings to files (with plots)
+
+****************************************************************************************************
+
+ Computing the models for plot/data writing 
+ Writing the plots 
+ Writing the   data files 
+ Writing the  MAP_ data files 
+
+****************************************************************************************************
+
