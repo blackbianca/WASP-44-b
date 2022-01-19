@@ -64,7 +64,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage[hyperfootnotes=false]{hyperref}
 
-\pagestyle{empty}
+\pagestyle{plain}
 
 \title{Detection of a transiting Hot Jupiter around WASP-44}
 \author{Adriana Barbieri \and Alessandro Bianchetti}
@@ -76,15 +76,18 @@
     \maketitle
         \begin{abstract}
 
-            \emph{In the following report we work on WASP-44 b, an exoplanet orbiting 
+            \emph{WASP-44 b is an exoplanet orbiting 
             around its G-type parent star, located in the constellation of Cetus. 
             We first examine its atmospheric parameters and derive its mass and 
-            radius (\cite{Morton}). Then, we correct for limb darkening effect through different methods 
-            (\cite{claret2011}, \cite{claret2017}, \cite{claret2018}). We also take 
-            some images obtained with Copernico telescope at the Asiago Observatory into consideration 
-            and, after proper correction, we use them to extract the light curve of 
-            the alleged planet.}
-
+            radius (\cite{Morton}). We analyse some images obtained with Copernico 
+            telescope at the Asiago Observatory and, after proper correction, 
+            we use them to extract the light curve of the alleged planet. Another 
+            lightcurve is extracted basing on TESS observations, which include 
+            multiple transit events. A radial velocity analysis yields further 
+            insight on the mass and cinematical properties of the planet. 
+            Finally, we make some considerations about limb darkening effect 
+            through different methods (\cite{claret2011}, \cite{claret2017}, 
+            \cite{claret2018})}.
         \end{abstract}
         \vspace*{1cm}
     \end{@twocolumnfalse}
@@ -874,16 +877,29 @@ with the time range of the transits: any stellar spectra taken while the planet 
 transiting is missing a contribution and can be no longer considered as a RV 
 datapoint.
 We ran PyORBIT again to fit the RV curve with a proper model, using N=100000 steps 
-with a burn-in cut of 25000. Radial velocity input
-file can be equipped with an extra "0" column, in order to enable the code to compute
-any RV offset due to the peculiar velocity of the star.
+with a burn-in cut of 25000. Inclination was fixed to the value obtained by TESS 
+analysis and Gaussian priors were set on $P$ and $Tc$, again basing on TESS output.
+Radial velocity input file can be equipped with an extra "0" column, in order 
+to enable the code to compute any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
 \textit{harmonics}. For both models, TESS best-fit values were used as 
 Gaussian priors on period and time of transit.
+
+The need to fit two different models comes from the fact that RV signals include planetary signals, 
+but also stellar signals. Short-term stellar activity represent a polluting agent, since it is 
+induced by spots, rotating with the stellar surface. Because several active regions rotating 
+with the star are present simultaneously on the stellar surface, the observed RV signal 
+induced by short-term activity is characterized by signals at the stellar rotation period 
+$P$, and its harmonics ($P/2$, $P/3$...). If a signal is found in the RVs with a periodicity 
+similar to Prot or its harmonics, it is very likely that this signal is induced by active regions. . 
+
+
 They yield very similar results both in terms of value and error, collected 
-in tables \ref{table:3} and \ref{table:4}, 
-but the simplest model yields results with slightly 
-smaller errobars. These are a period $P=2.42381\pm0.00002d$ 
+in tables \ref{table:3} and \ref{table:4}. This fact is a sign that that 
+the mother star $WASP-44$ is pretty inactive, as even CaII observations 
+show (\cite{Turner}). The simplest model is chosen over \textit{harmonics}
+because of an unaltered PyORBIT run and slightly smaller errobars. 
+The results include a period $P=2.42381\pm0.00002d$ 
 (compatible with literature, see \ref{table:0}) and a central 
 transit time $T_c=2458386.5782\pm0.0007d$. Both values are also 
 compatible with TESS and TASTE estimates.
@@ -994,6 +1010,10 @@ velocity analysis.
 WASP-44-b is a planet with mass $M_P=0.873^{+0.11}_{-0.09}M_J$ 
 and eccentricity laregly compatible with 0, thus 
 in agreement with tidal circularization hypothesis.
+It orbits with a period of $P=2.42380\pm0.00017d$ 
+around a pretty inactive mother star. For the period, 
+the TESS prediction can be considered over the on from 
+TASTE, since it comes from an exhaustive dataset.
 
 
 
