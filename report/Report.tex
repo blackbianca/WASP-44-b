@@ -24,8 +24,11 @@
             footskip=.25in]{geometry}
 
 %\hypersetup{hidelinks}
-%\usepackage{times}
-\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{times}
+
+%\renewcommand{\familydefault}{\sfdefault}
+
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
@@ -81,11 +84,11 @@
             around its G-type parent star, located in the constellation of Cetus. 
             We first examine its atmospheric parameters and derive its mass and 
             radius (\cite{Morton}). We analyse some images obtained with Copernico 
-            telescope at the Asiago Observatory and, after proper correction, 
-            we use them to extract the light curve of the alleged planet. Another 
-            lightcurve is extracted basing on TESS observations, which include 
-            multiple transit events. A radial velocity analysis yields further 
-            insight on the mass and cinematical properties of the planet. 
+            telescope at the Asiago Astrophysical Observatory and, after proper correction, 
+            we use them to extract the light curve of the alleged planet via the TASTE project pipeline. Another 
+            lightcurve is extracted from TESS observational data, which cover 
+            multiple transit events, and both are duly compared. A radial velocity analysis yields further 
+            insight on the mass and kinematical properties of the planet. 
             Finally, we make some considerations about limb darkening effect 
             through different methods (\cite{claret2011}, \cite{claret2017}, 
             \cite{claret2018})}.
@@ -258,12 +261,13 @@ so they're available for comparison with TESS output alone.
 
 \section{TASTE data analysis}
 
-TASTE project provides us with data by Asiago Copernico telescope, observing the target. 
+TASTE project \footnote{The Asiago Search for Transit timing variations of Exoplanets} (\cite{Nascimbeni}) provides us with data by Asiago Copernico 1.82m telescope obtained from the observations of our target. 
 The dataset used only contains one transit, to make the analysis simpler.
-Before actually analysing this data, we need to properly correct it. Removing 
-instrumental effects will largely improve the final result.
-Then, we're going to have a look at and correctly format them, preparing 
-the configurations file for the PyORBIT run. 
+Before actually analysing these data, we need to properly correct them: it is of capital importance to remove
+instrumental effects in order to largely improve the final result.
+After proper discussion and conversion into the required format, we will prepare
+the configuration file for the analysis. 
+% We'll talk about pyorbit later, so I commented " PyORBIT run". 
 
 
 \subsection{Bias and flat field correction}
@@ -858,8 +862,9 @@ That correspond to roughly 16.28 minutes.
 The plot \ref{fig:ocplot} shows the propagation of the error on TESS prediction,
 increasing throughout time up to the epoch of our TASTE measurement. See 
 that TASTE result falls within the cone, proving compatibility of the 
-two results. The O-C variation is in fact to little to justify the presence 
-of any polluting signal.
+two results. 
+%The O-C variation is in fact too little to justify the presence of any polluting signal.
+The O-C variation is in fact too little to be caused by any polluting signal that could lead to a false positive detection, and therefore we are even more confident to be dealing with exoplanetary transits in our analysis.
 
 
 \newpage
@@ -883,36 +888,35 @@ transiting is missing a contribution and can be no longer considered as a RV
 datapoint.
 We ran PyORBIT again to fit the RV curve with a proper model, using N=100000 steps 
 with a burn-in cut of 25000. Inclination was fixed to the value obtained by TESS 
-analysis and Gaussian priors were set on $P$ and $Tc$, again basing on TESS output.
+analysis and Gaussian priors obtained from TESS best-fit values were set on $P$ and $Tc$ .
 Radial velocity input file can be equipped with an extra "0" column, in order 
 to enable the code to compute any RV offset due to the peculiar velocity of the star.
 Two models were exploited for the analysis: \textit{radial velocities} and 
-\textit{harmonics}. For both models, TESS best-fit values were used as 
-Gaussian priors on period and time of transit.
+\textit{harmonics}. 
+%For both models, TESS best-fit values were used as Gaussian priors on period and time of transit.
 
-The need to fit two different models comes from the fact that RV signals include planetary signals, 
+%The need
+We are reasonably impelled to fit two different models since RV signals include planetary signals, 
 but also stellar signals. Short-term stellar activity represent a polluting agent, since it is 
-induced by spots, rotating with the stellar surface. Because several active regions rotating 
+induced by spots, rotating with the stellar surface. Given that several active regions rotating 
 with the star are present simultaneously on the stellar surface, the observed RV signal 
 induced by short-term activity is characterized by signals at the stellar rotation period 
-$P$, and its harmonics ($P/2$, $P/3$...). If a signal is found in the RVs with a periodicity 
-similar to Prot or its harmonics, it is very likely that this signal is induced by active regions. . 
+$P$, and its harmonics ($P/2$, $P/3$...). Whenever a signal in the RVs shows a periodicity 
+comparable to $P_{rot}$ or its harmonics, it is very likely induced by active regions. 
 
 
 The two models yield very similar results both in terms of value and error, collected 
-in tables \ref{table:3} and \ref{table:4}. This fact is a sign that that 
-the mother star $WASP-44$ is pretty inactive, as even CaII observations 
-show (\cite{Turner}). The simplest model is chosen over \textit{harmonics}
+in tables \ref{table:3} and \ref{table:4}. This observation signals that 
+the mother star $WASP-44$ is pretty inactive, as also shown from CaII observations (\cite{Turner}). The simplest model is chosen over \textit{harmonics}
 because of an unaltered PyORBIT run and slightly smaller errobars. 
 The results include a period $P=2.42381\pm0.00002d$ 
 (compatible with literature, see \ref{table:0}) and a central 
-transit time $T_c=2458386.5782\pm0.0007d$. Both values are also 
+transit time $T_c=2458386.5782\pm0.0007d$. As expected, both values are also 
 compatible with TESS and TASTE estimates.
 Morevoer, we obtain a radial velocity amplitude $K=137.52^{+10.55}_{-10.09}$
 which is fully compatible with the literature value $K=138.8\pm9$. Same for 
 $M_p = 0.88\pm0.07$, to be compared with $M_p = 0.89 \pm 0.06$. 
-Such errorbars on the jitter term make it far from significative, ensuring 
-that the orbit is not being perturbed by any gravitational source.
+The huge errorbars found on the jitter term make it far from significative, though there is no evidence of orbital external perturbation by any gravitational source.
 
 The phase-folded RV curves obtained from the fitting with both models 
 are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots 
@@ -947,7 +951,7 @@ are collected in \ref{sect:app_C_RV}.
 	\centering
 	%\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
 	\includegraphics[scale=0.45, angle=0]{../pictures/RV/RV.png}
-	\caption{Folded curve from the \textit{radial velocities} model. No systematic effect is detected on the residuals, 
+	\caption{Phase-folded curve from the \textit{radial velocities} model. No systematic effect is detected on the residuals, 
     indicating that the sinusoidal fit is correctly followed by data, thus proving that the assumption of zero eccentricity 
     in the model is compatible with the planet.}
 	\label{fig:RV1}
@@ -992,7 +996,7 @@ estimates and the autocorrelation function should be treated carefully.
 	\centering
 %	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
 	\includegraphics[scale=0.25, angle=0]{../pictures/RV/RV2.png}
-	\caption{Folded radial velocity curve from the \textit{harmonics} model.}
+	\caption{Phase-folded radial velocity curve from the \textit{harmonics} model.}
 	\label{fig:RV2}
 \end{figure}
 
@@ -1002,11 +1006,11 @@ estimates and the autocorrelation function should be treated carefully.
 \newpage
 
 \section{Conclusions}
-The main goal of this work was extracting
+The main goals of this work were to extract
 the lightcurve both from TASTE and TESS
-data, compute transit time of TESS (trustable
+data, to compute transit time of TESS (trustable
 because obtained from several transits) and
-TASTE and check whether the latter falls in-
+TASTE and to check whether the latter falls in-
 side the propagated prediction of the former. 
 This is verified by \ref{fig:ocplot} so the estimates are compatible.
 A comparison with literature is also due: we 
@@ -1016,12 +1020,11 @@ results. Moreover, reasonable agreement was
 obtained for the values derived from the radial 
 velocity analysis.
 WASP-44-b is a planet with mass $M_P=0.873^{+0.11}_{-0.09}M_J$ 
-and eccentricity laregly compatible with 0, thus 
-in agreement with tidal circularization hypothesis.
+and eccentricity largely compatible with 0, thus 
+in agreement with the tidal circularization hypothesis.
 It orbits with a period of $P=2.42380\pm0.00017d$ 
-around a pretty inactive mother star. For the period, 
-the TESS prediction can be favoured over the on from 
-TASTE, since it comes from an exhaustive dataset.
+around a pretty inactive parent star. For the period, 
+the TESS prediction can be favoured over the value obtained from TASTE, since it comes from an exhaustive dataset.
 Furthermore, no evidence of orbital perturbation was 
 found, proving that no third body is perturbing 
 the planetary system. 
