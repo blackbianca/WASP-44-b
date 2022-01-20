@@ -101,7 +101,8 @@
 \section{Introduction}
 
 Confirmed exoplanets are growing in number year by year, and transit method 
-is nowadays a widespread and hugely successfull detection method. Most planets indeed are by now discovered 
+is nowadays a widespread and hugely successful detection method. Most planets 
+indeed are discovered 
 by tracing the lightcurve and searching for any sign of a weakening in the 
 flux.
 \begin{figure}[h]
@@ -130,6 +131,7 @@ are displayed in \ref{table:0}.
         $i (deg)$ & 86.02 & 0.86 & 1.11 \\
         $(R/R_{*})^2$ & 0.01588 & 0.00076 & 0.00076 \\
         $b$ & 0.560 & 0.123 & 0.076 \\
+        $K (m/s)$ & 138.8& 9.0& 9.0\\
         \hline
         \end{tabular}
          \caption{Planetary parameters according to literature.}
@@ -155,7 +157,10 @@ The modelled transit light curve is distinguished by a characteristic trapezoida
     \includegraphics[scale=0.18, angle=0]{../pictures/transit.jpeg}
     \caption{Simplified transit light curve. Credits to \textit{Winn [2010]}}
 \end{figure}
-The geometry of the system places a strong constraint on the inclination of the orbital plane of the planet with respect to the line of sight: the transit can be observed exclusively for almost edge-on orbits, meaning orbital planes that are as parallel as possible to the line of sight. This condition yealds a low probability of detection, which in turn requires a huge number of target stars to carry on successfull observations.
+The geometry of the system places a strong constraint on the inclination of the orbital 
+plane of the planet with respect to the line of sight: the transit can be 
+observed exclusively for almost edge-on orbits, meaning orbital planes that 
+are as parallel as possible to the line of sight. This condition yialds a low probability of detection, which in turn requires a huge number of target stars to carry on successfull observations.
 
 Furthermore, at least two transits are required to determine the orbital period of the extrasolar planet candidate, and since the duration of the transit is very short compared to the orbital period, continuous and prolonged observations are required in order to detect it.
 
@@ -170,7 +175,7 @@ while the $NaI$ D and $MgI$ b lines were used as surface gravity
 ($\log{g^*}$) diagnostics (\cite{Anderson}). The elemental abundances, including $[Fe/H]$ 
 were determined from equivalent width measurements of several clean and 
 unblended lines. This led to proper estimation of the atmospheric parameter 
-triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. Quoted errors include statistical 
+triplet $T_{eff}$, $\log{g^*}$ and $[Fe/H]$. Literature errors include statistical 
 uncertainties only. In the same conservative spirit we 
 previously showed, we add in quadrature a further term to the errors of 
 all three parameters (\cite{Sousa}). We are in fact more interested in an 
@@ -261,9 +266,13 @@ so they're available for comparison with TESS output alone.
 
 \section{TASTE data analysis}
 
-TASTE project \footnote{The Asiago Search for Transit timing variations of Exoplanets} (\cite{Nascimbeni}) provides us with data by Asiago Copernico 1.82m telescope obtained from the observations of our target. 
+TASTE project 
+\footnote{The Asiago Search for Transit timing variations of Exoplanets} 
+(\cite{Nascimbeni}) provides us with data by Asiago Copernico 1.82m telescope 
+obtained from the observations of our target. 
 The dataset used only contains one transit, to make the analysis simpler.
-Before actually analysing these data, we need to properly correct them: it is of capital importance to remove
+Before actually analysing these data, we need to properly correct them: it 
+is of capital importance to remove
 instrumental effects in order to largely improve the final result.
 After proper discussion and conversion into the required format, we will prepare
 the configuration file for the analysis. 
@@ -271,8 +280,8 @@ the configuration file for the analysis.
 
 
 \subsection{Bias and flat field correction}
-CCD s(Charged Coupled Devices) are the favourite detectors for photon counting, 
-due to their high quantum efficiency. The images produced are \textit{raw}
+CCDs (Charged Coupled Devices) are the favourite detectors for photon counting, 
+due to their high quantum efficiency. The images produced are raw
 and must be properly \textit{pre-reduced} before being analysed. Pre-reduction 
 goes through different steps:
 \begin{itemize}
@@ -291,7 +300,8 @@ goes through different steps:
     environmental or instrumental variation will affect both sources. Working with 
     flux ratios will make only astrophysical variations evident!
 \end{itemize}
-For pre-reductions steps, we use the code \textit{huggy}. We first perform bias
+For pre-reductions steps, we use the \textit{STARSKY} subroutine \textit{HUGGY}
+(\cite{Nascimbeni}). We first perform bias
 correction, than the flat field correction. The corrected images are ready for 
 aperture synthesis.
 
@@ -389,14 +399,13 @@ This yields information about the Point Spread Function, meaning how the
 the flux is distributed as a function of the distance from the core of 
 the source. The ouput displays the radii at which we find 90, 95 and 99\%
 of the total flux. The three apertures in pixel units are $a_0=4.71$, 
-$a_1=5.97$ and $a_2=8.76$, respectively for 90, 95 and 99\%. 
-We take note of this output. 
+$a_1=5.97$ and $a_2=8.76$ respectively. 
 
 %    re-estimated x (pix):  169.85
 %    re-estimated y (pix):   37.69
 
-Photometry analysis is carried out by \textit{sentinel.e}, which needs 
-the coordinates of the target and of the reference stars, followed by 
+Photometry analysis is carried out by another subroutine, \textit{sentinel.e}, 
+which requires the coordinates of the target and of the reference stars, followed by 
 the radii of two selected apertures from the previous output. Also, we need 
 again inner and outer radii of the selected region for the analysis, as well 
 as the full-corrected images of the target. 
@@ -455,7 +464,8 @@ chosen (\ref{fig:apertures}).
 The second case (99\%) seems to be slighly less noisy: that's our first clue 
 that this aperture might be the best suited choice for the aperture analysis.
 As a further goodness check, one may take a look at the peak value trend of 
-the target source and compare it to the saturation level. We also plot the 
+the target source and compare it to the saturation level
+(\ref{fig:saturation-quality}). We also plot the 
 reference star flux to see whether they are above the quality threshold.
 \begin{figure}
     \centering  
@@ -469,8 +479,8 @@ reference star flux to see whether they are above the quality threshold.
     \label{fig:saturation-quality}
 \end{figure}
 
-We can can finally visualise the transit in all three cases. To do that, we 
-plot the ratio between target and reference star: \textit{differential 
+We can can finally visualise the transit in all three cases (\ref{fig:transits}). 
+To do that, we plot the ratio between target and reference star: \textit{differential 
 photometry} helps us get rid of systematic errors affecting both sources.
 We still see that the wider aperture seems to have less dispersion than 
 the other case, and we keep that in mind.
@@ -495,7 +505,8 @@ will be our reference trend for the stellar flux.
     \label{fig:fit_setting}
 \end{figure}
 To perform the fit, we ruled out all the points during the transit by roughly 
-selecting an ingress and egress time. A quadratic law ($p_0 x^2 + p_1 x +p_2$)
+selecting an ingress and egress time (\ref{fig:fit_setting}). 
+A quadratic law ($p_0 x^2 + p_1 x +p_2$)
 was chosen to set things up in the most general case. A least square fitting 
 via numpy function \textit{np.polyfit} yields the values collected in table \ref{table:d} .
 %Fig.\ref{fig:fit} .
@@ -670,10 +681,11 @@ We used  the Transit Least Squares (TLS)\footnote{https://github.com/hippke/tls}
 which offers one of the best method to detect planetary transits from time-series photometry.
 Indeed it searches for transit-like features with stellar limb-darkening, includes the effects of planetary 
 ingress and egress, analyses the entire data of the phase-folded light curve and yields a $\approx 10 \% $ higher 
-detection efficiency (SDE) compared to the Box-fitting Least Square (BLS) method, therefore being more accurate but more time-consuming. 
+detection efficiency (SDE) compared to the Box-fitting Least Square (BLS) method, therefore being more accurate but
+more time-consuming. 
 
-We obtained the periodogram (\ref{fig:TLS_periodogram}) and folded lightcurve (\ref{fig:detrended_transits}) 
-with a SDE of 15.15413, a period  $P=2.42547 d$, a central transit time 
+Proof of this is the periodogram (\ref{fig:TLS_periodogram}) and folded lightcurve (\ref{fig:detrended_transits}) 
+with a SDE of 15.15413, a preliminary period  $P=2.42547 d$, central transit time 
 $T_c=2458386.57308 BJD$ and a best transit duration of $0.07180 d$ (roughly $1h43min$).
  
 
@@ -747,7 +759,7 @@ samples are collected in tables \ref{table:1} and \ref{table:2}. It should
 be noticed that planetary parameters are compatible with literature 
 (\ref{table:0}). Particularly, TESS yields $P=2.42385\pm0.00017$
 and TASTE yields $P=2.46^{+0.14}_{-0.16}$, and they're both compatible 
-with literature $P=2.42380\pm0.000009 d$ (\cite{Anderson}) within 1$\sigma$.
+with literature $P=2.423804\pm0.000009 d$ (\cite{Anderson}) within 1$\sigma$.
 %\ref{table:2} for TESS and Tables for TASTE.
 The corner plots of the posterior samples showing the correlation between 
 the parameters are reported in \ref{sect:app_C_TT} .
@@ -842,7 +854,7 @@ large enough to make the results compatible.
 
 
 \clearpage
-\subsection{Comparison}
+\subsection{TESS-TASTE comparison}
 
 As a further check on the output values of our analysis, we apply 
 the O-C method in order to compare the observed (O)
@@ -902,7 +914,7 @@ induced by spots, rotating with the stellar surface. Given that several active r
 with the star are present simultaneously on the stellar surface, the observed RV signal 
 induced by short-term activity is characterized by signals at the stellar rotation period 
 $P$, and its harmonics ($P/2$, $P/3$...). Whenever a signal in the RVs shows a periodicity 
-comparable to $P_{rot}$ or its harmonics, it is very likely induced by active regions. 
+comparable to $P$ or its harmonics, it is very likely induced by active regions. 
 
 
 The two models yield very similar results both in terms of value and error, collected 
@@ -914,7 +926,7 @@ The results include a period $P=2.42381\pm0.00002d$
 transit time $T_c=2458386.5782\pm0.0007d$. As expected, both values are also 
 compatible with TESS and TASTE estimates.
 Morevoer, we obtain a radial velocity amplitude $K=137.52^{+10.55}_{-10.09}$
-which is fully compatible with the literature value $K=138.8\pm9$. Same for 
+which is fully compatible with the literature value $K=138.8\pm9.0$. Same for 
 $M_p = 0.88\pm0.07$, to be compared with $M_p = 0.89 \pm 0.06$. 
 The huge errorbars found on the jitter term make it far from significative, though there is no evidence of orbital external perturbation by any gravitational source.
 
@@ -1261,7 +1273,7 @@ a relevant one.
 
 
 
-
+\newpage
 \section{Time correction}
 \label{sect:app_B}
 
