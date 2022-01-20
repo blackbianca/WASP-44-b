@@ -24,7 +24,8 @@
             footskip=.25in]{geometry}
 
 %\hypersetup{hidelinks}
-
+%\usepackage{times}
+\renewcommand{\familydefault}{\sfdefault}
 \allsectionsfont{\raggedright}
 \graphicspath{ {images/} }
 
@@ -100,9 +101,9 @@ Confirmed exoplanets are growing in number year by year, and transit method
 is nowadays a widespread and hugely successfull detection method. Most planets indeed are by now discovered 
 by tracing the lightcurve and searching for any sign of a weakening in the 
 flux.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
-    \includegraphics[scale=0.15, angle=0]{../pictures/exo_dischist.png}
+    \includegraphics[scale=0.2, angle=0]{../pictures/exo_dischist.png}
     \caption{Confirmed exoplanets distribution per year of detection via different methods. Credits to \textit{https://exoplanetarchive.ipac.caltech.edu/}}
 \end{figure}
 In this report we focus on WASP-44 b, a Jupiter-size planet orbiting around 
@@ -114,8 +115,8 @@ spectroscopy. This leads us to rule out several papers regarding our target of i
 of the atmospheric parameters of WASP-44 are provided via an analysis of 
 the width of the spectral lines.
 As for the planet $WASP-44-b$, its main parameters from (\cite{Anderson})
-are displayed in the following table. 
-\begin{table}[H]
+are displayed in \ref{table:0}. 
+\begin{table}[h]
     \centering
         \begin{tabular}{cccc}
         \hline
@@ -146,7 +147,7 @@ Moreover, if combined with radial velocities measurements, this method allows to
 It is important however to notice that limb darkening, stellar activity and atmospheric effects may pollute the observational transit curve and must be all taken into account.
 
 The modelled transit light curve is distinguished by a characteristic trapezoidal shape, whose main geometrical parameters are the impact parameter, the ingress/egress and transit duration, and the transit depth.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.18, angle=0]{../pictures/transit.jpeg}
     \caption{Simplified transit light curve. Credits to \textit{Winn [2010]}}
@@ -172,7 +173,7 @@ previously showed, we add in quadrature a further term to the errors of
 all three parameters (\cite{Sousa}). We are in fact more interested in an 
 accurate result rather than in a precise one.
 This leads to the results collected in table \ref{table:a} .
-\begin{table}[H]
+\begin{table}[h]
 \centering
     \begin{tabular}{ccc}
     \hline
@@ -222,7 +223,7 @@ however, can extend deep inside the hot layers of the star if we look straight
 to the center, being $L$ radial, while it can stop at the colder, outer layers 
 if we look at the edges of the star, since $L$ and our line of sight (LoS) are not radial 
 anymore.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.25, angle=0]{../pictures/limb_darkening.png}
     \caption{Limb darkening effect scheme. Credits to \textit{https://ediss.sub.uni-hamburg.de}}
@@ -301,9 +302,9 @@ of all these files. Plotting the intensities of the offset level of the pixels y
 a concrete view of the correction.
 \begin{figure}
     \centering  
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/bias.png}
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/master_bias.png}
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/bias_comp.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/bias.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/master_bias.png}
+    \includegraphics[scale=0.45, angle=0]{../pictures/pre-reduction/bias_comp.png}
     \caption{Comparison between random bias frame and master bias}
 \end{figure}
 Note that the master bias frame distribution is peaked and much closer to a 
@@ -328,9 +329,9 @@ pixels to an external light source. Minor differences in such response
 are important and must be accounted for.
 \begin{figure}
     \centering  
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/flat.png}
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/master_flat.png}
-    \includegraphics[scale=0.5, angle=0]{../pictures/pre-reduction/flat_comp.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/flat.png}
+    \includegraphics[scale=0.35, angle=0]{../pictures/pre-reduction/master_flat.png}
+    \includegraphics[scale=0.45, angle=0]{../pictures/pre-reduction/flat_comp.png}
     \caption{Comparison between random flat field and master flat}
 \end{figure}
 
@@ -743,7 +744,6 @@ be noticed that planetary parameters are compatible with literature
 (\ref{table:0}). Particularly, TESS yields $P=2.42385\pm0.00017$
 and TASTE yields $P=2.46^{+0.14}_{-0.16}$, and they're both compatible 
 with literature $P=2.42380\pm0.000009 d$ (\cite{Anderson}) within 1$\sigma$.
-
 %\ref{table:2} for TESS and Tables for TASTE.
 The corner plots of the posterior samples showing the correlation between 
 the parameters are reported in \ref{sect:app_C_TT} .
@@ -843,10 +843,13 @@ large enough to make the results compatible.
 As a further check on the output values of our analysis, we apply 
 the O-C method in order to compare the observed (O)
 central transit time (from TASTE observations) to the expected calculated (C) value (TESS results) .
+Linear ephemeris test shows that TASTE has a variation $\Delta$ with 
+respect to the TESS value $T_c$ propagated in time. The simple calculation 
+$$T_c^{calc}=T_c^{TESS}+P\cdot E, \quad E=int\left(\frac{T_c^{TASTE}-T_c^{TESS}}{P}\right)$$
+yields a variation O-C=$-0.011307d$ between observed TASTE value and predicted one.
+That correspond to roughly 16.28 minutes. 
 
-We obtain a O-C value of -0.011307 which indicates the accuracy of our analysis.
-
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
     \includegraphics[scale=0.3, angle=0]{../pictures/comparison/oc.png}
     \caption{O-C plot: checking compatibility between TESS prediction and TASTE result.}
@@ -855,7 +858,9 @@ We obtain a O-C value of -0.011307 which indicates the accuracy of our analysis.
 The plot \ref{fig:ocplot} shows the propagation of the error on TESS prediction,
 increasing throughout time up to the epoch of our TASTE measurement. See 
 that TASTE result falls within the cone, proving compatibility of the 
-two results.
+two results. The O-C variation is in fact to little to justify the presence 
+of any polluting signal.
+
 
 \newpage
 
@@ -894,7 +899,7 @@ $P$, and its harmonics ($P/2$, $P/3$...). If a signal is found in the RVs with a
 similar to Prot or its harmonics, it is very likely that this signal is induced by active regions. . 
 
 
-They yield very similar results both in terms of value and error, collected 
+The two models yield very similar results both in terms of value and error, collected 
 in tables \ref{table:3} and \ref{table:4}. This fact is a sign that that 
 the mother star $WASP-44$ is pretty inactive, as even CaII observations 
 show (\cite{Turner}). The simplest model is chosen over \textit{harmonics}
@@ -905,13 +910,16 @@ transit time $T_c=2458386.5782\pm0.0007d$. Both values are also
 compatible with TESS and TASTE estimates.
 Morevoer, we obtain a radial velocity amplitude $K=137.52^{+10.55}_{-10.09}$
 which is fully compatible with the literature value $K=138.8\pm9$. Same for 
-$M_p = 0.88\pm0.07$, to be compared with $M_p = 0.89 \pm 0.06$.
+$M_p = 0.88\pm0.07$, to be compared with $M_p = 0.89 \pm 0.06$. 
+Such errorbars on the jitter term make it far from significative, ensuring 
+that the orbit is not being perturbed by any gravitational source.
+
 The phase-folded RV curves obtained from the fitting with both models 
 are reported in \ref{fig:RV1} and \ref{fig:RV2} and the correlation plots 
-are collected in \ref{sect:app_C_RV}. 
+are collected in \ref{sect:app_C_RV}.  
 
 
-\begin{table}[H]
+\begin{table}[h]
     \centering
     \resizebox{\columnwidth}{!}{
        \begin{tabular}{cccc}
@@ -935,7 +943,7 @@ are collected in \ref{sect:app_C_RV}.
 
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	%\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV_unfolded.png}
 	\includegraphics[scale=0.45, angle=0]{../pictures/RV/RV.png}
@@ -950,7 +958,7 @@ that MC chains were too short. This probably means that we did not
 achieve a stationary distribution in the MCMC algorithm, therefore the 
 estimates and the autocorrelation function should be treated carefully.
 
-\begin{table}[H]
+\begin{table}[h]
 	\centering
         \resizebox{\columnwidth}{!}{
 	\begin{tabular}{cccc}
@@ -980,7 +988,7 @@ estimates and the autocorrelation function should be treated carefully.
 
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 %	\includegraphics[scale=0.4, angle=0]{../pictures/RV/RV2_unfolded.png}
 	\includegraphics[scale=0.25, angle=0]{../pictures/RV/RV2.png}
@@ -1012,8 +1020,11 @@ and eccentricity laregly compatible with 0, thus
 in agreement with tidal circularization hypothesis.
 It orbits with a period of $P=2.42380\pm0.00017d$ 
 around a pretty inactive mother star. For the period, 
-the TESS prediction can be considered over the on from 
+the TESS prediction can be favoured over the on from 
 TASTE, since it comes from an exhaustive dataset.
+Furthermore, no evidence of orbital perturbation was 
+found, proving that no third body is perturbing 
+the planetary system. 
 
 
 
@@ -1038,7 +1049,7 @@ We can represent data tables in \cite{claret2017} as 2D histograms,
 after proper unfolding of the data tables attached to the paper. To do that, 
 we first fix metallicity, then gravity and see how the corresponding LD 
 coefficients $c_1$ and $c_2$ depend on all three atmospheric parameters. 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c1_fixedmet}
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c2_fixedmet}
@@ -1051,7 +1062,7 @@ We immediately visualize a vertical gradient rather than a horizontal one,
 showing that temperature dependence is very strong. Turns out LD 
 coefficients are essentially a function of temperature, and minor 
 dependences on gravity and metallicity can be barely appreciated.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c1}
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/2017_c2}
@@ -1074,7 +1085,7 @@ Even in this case we see that the
 distribution of the fixed-metallicity estimates is almost overlapping 
 with the fixed-gravity one, thus confirming that, according to the 
 exploited table, $c_1$ and $c_2$ not very sensitive on metallicity and gravity.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c1_comp}
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/2017_c2_comp}
@@ -1103,14 +1114,14 @@ of metallicity or gravity, an upper and lower limit, instead of just one referen
 value. This way we build two matrices and 
 interpolate between the two to get to the desired result. The rest of the 
 procedure is identical, leading to similar estimates of the LD coefficients.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg4}
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg45}
     \includegraphics[scale=0.35, angle=0]{../pictures/Claret2017/double_logg_interp}
     \caption{Matrices obtained by fixing gravity to $\log{g}=4.0$ and to $4.5$, plus the interpolated matrix}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering  
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/double_c1}
     \includegraphics[scale=0.5, angle=0]{../pictures/Claret2017/double_c2}
