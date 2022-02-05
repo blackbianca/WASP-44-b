@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 10})
 
 def data_set(): 
-    fname="WASP44_RV_PyORBIT.dat"
-    RV, bisector=np.genfromtxt(fname,dtype=float, comments="#", usecols=(1,2),unpack=True)
+    fname="andersonRV.dat"
+    RV, bisector=np.genfromtxt(fname,dtype=float, comments="#", usecols=(1,3),unpack=True)
     return RV, bisector
 
 
@@ -50,18 +50,19 @@ def least_square(x,y,k,m):
 
 m=1 #order of polynomial
 x,y=data_set()
+print(x,y)
 
 k=poly_fit(x,y,m)
 ynew1,res1=least_square(x,y,k,m)
+slope = "{:.3f}".format(round(k[1], 3))
 
-
-xvec=np.linspace(-4200,-3850,int(1e3))
+xvec=np.linspace(-4.200,-3.850,int(1e3))
 yvec=np.polyval([k[1],k[0]],xvec)
 a=plt.scatter(x,y,color="forestgreen",s=15)
 b,=plt.plot(xvec,yvec,linestyle="-",color="black",linewidth="0.5")
-plt.xlabel("RV [m/s]")
-plt.ylabel("Bispector span")
-plt.legend([a,b],["Data","Linear fit"+"\n"+"slope=0.0064"])
+plt.xlabel("RV [km/s]")
+plt.ylabel("Bispector span [km/s]")
+plt.legend([a,b],["Data","Linear fit"+"\n"+"slope="+str(slope)])
 print(k[0],k[1])
 
 plt.tight_layout()
